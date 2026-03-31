@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30 (Nigel — Audit Round 4)
+
+### Scores: 6.7/10 overall (+0.2)
+- Design: 5 (CAPPED — no real photography), Content: 5 (CAPPED — placeholder data), UX: 9 (+1), Technical: 8, Conversion: 4 (CAPPED — fake form), Simplicity: 8 (-1)
+- UX hits 9: tap-to-expand service cards and time slot selector are excellent mobile-first work
+- Simplicity drops to 8: codebase grew 10%, duplicate 768px media block reintroduced after consolidation
+- All three caps unchanged — no real photos, no real contact info, no real booking
+- Key finding: time slot selector raises user expectations of real booking, making fake submission feel worse
+- New issue: Emergency card "Call Now" links to tel:+15551234567 — a fake number in a real tel: link
+
 ## 2026-03-30 (Razor — CSS Cleanup & Consolidation)
 
 ### Removed

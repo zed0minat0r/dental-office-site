@@ -1,4 +1,4 @@
-# Bright Smile Dental — Website Audit (Round 3)
+# Bright Smile Dental — Website Audit (Round 4)
 
 **Auditor**: Nigel Pemberton-Finch, Senior Digital Auditor
 **Date**: 2026-03-30
@@ -12,14 +12,14 @@
 {
   "audit_date": "2026-03-30",
   "auditor": "Nigel",
-  "overall_score": 6.5,
+  "overall_score": 6.7,
   "categories": {
     "design": 5,
     "content": 5,
-    "ux": 8,
+    "ux": 9,
     "technical_quality": 8,
     "conversion_optimization": 4,
-    "simplicity": 9
+    "simplicity": 8
   },
   "score_history": [
     {
@@ -56,7 +56,19 @@
       "technical_quality": 8,
       "conversion_optimization": 4,
       "simplicity": 9,
-      "notes": "Scoring caps enforced: placeholder content caps Content at 5, CSS avatars cap Design at 5, fake form caps Conversion at 4. Mobile UX genuinely excellent (section dots, swipeable carousel, ARIA validation). Simplicity jumps to 9 — lean, focused, well-structured."
+      "notes": "Scoring caps enforced: placeholder content caps Content at 5, CSS avatars cap Design at 5, fake form caps Conversion at 4. Mobile UX genuinely excellent. Simplicity jumps to 9."
+    },
+    {
+      "date": "2026-03-30",
+      "audit": 4,
+      "overall": 6.7,
+      "design": 5,
+      "content": 5,
+      "ux": 9,
+      "technical_quality": 8,
+      "conversion_optimization": 4,
+      "simplicity": 8,
+      "notes": "Mobile UX hits 9 — tap-to-expand service cards and time slot selector are excellent mobile-first work. Simplicity drops to 8 — codebase grew 10% with a second 768px media block. Caps unchanged: no real photos, no real contact info, no real booking."
     }
   ]
 }
@@ -66,172 +78,153 @@
 
 ## Category Breakdown
 
-### Design — 5/10 (CAPPED, was 6)
+### Design — 5/10 (CAPPED, unchanged)
 
-**SCORING CAP APPLIED:** No real photography anywhere on this site. CSS avatar illustrations with dot eyes and coloured blobs represent the dental team. The floating SVG cartoon tooth remains in the hero (hidden on mobile, still present on desktop). No real photos of the office, the team, or any patients. This caps Design at 5 regardless of other improvements.
+**SCORING CAP APPLIED:** No real photography. CSS avatar illustrations with dot eyes. Floating SVG cartoon tooth on desktop hero. Zero photographs of office, team, or patients. Cap remains at 5.
 
-**What improved since last audit:**
-- Nothing material on the design front. The 6 commits since Round 2 focused on mobile UX (section dots, swipeable carousel, touch targets, ARIA). These are good changes but they are UX and Technical improvements, not Design improvements.
+**What changed since last audit:**
+- Service cards now have expand-indicator chevrons with rotation animation and a colour shift to primary blue on expand. Nice micro-interaction, but this is polish on an already-polished surface — it doesn't address the photography problem.
+- Section dots hidden on mobile (correct decision — they were visual clutter on 375px). This is a subtraction, not an addition, and the right call.
 
-**What still does NOT work:**
-- **CSS avatar illustrations remain.** 39 references to `avatar` in style.css. ~160 lines of CSS to render cartoon faces that should be `<img>` tags. Still P0. Still the single most damaging visual element on the site.
-- **No real photography.** Zero. Not one photograph. A dental practice with zero photos is a dental practice that does not look real.
-- **Insurance logos remain abstract SVG shapes.** A cross, a circle, a checkmark. No patient recognises their insurance provider from these.
+**What still does NOT work (unchanged):**
+- **CSS avatar system: 39 references in style.css, ~160 lines of CSS.** Still the single most damaging visual element. P0. Round 4 and still here.
+- **Zero real photographs.** Not one. A dental practice with no photos is a dental practice nobody trusts.
+- **Insurance logos remain abstract SVG shapes.**
 - **Hero illustration still a cartoon tooth on desktop.**
 
-**Priority fixes (unchanged from Round 2):**
+**Priority fixes (identical to Round 3, Round 2, and Round 1):**
 1. **P0** — Replace CSS avatars with real team headshots
 2. **P0** — Add real photography (office, patients, hero imagery)
 3. **P1** — Use actual insurance provider logos
-4. **P2** — Add office gallery or virtual tour
 
 ---
 
-### Content — 5/10 (CAPPED, was 7)
+### Content — 5/10 (CAPPED, unchanged)
 
-**SCORING CAP APPLIED:** All contact information remains placeholder. "1234 Smile Avenue, Suite 200" appears in HTML, JSON-LD structured data, and footer. "(555) 123-4567" appears 7 times across the site. "hello@brightsmile.com" in the footer. These are obviously fake. Content is capped at 5.
+**SCORING CAP APPLIED:** Placeholder contact data everywhere. "1234 Smile Avenue, Suite 200" in HTML and JSON-LD. "(555) 123-4567" appears across the site — including in a `tel:` link on the Emergency service card (`tel:+15551234567`). "hello@brightsmile.com" in the footer. All fake. Cap at 5.
+
+**What changed since last audit:**
+- Time slot labels added to the appointment form (8:00 AM through 5:00 PM, with Saturday limited to 9 AM - 2 PM). The time ranges match the stated office hours, which shows attention to detail. But this is form UX, not content.
+- Service card descriptions are now revealed on tap rather than always visible. The descriptions themselves have not changed — they remain generic single-sentence summaries.
+
+**What still does NOT work (unchanged):**
+- **All contact information is fake.** P0 since Round 1. Four audits later, still fake. The fake phone number now appears in a `tel:+15551234567` link on the Emergency card — so a mobile user tapping "Call Now" would literally dial a fake number.
+- **Social media links remain dead** (`href="#"`). Still 8 instances of `href="#"` across the site.
+- **Footer legal links still dead.** Privacy Policy, Terms of Service, Accessibility — all `href="#"`.
+- **"Learn More" links still point to `#contact`** — 5 instances. A user tapping "Learn More" on Cosmetic Dentistry still gets dumped at the booking form.
+- **Team bios still thin.** Three sentences each.
+
+**Priority fixes (unchanged):**
+1. **P0** — Replace ALL placeholder contact information
+2. **P0** — Fix or remove dead `href="#"` links
+3. **P1** — Make "Learn More" link to actual service content
+4. **P1** — Create real legal pages (Privacy, Terms, Accessibility)
+
+---
+
+### UX — 9/10 (+1)
+
+This is where the work has been concentrated, and it shows. The UX is now genuinely better than most production dental sites I audit.
 
 **What improved since last audit:**
-- Social media links added to footer (Facebook, Instagram, Google Business Profile). However, they all point to `href="#"` — dead links to nowhere. This is not an improvement; it is a new problem.
+
+- **Tap-to-expand service cards on mobile.** Accordion pattern: tapping a card reveals description + CTA; tapping another collapses the first. Chevron rotates 180 degrees with spring easing. Ripple effect on tap. Cards have `role="button"`, `tabindex="0"`, `aria-expanded`, and respond to Enter/Space. Desktop layout completely unaffected (`display: contents` on expand zone, indicator hidden). This is exactly the right mobile pattern — saves vertical scroll space while keeping all content accessible. Well implemented.
+
+- **Appointment time slot selector.** After selecting a date, a grid of time slots slides in with staggered animation. 2-column grid on mobile with 48px min-height touch targets. Saturday hours correctly limited to 9 AM - 2 PM. Selected state clearly differentiated. Hidden input stores value for form submission. The interaction model is intuitive — pick a date, pick a time. This is what appointment booking *should* feel like.
+
+- **Section dots removed from mobile.** The right call. The fixed right-edge dots were competing with the sticky CTA bar and eating into the narrow mobile viewport. Desktop keeps them for quick-jump navigation.
 
 **What still does NOT work:**
-- **Placeholder contact information everywhere.** This was P0 in Round 2. Still P0. Still unfixed. The fake address appears in the JSON-LD structured data, which means Google will index fake data for local search. This is actively harmful to SEO.
-- **Team bios remain thin.** Three sentences each. No personality, no founding story, no differentiators.
-- **Social media links are dead.** `href="#"` on all three footer social links. Adding icons that go nowhere is worse than not having them — it signals a template, not a real practice.
-- **Footer legal links still dead.** Privacy Policy, Terms of Service, Accessibility — all `href="#"`. For a medical practice, these are not optional.
-- **No differentiators.** No mention of specific technology, certifications, or what makes this practice different.
+- **The form is still a dead end.** The time slot selector makes the *experience* of choosing a time feel real, but the form still submits to `setTimeout`. The user picks a date, picks a time, fills in their details, hits submit... and nothing happens. This is now *worse* UX than before because the added specificity of the time slot selector raises expectations of a real booking, making the fake submission feel like a betrayal.
+- **"Learn More" still goes to `#contact`.** Now that cards expand to show descriptions, the "Learn More" link at the bottom of each expanded card is even more confusing — the user just expanded for more info and the link says "Learn More" but goes to a booking form.
 
 **Priority fixes:**
-1. **P0** — Replace ALL placeholder contact information with real data (address, phone, email)
-2. **P0** — Wire social media links to actual profiles, or remove them entirely
-3. **P0** — Create or link Privacy Policy, Terms of Service, and Accessibility Statement
-4. **P1** — Add genuine practice differentiators (technology, founding story)
-5. **P1** — Expand team bios with personality and depth
+1. **P0** — Connect form to real backend or scheduling service
+2. **P1** — Rename "Learn More" to "Book Consultation" or similar (since it goes to the contact form anyway, at least be honest about it)
 
 ---
 
-### UX — 8/10 (+1)
+### Technical Quality — 8/10 (unchanged)
 
 **What improved since last audit:**
-- **Section dots navigator.** Fixed vertical dot strip on right edge for quick section jumping. Uses IntersectionObserver to track active section. Responsive sizing (12px desktop, 10px tablet, 9px small mobile). Progressive reveal after 200px scroll. This is a genuinely useful navigation aid for a long single-page site, especially on mobile where scrolling is the primary interaction. Well implemented.
-- **Swipeable testimonials carousel on mobile.** Horizontal scroll-snap with `scroll-snap-type: x mandatory`. Dot indicators that track current card via scroll detection. 44px touch targets on dots. Animated "Swipe to read more reviews" hint that fades out. Hidden on desktop — zero impact on existing layout. This is exactly right. Mobile users expect to swipe; they got swipe.
-- **Touch target compliance.** Footer social icons bumped to 44px. Footer links to 44px. Inline links given 12px vertical padding. Emergency phone link min-height 44px. Hero badge and CTA bar fonts bumped to 14px minimum. This is thorough mobile-first work.
-- **Insurance cards vertical stacking at 480px.** "UnitedHealthcare" no longer truncated. Sensible layout adjustment.
-- **Hours row gap fix.** "Monday - Friday" and "8:00 AM - 6:00 PM" no longer run together.
-- **Back-to-top repositioned** to clear the sticky CTA bar on mobile.
-- **ARIA form validation with inline error messages.** `aria-invalid`, `aria-describedby`, per-field error spans with `role="alert"`. Phone pattern validation. This was P0 from Round 2 — properly addressed.
+- **CSS consolidation pass.** Merged 3 duplicate `@media (max-width: 768px)` blocks into 1. Removed dead rules (`.testimonials-grid` override, redundant `.insurance-note`, duplicate `background` on `.carousel-dot`). Merged section padding rules. Good housekeeping: -178 bytes.
+- **Time slot selector architecture.** Uses change event on date field to trigger slot grid. Hidden input for form value. Saturday logic correctly scoped. Staggered animations via `nth-child` delays (10 individual rules). Clean.
+- **Service card expand system.** Accordion state management is simple: loop all `.expanded`, remove class, toggle current. `aria-expanded` properly toggled. `display: contents` for desktop passthrough is the right technique.
 
 **What still does NOT work:**
-- **Booking form is still a dead end.** Still a `setTimeout` toast. Still "we will contact you within 1 business day." In 2026, this is unacceptable. Every competitor offers instant online booking. This is the UX ceiling.
-- **"Learn More" on service cards still goes to the contact form.** 5 instances of `<a href="#contact" class="service-link">Learn More</a>`. A user clicking "Learn More" on Cosmetic Dentistry expects information about cosmetic dentistry.
-- **Social media links go nowhere.** Clicking Facebook, Instagram, or Google Business Profile does nothing.
+- **Second `@media (max-width: 768px)` block is back.** Line 1542 and line 2062. The consolidation pass (commit `b3788ef`) merged duplicates, then the very next commit (`736fb74`, tap-to-expand cards) added a new separate block. Two commits later (`4ed8efb`, time slot selector) added CSS inside the first block. The result: two 768px blocks again. This is a process issue — the left hand consolidates, the right hand re-fragments.
+- **`novalidate` still on the form.**
+- **JSON-LD `image` still uses data URI.**
+- **Codebase grew 10%:** 3,406 lines (Round 3) to 3,746 lines. 116KB to 122KB total. The growth is proportionate to features added, so it is justified. But the trajectory bears watching.
+- **10 individual `nth-child` animation-delay rules** for time slot stagger (lines 1201-1210). Pragmatic but verbose.
 
 **Priority fixes:**
-1. **P0** — Integrate real-time scheduling (Zocdoc, Calendly, or practice management widget)
-2. **P1** — Make "Learn More" links expand service detail (accordions, modals, or sub-pages)
-3. **P1** — Wire social media links to real profiles or remove them
+1. **P1** — Consolidate the re-duplicated 768px media query blocks (again)
+2. **P1** — Fix JSON-LD `image` to use hosted URL
+3. **P2** — Consider removing `novalidate` for browser-native fallback
 
 ---
 
-### Technical Quality — 8/10 (no change)
+### Conversion Optimization — 4/10 (CAPPED, unchanged)
 
-**What improved since last audit:**
-- **`<main>` landmark element added** wrapping page content. Skip-to-content now targets `#main`. Screen reader navigation fixed.
-- **ARIA form validation complete.** `aria-invalid="true"`, `aria-describedby` pointing to per-field `<span class="field-error" role="alert">` elements. Phone pattern validation via `pattern` attribute. This was P0 — properly done.
-- **Consolidated scroll listeners.** Sticky header, scroll progress, back-to-top, and section dots all in one passive handler. Clean.
-- **Dynamic copyright year.** `new Date().getFullYear()` instead of hardcoded "2026".
-- **IntersectionObserver for section dots** — efficient, no scroll listener overhead for dot tracking.
-- **Scroll-snap carousel** uses CSS-native snapping with JS dot synchronization via scroll event. No library dependencies. Lean.
-- **Horizontal overflow fix at 375px.** `minmax(0, 1fr)` on insurance grid, `min-width: 0` on cards. Root cause properly diagnosed and fixed.
-- Total codebase: 3,406 lines across 3 files (997 HTML, 1997 CSS, 412 JS). 116KB total. No dependencies. No build step. This is admirably lean for the feature set.
+**SCORING CAP APPLIED:** The form still uses `setTimeout` to fake submission. No data is sent anywhere. No appointment is created. Cap at 4.
+
+**What changed since last audit:**
+- The time slot selector *improves the booking experience* but does not *enable* booking. It is a beautifully crafted steering wheel bolted to a car with no engine. The user can now select a specific date and time slot, which makes the interaction feel more real and specific — but the form still submits to nowhere. This actually makes the fake submission feel worse, because the user invested more effort selecting a specific time.
+- Tap-to-expand service cards improve service discovery on mobile — users can quickly scan services and expand ones they are interested in. This is a positive conversion micro-interaction.
 
 **What still does NOT work:**
-- **JSON-LD `image` field uses SVG data URI.** Better than the site URL (Round 1), but Google's rich results validator may reject a data URI. Should be a hosted image URL.
-- **Multiple `@media (max-width: 768px)` blocks.** Lines 1407 and 1467 are separate 768px blocks. Lines 1585 and potentially others are duplicate breakpoints. The Round 2 consolidation was good but new features added new blocks.
-- **Social links `href="#"` with `rel="noopener noreferrer"`.** Technically correct attributes on links that go nowhere. The technical implementation is fine; the content is missing.
-- **No `<img>` elements with `loading="lazy"` anywhere** — because there are no images. When real photos arrive, ensure lazy loading is applied.
-- **`novalidate` still on the form** — the custom validation is now better (ARIA, phone pattern), but the form still relies entirely on JS. A `required` attribute without `novalidate` would give users browser-native fallback.
+- **The form is fake.** Round 4. Still fake. Still the conversion ceiling.
+- **Social media links still dead.**
+- **No Google Reviews link for the claimed "4.9 rating / 500+ reviews."**
+- **$99 new patient special still buried in sidebar.**
+- **"Learn More" mislabels what is actually "Go to booking form."**
 
-**Priority fixes:**
-1. **P0** — Fix JSON-LD `image` to use a hosted image URL (not data URI)
-2. **P1** — Consolidate duplicate media query blocks added by new features
-3. **P1** — Consider removing `novalidate` to allow browser-native validation as fallback
-4. **P2** — Ensure lazy loading on all images when real photography is added
+**Priority fixes (unchanged since Round 1):**
+1. **P0** — Connect to real scheduling backend
+2. **P0** — Fix or remove dead social links
+3. **P1** — Link review claims to actual reviews
 
 ---
 
-### Conversion Optimization — 4/10 (CAPPED, was 5)
+### Simplicity — 8/10 (-1)
 
-**SCORING CAP APPLIED:** The appointment form uses `setTimeout` to simulate submission. No backend. No confirmation email. No real booking. The form shows a toast saying "Thank you! We will contact you shortly" — but nothing actually happens. No appointment is created. No data is sent. This is a conversion dead end, and it caps this category at 4.
+**What changed since last audit:**
+- Codebase grew from 3,406 to 3,746 lines (+10%). From 116KB to 122KB. Three files, no dependencies, no build step — the fundamentals remain admirably lean.
+- However: the CSS consolidation pass merged duplicate media queries, and then the very next feature commit re-introduced a separate `@media (max-width: 768px)` block. There are now two 768px blocks again (lines 1542 and 2062). This is a simplicity regression.
+- The time slot system adds 10 individual `nth-child` animation-delay rules, a `.time-slot-group.animate-in` system, and responsive grid adjustments across 3 breakpoints. It is clean code, but it is *more* code.
+- The service card expand system adds ~100 lines of CSS scoped inside a mobile media query. The `display: contents` desktop passthrough is elegant, but the ripple pseudo-element, bounce keyframe, spring easing, and expand animations are ornate for an accordion.
 
-**What improved since last audit:**
-- Social media icons added to footer — but they are dead links (`href="#"`). This actually hurts conversion because it signals a template site.
-- Swipeable testimonial carousel on mobile makes social proof more accessible and engaging on the primary user device. This is a genuine conversion micro-improvement.
-- Touch target improvements ensure tappable elements are usable on mobile. Good for conversion hygiene.
-
-**What still does NOT work:**
-- **The form is fake.** `setTimeout` with a toast. No data goes anywhere. A patient who fills out the form gets nothing — no email, no confirmation, no appointment. This is the conversion killer.
-- **Social media links are dead.** Dead social links actively damage credibility. Remove them or wire them up.
-- **No Google Reviews link.** "4.9 rating / 500+ reviews" — where? Link to the actual reviews page.
-- **Insurance logos unrecognisable.** Patients scanning for their provider cannot identify abstract SVG shapes.
-- **$99 new patient special buried** in the contact sidebar. Should be hero-level prominent.
-- **No patient financing detail.** CareCredit mentioned once in FAQ, not prominently.
-- **No live chat, no SMS, no exit-intent capture.**
+**The trend:** Round 3's simplicity score of 9 reflected a codebase that had been recently cleaned. Since then, 340 lines of new code have been added with cosmetic animations (spring easing, ripple effects, staggered reveals, bounce keyframes) that add visual delight but also complexity. The code is still clean and well-organised, but it is drifting toward over-engineering the details while the fundamentals (real content, real booking) remain unaddressed.
 
 **Priority fixes:**
-1. **P0** — Connect form to a real backend OR integrate scheduling service (Zocdoc, Calendly)
-2. **P0** — Either wire social media links to real profiles or remove them entirely
-3. **P1** — Link social proof numbers to actual Google Reviews page
-4. **P1** — Make $99 new patient offer more prominent
-5. **P1** — Add real insurance provider logos
-6. **P2** — Add chat widget or "Text Us" option
-
----
-
-### Simplicity — 9/10 (+2)
-
-**What works:**
-- **3,406 total lines across 3 files.** No build step. No dependencies. No framework. One HTML file, one CSS file, one JS file. 116KB total. This is refreshingly lean.
-- **10 sections, 6 nav links.** The structure is focused and logical: Hero, Stats, Services, About/Team, Testimonials, Insurance, FAQ, Location, Contact, Footer.
-- **New features added without bloat.** Section dots navigator: ~90 lines CSS, ~35 lines JS. Testimonial carousel: ~80 lines CSS, ~50 lines JS. These are proportionate additions for the functionality they deliver.
-- **Consolidated scroll handler.** One passive listener handles sticky header, progress bar, back-to-top, and section dots. Clean architecture.
-- **IntersectionObserver used correctly** for fade-ups, count-up animations, section dot tracking, and carousel dot tracking. No unnecessary scroll listeners.
-- **CSS avatar system is STILL 160+ lines that should be replaced by `<img>` tags.** But I am scoring Simplicity on the code that exists, and within its constraints, the code is clean and well-organised.
-- **No dead code.** The dead CSS removal passes were effective. No ghost styles found.
-
-**What could be leaner:**
-- **Duplicate media query blocks.** New features added new `@media (max-width: 768px)` blocks instead of appending to the existing consolidated block. This is a mild organisational issue, not a complexity problem.
-- **Carousel CSS (80 lines) only applies on mobile.** Properly scoped with media queries. No desktop impact. This is the right way to add mobile-specific features.
-
-**Priority fixes:**
-1. **P1** — Consolidate duplicate media query blocks
-2. **P2** — When real photos replace CSS avatars, delete ~160 lines of avatar CSS
+1. **P1** — Consolidate duplicate 768px media query blocks
+2. **P2** — Consider whether bounce keyframes and ripple effects are necessary for a dental booking form
 
 ---
 
 ## Overall Assessment
 
-**Overall Score: 6.5/10** (was 6.3 — up 0.2)
+**Overall Score: 6.7/10** (was 6.5 — up 0.2)
 
-The mobile UX work since Round 2 has been genuinely excellent. The section dots navigator, swipeable testimonial carousel, 44px touch targets, ARIA form validation, and insurance card layout fixes are all well-implemented, mobile-first improvements that demonstrate real understanding of how people use phones. The codebase remains admirably lean at 3,406 lines with zero dependencies. Simplicity jumps to 9 — this is clean, focused work.
+The mobile UX earns its 9. The tap-to-expand service cards are the right pattern — compact view for scanning, expand for detail, accordion to keep the page tidy. The time slot selector makes appointment booking feel specific and real. Both features are well-implemented with proper ARIA attributes, keyboard accessibility, and clean mobile-only scoping. Section dots correctly removed from mobile where they were clutter. The CSS consolidation pass was good housekeeping.
 
-However, I am now enforcing strict scoring caps that were implicit but not formalised in previous rounds:
+**But the caps hold firm:**
+- **Design stays at 5.** No real photos. CSS avatars with dot eyes. Four audits and not a single `<img>` tag in the codebase.
+- **Content stays at 5.** "(555) 123-4567" is now in a `tel:` link. A mobile user tapping "Call Now" on the Emergency service card will dial a fake number. This is not a theoretical problem — it is a broken user flow.
+- **Conversion stays at 4.** The time slot selector makes the fake form *feel* more real, which makes the fake submission *feel* more deceptive. The engine is still missing.
 
-- **Design is CAPPED at 5** because there is no real photography. CSS avatars with dot eyes are not team headshots. A floating SVG tooth is not a hero image. This cap cannot be overridden by colour palette quality or animation polish.
-- **Content is CAPPED at 5** because "1234 Smile Avenue" and "(555) 123-4567" are placeholder data, not real content. This fake data now appears in JSON-LD structured data being served to Google. The addition of dead social media links (`href="#"`) makes this worse, not better.
-- **Conversion is CAPPED at 4** because the booking form uses `setTimeout` to fake a submission. No data goes anywhere. No appointment is created. Adding dead social media links compounds the problem.
+**The paradox of this codebase:** Each round, the code gets better and the scores barely move. That is because the code was never the problem. The problem is that this is a beautifully engineered template with no real content inside it. The UX work is genuinely excellent — 9/10, better than most production dental sites. But UX without content is a hollow shell.
 
-The fundamental reality has not changed since Round 1: the code is excellent, but it is dressing a mannequin. The technical execution is professional-grade. The content is template-grade. Until real photography, real contact information, and real scheduling are added, this site cannot break 7.0.
+**Trajectory:** UX has hit 9. Technical is solid at 8. Simplicity is healthy at 8. These three categories are approaching their ceilings and further investment yields diminishing returns. The only path to a 7+ overall is through the capped categories: real photography (Design), real contact data (Content), and real scheduling (Conversion). These are business decisions, not engineering tasks.
 
-**Trajectory:** UX and Simplicity are approaching their ceilings (8 and 9). Technical is solid at 8. The bottleneck is now entirely Content (real data), Design (real photography), and Conversion (real scheduling). These are not code problems — they are business decisions.
-
-**Top 5 actions, in order:**
-1. Real photography (team headshots, office photos, hero image) — unlocks Design past 5
-2. Real contact information (address, phone, email, social links) — unlocks Content past 5
-3. Real-time scheduling integration — unlocks Conversion past 4
-4. Wire or remove dead social media links — currently hurting credibility
-5. Make "Learn More" on service cards link to actual service information
+**Top 5 actions, in priority order:**
+1. Real photography — team headshots, office photos, hero image. Unlocks Design past 5.
+2. Real contact information — address, phone, email, social links. Unlocks Content past 5.
+3. Real scheduling backend — Zocdoc, Calendly, or webhook to practice management. Unlocks Conversion past 4.
+4. Fix the `tel:+15551234567` link on Emergency card — this is a broken user flow today.
+5. Consolidate the re-duplicated 768px media query blocks.
 
 ---
 
-*Audit conducted by Nigel. The mobile UX is now genuinely good — better than most real dental sites, frankly. But a beautifully tailored suit still needs a person inside it. Give me real content and I will give you real scores.*
+*Audit conducted by Nigel. The mobile UX is now a 9, and I do not hand those out lightly. But I audit websites, not code. And a website needs content. Four rounds in, the engineering is superb. Now give me something to engineer around.*
