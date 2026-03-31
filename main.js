@@ -403,6 +403,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- Mobile Tap-to-Expand Service Cards ----------
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+      // Don't interfere with link taps inside expanded card
+      if (e.target.closest('.service-link')) return;
+
+      const isExpanded = card.classList.contains('expanded');
+
+      // Collapse all other cards (accordion behavior)
+      document.querySelectorAll('.service-card.expanded').forEach(other => {
+        if (other !== card) {
+          other.classList.remove('expanded', 'ripple');
+          other.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle this card
+      card.classList.toggle('expanded', !isExpanded);
+      card.setAttribute('aria-expanded', !isExpanded);
+
+      // Ripple effect
+      if (!isExpanded) {
+        card.classList.add('ripple');
+        setTimeout(() => card.classList.remove('ripple'), 600);
+      }
+    });
+
+    // Keyboard accessibility
+    card.addEventListener('keydown', (e) => {
+      if (!isMobile()) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
   // ---------- Dynamic Copyright Year ----------
   const yearEl = document.getElementById('copyrightYear');
   if (yearEl) {

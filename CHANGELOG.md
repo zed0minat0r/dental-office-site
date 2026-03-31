@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-03-30 (Spark — Mobile Tap-to-Expand Service Cards)
+
+### Mobile-first touch enhancement: collapsible service cards
+- Restructured all 6 service cards with a tap-to-expand accordion pattern on mobile (768px and below)
+- Collapsed state shows icon + title + chevron indicator in a compact horizontal row — saves vertical scroll space
+- Tapping a card triggers a spring-animated expand revealing the full description and CTA link
+- Accordion behavior: expanding one card auto-collapses any other open card
+- Expand indicator rotates 180 degrees with spring easing and shifts from gray bg to primary blue
+- Tap ripple effect: a subtle radial wash of blue emanates from card center on tap
+- Card gets a glowing blue border + shadow on expand with a bounce keyframe animation
+- Desktop layout completely unaffected — expand zone uses `display: contents` and indicator is hidden
+- Full keyboard accessibility: cards have `role="button"`, `tabindex="0"`, `aria-expanded`, and respond to Enter/Space
+- Hover-based transforms disabled on mobile to prevent sticky hover states on touch devices
+- Zero new sections — enhancement to existing Services section only
+
 ## 2026-03-30 (Razor — CSS Cleanup)
 
 ### CSS Consolidation
