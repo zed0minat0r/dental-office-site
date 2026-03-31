@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30 (Nigel — Audit Round 2)
+
+### Re-audit with Simplicity Category
+- Full re-audit across 6 categories: Design (6), Content (7), UX (7), Technical Quality (8), Conversion Optimization (5), Simplicity (7)
+- Overall score: 6.3/10 (up from 5.8) — technical and UX improvements recognised, but core gaps remain
+- New Simplicity category added: 7/10 — the 14-to-10 section trim and 30% code reduction were the right moves
+- Key finding: site has hit a ceiling (~6.5) that cannot be broken without real photography and real scheduling integration
+- Updated score_history array with both audit rounds
+- Top priorities unchanged: real photography, real scheduling, real contact info
+
 ## 2026-03-30 (Spark — Animated Stat Counters)
 
 ### Social Proof Stats — Animated Count-Up on Scroll
