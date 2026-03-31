@@ -5,10 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bright Smile Dental — Your Smile, Our Priority. Family dentistry, cosmetic, emergency, and pediatric dental services. Book your appointment today.">
   <title>Bright Smile Dental — Your Smile, Our Priority</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bright Smile Dental — Your Smile, Our Priority">
+  <meta property="og:description" content="Gentle, compassionate dental care for your whole family in Springfield, IL. General, cosmetic, emergency, and pediatric dentistry. Now accepting new patients.">
+  <meta property="og:url" content="https://zed0minat0r.github.io/dental-office-site/">
+  <meta property="og:site_name" content="Bright Smile Dental">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bright Smile Dental — Your Smile, Our Priority">
+  <meta name="twitter:description" content="Gentle, compassionate dental care for your whole family in Springfield, IL. Now accepting new patients — book online today.">
+
+  <!-- Favicon (SVG tooth icon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='3' x2='28' y2='33' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%232B7DE9'/%3E%3Cstop offset='1' stop-color='%2306B6D4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M18 3C13.5 3 10 5.5 8.5 9C7 12.5 7.5 16 9 19.5C10.5 23 13 27 15 30C16 31.5 17 33 18 33C19 33 20 31.5 21 30C23 27 25.5 23 27 19.5C28.5 16 29 12.5 27.5 9C26 5.5 22.5 3 18 3Z' fill='url(%23g)'/%3E%3C/svg%3E">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Noscript: make content visible when JS is disabled -->
+  <noscript>
+    <style>
+      .fade-up { opacity: 1 !important; transform: none !important; }
+      .mobile-cta-bar { display: none !important; }
+    </style>
+  </noscript>
 
   <!-- JSON-LD Structured Data: LocalBusiness -->
   <script type="application/ld+json">
@@ -73,6 +98,9 @@
   </script>
 </head>
 <body>
+
+  <!-- Skip to Content (accessibility) -->
+  <a href="#services" class="skip-to-content">Skip to main content</a>
 
   <!-- SVG Symbols -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -715,11 +743,16 @@
         </div>
 
         <div class="location-map fade-up delay-15">
-          <div class="map-placeholder">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <p>Interactive Map Coming Soon</p>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Open in Google Maps</a>
-          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3087.5!2d-89.6501!3d39.7817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ2JzU0LjEiTiA4OcKwMzknMDAuNCJX!5e0!3m2!1sen!2sus!4v1711800000000"
+            width="100%"
+            height="100%"
+            style="border:0; border-radius: var(--radius-lg);"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Bright Smile Dental office location on Google Maps">
+          </iframe>
         </div>
       </div>
     </div>

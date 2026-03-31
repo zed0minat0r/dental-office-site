@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-03-30 (Refiner — Round 2)
+
+### Accessibility, Meta Tags, Map Embed & Date Constraints
+- **Added skip-to-content link** (P0 a11y): keyboard-accessible link appears on focus, jumps past navigation to main content — WCAG requirement now satisfied
+- **Added Open Graph + Twitter Card meta tags** (P1 Technical): site shares properly on social media with title, description, and site name
+- **Added SVG favicon** (P1 Technical): tooth logo now appears in browser tabs instead of generic icon — uses inline data URI, zero extra requests
+- **Added `<noscript>` fallback** (P1 Technical): fade-up animations default to visible when JS is disabled, so content is never hidden
+- **Replaced map placeholder with Google Maps iframe** (P1 Design): "Interactive Map Coming Soon" dashed box replaced with real embedded map centered on Springfield, IL — lazy-loaded for performance
+- **Added date picker constraints** (P1 UX): preferred date field now blocks past dates, limits to 3 months ahead, and warns users if they select a Sunday (office closed)
+- **Enhanced active nav highlight** (P1 UX): active section link now has bold weight + blue bottom border instead of barely-visible background change
+- Cleaned up `.map-placeholder` CSS (replaced with `.location-map iframe` styles)
+- Zero new sections added — all improvements within existing sections
+
 ## 2026-03-30 (Trimmer)
 
 ### Site Slimdown — 14 Sections to 10, 4,224 Lines to 2,965

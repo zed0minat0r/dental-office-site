@@ -99,6 +99,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => sectionObserver.observe(section));
 
+  // ---------- Date Picker Constraints ----------
+  const dateField = document.getElementById('preferredDate');
+  if (dateField) {
+    // Set minimum date to tomorrow (no past dates, no today since same-day may be full)
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    // Skip to Monday if tomorrow is Sunday
+    if (tomorrow.getDay() === 0) tomorrow.setDate(tomorrow.getDate() + 1);
+    dateField.min = tomorrow.toISOString().split('T')[0];
+
+    // Set max date to 3 months out
+    const maxDate = new Date();
+    maxDate.setMonth(maxDate.getMonth() + 3);
+    dateField.max = maxDate.toISOString().split('T')[0];
+
+    // Prevent Sunday selection (office is closed)
+    dateField.addEventListener('input', () => {
+      const selected = new Date(dateField.value + 'T12:00:00');
+      if (selected.getDay() === 0) {
+        dateField.setCustomValidity('Our office is closed on Sundays. Please choose another day.');
+        dateField.classList.add('error');
+      } else {
+        dateField.setCustomValidity('');
+        dateField.classList.remove('error');
+      }
+    });
+  }
+
   // ---------- Form Validation & Submission ----------
   const form = document.getElementById('appointmentForm');
   const toast = document.getElementById('toast');
