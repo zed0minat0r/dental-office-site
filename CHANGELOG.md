@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-03-30 — Fix mobile bottom nav bar alignment
+
+### Sticky CTA bar & footer alignment fixes
+- **Fixed unequal CTA button widths on mobile**: "Book Appointment" was ~195px while "Call Now" was ~137px due to flex item `min-width: auto` allowing text content to dictate sizing. Added `min-width: 0` and explicit `flex: 1 1 0%` so both buttons are exactly equal width.
+- **Added `align-items: center` and `justify-content: center`** to the sticky CTA bar for consistent vertical/horizontal alignment.
+- **Added `text-align: center`** to CTA buttons for consistent text centering.
+- **Fixed orphaned footer "Contact" column**: On the 2-column mobile grid, the 3rd footer-links column (Contact) sat alone on the left. Now spans full width and centers properly.
+- **Preserved extra-small (360px) overrides**: ensured `flex: 1 1 0%` carries through on smallest screens.
+
 ## 2026-03-30 (Spark — Mobile Scroll Journey)
 
 ### Mobile scroll experience enhancement
