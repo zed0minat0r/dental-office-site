@@ -292,8 +292,8 @@ h3 { font-size: 1.25rem; }
 
 /* Dark Mode Toggle */
 .dark-mode-toggle {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--card);
@@ -316,8 +316,8 @@ h3 { font-size: 1.25rem; }
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: none;
   background: none;
   cursor: pointer;
@@ -458,6 +458,14 @@ h3 { font-size: 1.25rem; }
 }
 
 .hero-tooth { filter: drop-shadow(0 20px 40px rgba(43, 125, 233, 0.15)); }
+
+/* ---------- Gradient Utilities ---------- */
+.grad-blue { background: linear-gradient(135deg, #2B7DE9 0%, #06B6D4 100%); }
+.grad-amber { background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%); }
+.grad-red { background: linear-gradient(135deg, #EF4444 0%, #F97316 100%); }
+.grad-green { background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%); }
+.grad-purple { background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%); }
+.grad-cyan { background: linear-gradient(135deg, #06B6D4 0%, #2B7DE9 100%); }
 
 /* ---------- Services ---------- */
 .services {
@@ -637,17 +645,7 @@ h3 { font-size: 1.25rem; }
   border-radius: 35px 35px 0 0;
 }
 
-.avatar-coat {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 30px;
-  border-radius: 35px 35px 0 0;
-  z-index: 2;
-}
-
+.avatar-coat,
 .avatar-scrubs {
   position: absolute;
   bottom: 0;
@@ -956,11 +954,7 @@ h3 { font-size: 1.25rem; }
   opacity: 0.7;
 }
 
-.breath-circle.inhale {
-  transform: scale(1);
-  opacity: 1;
-}
-
+.breath-circle.inhale,
 .breath-circle.hold {
   transform: scale(1);
   opacity: 1;
@@ -1004,7 +998,6 @@ h3 { font-size: 1.25rem; }
 }
 
 .breath-ring-progress {
-  stroke: url(#breathGrad);
   stroke: var(--primary);
   stroke-linecap: round;
   transform: rotate(-90deg);
@@ -1222,7 +1215,7 @@ h3 { font-size: 1.25rem; }
   padding: 12px 16px;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-sm);
-  font-size: 15px;
+  font-size: 16px;
   font-family: var(--font);
   color: var(--text);
   background: var(--bg);
@@ -1517,10 +1510,6 @@ h3 { font-size: 1.25rem; }
     grid-template-columns: 1fr;
   }
 
-  .comfort-grid {
-    grid-template-columns: 1fr;
-  }
-
   .comfort-menu,
   .breathing-widget {
     padding: 28px 20px;
@@ -1581,5 +1570,395 @@ h3 { font-size: 1.25rem; }
   .location,
   .contact {
     padding: 60px 0;
+  }
+}
+
+/* ---------- Mobile Touch & Typography Hardening ---------- */
+@media (max-width: 768px) {
+  /* Ensure all interactive elements meet 44px minimum touch target */
+  .service-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-links li {
+    margin-bottom: 4px;
+  }
+
+  .footer-links a,
+  .footer-links li {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-legal a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .insurance-card {
+    min-height: 44px;
+  }
+
+  .author-avatar {
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Show a sticky mobile CTA at bottom of screen */
+  .mobile-cta-bar {
+    display: flex;
+  }
+
+  /* Enforce 14px minimum font size on mobile for readability */
+  .btn-sm {
+    font-size: 14px;
+  }
+
+  .section-badge {
+    font-size: 14px;
+  }
+
+  .team-role {
+    font-size: 14px;
+  }
+
+  .testimonial-author span {
+    font-size: 14px;
+  }
+
+  .comfort-item span {
+    font-size: 14px;
+  }
+
+  .form-disclaimer {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .breath-note {
+    font-size: 14px;
+  }
+
+  .highlight-label {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    font-size: 14px;
+  }
+
+  .footer-legal a {
+    font-size: 14px;
+  }
+
+  .breath-stat-label {
+    font-size: 13px;
+  }
+
+  .testimonial-card blockquote {
+    font-size: 15px;
+  }
+
+  .info-block p,
+  .info-block h3 {
+    font-size: 15px;
+  }
+
+  .hours-row {
+    font-size: 14px;
+  }
+
+  /* Prevent horizontal scroll from any overflowing elements */
+  .hero-bg-shapes .shape {
+    display: none;
+  }
+
+  /* Ensure the nav links in mobile menu have proper touch targets */
+  .nav-links a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Add CTA to mobile menu */
+  .nav-links.open::after {
+    content: 'Book Appointment';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    padding: 14px 32px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 16px;
+    min-height: 48px;
+  }
+}
+
+/* ---------- Sticky Mobile CTA Bar ---------- */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+  gap: 12px;
+}
+
+.mobile-cta-bar .btn {
+  flex: 1;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .mobile-cta-bar {
+    display: flex;
+  }
+
+  /* Add bottom padding to body so footer content is not hidden behind sticky bar */
+  .site-footer {
+    padding-bottom: 80px;
+  }
+}
+
+/* ---------- Extra Small (320px) Fine-tuning ---------- */
+@media (max-width: 360px) {
+  .logo-text {
+    font-size: 15px;
+  }
+
+  .comfort-item {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .comfort-item-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .comfort-item-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sidebar-card {
+    padding: 20px;
+  }
+
+  .highlight-value {
+    font-size: 20px;
+  }
+
+  .hero-visual svg {
+    width: 180px;
+    height: 206px;
+  }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+/* ---------- Social Proof Stats Bar ---------- */
+.social-proof {
+  padding: 40px 0;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.proof-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.proof-number {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.proof-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 2px;
+}
+
+.proof-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.proof-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+}
+
+@media (max-width: 480px) {
+  .proof-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .proof-divider {
+    width: 60px;
+    height: 1px;
+  }
+}
+
+/* ---------- FAQ Accordion ---------- */
+.faq {
+  padding: 80px 0;
+  background: var(--bg-alt);
+}
+
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item[open] {
+  box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text);
+  list-style: none;
+  user-select: none;
+  transition: color var(--transition);
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::marker {
+  content: '';
+}
+
+.faq-question:hover {
+  color: var(--primary);
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.faq-answer {
+  padding: 0 24px 20px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.faq-answer a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ---------- Back to Top Button ---------- */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+  z-index: 900;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
   }
 }

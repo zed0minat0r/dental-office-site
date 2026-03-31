@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30 (Refiner)
+
+### SEO, Social Proof, FAQ & Polish
+- Added JSON-LD structured data (Schema.org Dentist/LocalBusiness) in `<head>` for local SEO: address, hours, aggregate rating, medical specialties, founder info
+- Added social proof stats bar below hero: 4.9 Google Rating with stars, 500+ reviews, 15+ years in practice, 10,000+ patients served
+- Added FAQ accordion section (6 questions) between Insurance and Location using native `<details>`/`<summary>` elements — covers first visit, insurance, anxiety, cost, kids, and emergencies
+- Added FAQ link to main navigation
+- Bonus: Added back-to-top floating button with scroll-triggered visibility and smooth scroll behavior
+- Full dark mode and responsive support for all new sections
+
 ## 2026-03-30 (Spark)
 
 ### Comfort Zone — Dental Anxiety Relief Section

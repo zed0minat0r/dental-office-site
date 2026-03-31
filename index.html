@@ -9,6 +9,68 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Structured Data: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "Bright Smile Dental",
+    "description": "Family dentistry, cosmetic, emergency, and pediatric dental services in Springfield, IL.",
+    "url": "https://zed0minat0r.github.io/dental-office-site/",
+    "telephone": "+15551234567",
+    "email": "hello@brightsmile.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1234 Smile Avenue, Suite 200",
+      "addressLocality": "Springfield",
+      "addressRegion": "IL",
+      "postalCode": "62701",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "39.7817",
+      "longitude": "-89.6501"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "14:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "500",
+      "bestRating": "5"
+    },
+    "priceRange": "$$",
+    "image": "https://zed0minat0r.github.io/dental-office-site/",
+    "sameAs": [],
+    "medicalSpecialty": [
+      "General Dentistry",
+      "Cosmetic Dentistry",
+      "Pediatric Dentistry",
+      "Orthodontics",
+      "Emergency Dental Care"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Dr. Sarah Mitchell",
+      "jobTitle": "Lead Dentist, DDS"
+    },
+    "foundingDate": "2010"
+  }
+  </script>
 </head>
 <body>
 
@@ -36,8 +98,10 @@
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#comfort">Comfort</a></li>
         <li><a href="#insurance">Insurance</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#location">Location</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="nav-mobile-cta"><a href="#contact" class="btn btn-primary btn-full">Book Appointment</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -117,6 +181,40 @@
     </div>
   </section>
 
+  <!-- ========== SOCIAL PROOF STATS BAR ========== -->
+  <section class="social-proof" id="social-proof">
+    <div class="container">
+      <div class="proof-grid fade-up">
+        <div class="proof-item">
+          <span class="proof-number">4.9</span>
+          <div class="proof-stars">
+            <svg viewBox="0 0 20 20" fill="#F59E0B" width="16" height="16"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20" fill="#F59E0B" width="16" height="16"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20" fill="#F59E0B" width="16" height="16"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20" fill="#F59E0B" width="16" height="16"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg>
+            <svg viewBox="0 0 20 20" fill="#F59E0B" width="16" height="16"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg>
+          </div>
+          <span class="proof-label">Google Rating</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <span class="proof-number">500+</span>
+          <span class="proof-label">5-Star Reviews</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <span class="proof-number">15+</span>
+          <span class="proof-label">Years in Practice</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <span class="proof-number">10,000+</span>
+          <span class="proof-label">Patients Served</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== SERVICES SECTION ========== -->
   <section class="services" id="services">
     <div class="container">
@@ -129,7 +227,7 @@
       <div class="services-grid">
         <!-- General Dentistry -->
         <div class="service-card fade-up">
-          <div class="service-icon" style="background: linear-gradient(135deg, #2B7DE9 0%, #06B6D4 100%);">
+          <div class="service-icon grad-blue">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <path d="M16 4C12 4 9 6.5 7.5 10C6 13.5 6.5 17 8 20C9.5 23 12 26 14 28.5C15 29.8 15.5 31 16 31C16.5 31 17 29.8 18 28.5C20 26 22.5 23 24 20C25.5 17 26 13.5 24.5 10C23 6.5 20 4 16 4Z" fill="white" opacity="0.9"/>
               <path d="M13 13H19M16 10V16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
@@ -142,7 +240,7 @@
 
         <!-- Cosmetic Dentistry -->
         <div class="service-card fade-up" style="animation-delay: 0.1s">
-          <div class="service-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);">
+          <div class="service-icon grad-amber">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <circle cx="16" cy="16" r="10" stroke="white" stroke-width="2" fill="none"/>
               <path d="M10 18 Q16 24 22 18" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
@@ -157,7 +255,7 @@
 
         <!-- Emergency Dental -->
         <div class="service-card fade-up" style="animation-delay: 0.2s">
-          <div class="service-icon" style="background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);">
+          <div class="service-icon grad-red">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <path d="M16 4L28 28H4L16 4Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
               <line x1="16" y1="12" x2="16" y2="20" stroke="white" stroke-width="2" stroke-linecap="round"/>
@@ -171,7 +269,7 @@
 
         <!-- Pediatric -->
         <div class="service-card fade-up" style="animation-delay: 0.1s">
-          <div class="service-icon" style="background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);">
+          <div class="service-icon grad-green">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <circle cx="16" cy="12" r="7" stroke="white" stroke-width="2" fill="none"/>
               <path d="M10 22C10 22 12 28 16 28C20 28 22 22 22 22" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
@@ -187,7 +285,7 @@
 
         <!-- Orthodontics -->
         <div class="service-card fade-up" style="animation-delay: 0.2s">
-          <div class="service-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);">
+          <div class="service-icon grad-purple">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <rect x="6" y="12" width="20" height="8" rx="4" stroke="white" stroke-width="2" fill="none"/>
               <line x1="11" y1="12" x2="11" y2="20" stroke="white" stroke-width="1.5"/>
@@ -205,7 +303,7 @@
 
         <!-- Preventive -->
         <div class="service-card fade-up" style="animation-delay: 0.3s">
-          <div class="service-icon" style="background: linear-gradient(135deg, #06B6D4 0%, #2B7DE9 100%);">
+          <div class="service-icon grad-cyan">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <path d="M16 4L20 12L28 14L22 20L23 28L16 24L9 28L10 20L4 14L12 12L16 4Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
               <circle cx="16" cy="16" r="4" fill="white" opacity="0.4"/>
@@ -340,7 +438,7 @@
           </div>
           <blockquote>"I have been terrified of the dentist my whole life, but Dr. Mitchell and her team completely changed that for me. They were patient, gentle, and explained every step. I actually look forward to my appointments now."</blockquote>
           <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #2B7DE9, #06B6D4);">JR</div>
+            <div class="author-avatar grad-blue">JR</div>
             <div>
               <strong>Jennifer R.</strong>
               <span>Patient for 3 years</span>
@@ -358,7 +456,7 @@
           </div>
           <blockquote>"Had a dental emergency on a Saturday morning — chipped my front tooth at a basketball game. They got me in within an hour and the repair looks completely natural. Could not even tell which tooth it was. Great work under pressure."</blockquote>
           <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #F59E0B, #F97316);">MT</div>
+            <div class="author-avatar grad-amber">MT</div>
             <div>
               <strong>Marcus T.</strong>
               <span>Patient for 1 year</span>
@@ -376,7 +474,7 @@
           </div>
           <blockquote>"My kids used to cry before every dentist visit. Dr. Maria changed everything — she is so fun and warm with them. Now my 6-year-old actually asks when her next cleaning is. That is a miracle in my book."</blockquote>
           <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #10B981, #06B6D4);">AW</div>
+            <div class="author-avatar grad-green">AW</div>
             <div>
               <strong>Angela W.</strong>
               <span>Patient for 2 years</span>
@@ -394,7 +492,7 @@
           </div>
           <blockquote>"Got my teeth whitened here and the results are incredible — several shades brighter in one session. The office is clean, modern, and the staff is super friendly. Only reason for 4 stars is the parking situation, but the care itself is top notch."</blockquote>
           <div class="testimonial-author">
-            <div class="author-avatar" style="background: linear-gradient(135deg, #8B5CF6, #6366F1);">DK</div>
+            <div class="author-avatar grad-purple">DK</div>
             <div>
               <strong>David K.</strong>
               <span>Patient for 6 months</span>
@@ -422,7 +520,7 @@
 
           <div class="comfort-items">
             <div class="comfort-item">
-              <div class="comfort-item-icon" style="background: linear-gradient(135deg, #2B7DE9 0%, #06B6D4 100%);">
+              <div class="comfort-item-icon grad-blue">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
               </div>
               <div>
@@ -432,7 +530,7 @@
             </div>
 
             <div class="comfort-item">
-              <div class="comfort-item-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);">
+              <div class="comfort-item-icon grad-purple">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="3"/><path d="M5 7V5a3 3 0 013-3h8a3 3 0 013 3v2"/></svg>
               </div>
               <div>
@@ -442,7 +540,7 @@
             </div>
 
             <div class="comfort-item">
-              <div class="comfort-item-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);">
+              <div class="comfort-item-icon grad-amber">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M8 20h8"/><path d="M9 16l3-3 3 3"/></svg>
               </div>
               <div>
@@ -452,7 +550,7 @@
             </div>
 
             <div class="comfort-item">
-              <div class="comfort-item-icon" style="background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);">
+              <div class="comfort-item-icon grad-green">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
               </div>
               <div>
@@ -462,7 +560,7 @@
             </div>
 
             <div class="comfort-item">
-              <div class="comfort-item-icon" style="background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);">
+              <div class="comfort-item-icon grad-red">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
               </div>
               <div>
@@ -472,7 +570,7 @@
             </div>
 
             <div class="comfort-item">
-              <div class="comfort-item-icon" style="background: linear-gradient(135deg, #06B6D4 0%, #2B7DE9 100%);">
+              <div class="comfort-item-icon grad-cyan">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               </div>
               <div>
@@ -584,6 +682,79 @@
       </div>
 
       <p class="insurance-note fade-up">We also offer affordable payment plans for uninsured patients. Ask us about our Bright Smile Savings Plan.</p>
+    </div>
+  </section>
+
+  <!-- ========== FAQ SECTION ========== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-badge">Common Questions</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know before your visit. If you do not see your question here, give us a call.</p>
+      </div>
+
+      <div class="faq-list fade-up">
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What should I bring to my first appointment?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Please bring your photo ID, insurance card, and a list of any medications you are currently taking. If you have recent dental X-rays from a previous provider, those are helpful too. We will have some paperwork for you to fill out, so arriving 15 minutes early is a good idea.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Do you accept my insurance?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>We accept most major dental insurance plans including Delta Dental, Cigna, Aetna, MetLife, Guardian, UnitedHealthcare, Humana, and BlueCross BlueShield. If you do not see your provider listed, please call us — we are happy to verify your coverage before your visit.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What if I am anxious about dental visits?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>You are not alone — dental anxiety is very common, and we take it seriously. We offer a full comfort menu including noise-canceling headphones, weighted blankets, ceiling TVs, and sedation options ranging from laughing gas to oral sedation. Our team will go at your pace and you can raise your hand to pause at any time.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>How much does a first visit cost without insurance?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>We currently offer a new patient special of $99 for a comprehensive exam and digital X-rays. For patients without insurance, we also offer our Bright Smile Savings Plan with discounted rates on all services. We accept CareCredit and offer flexible payment plans as well.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Do you see children? What age should my child first visit?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Absolutely. Dr. Maria Santos is our pediatric dentist and she is wonderful with kids of all ages. The American Dental Association recommends a first visit by age 1 or within 6 months of the first tooth appearing. We make visits fun and positive so your child builds healthy habits early.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What should I do in a dental emergency?</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Call our emergency line at <a href="tel:+15559876543">(555) 987-6543</a> right away. We offer same-day emergency appointments for toothaches, broken or knocked-out teeth, and other urgent issues. If a tooth is knocked out, keep it moist (in milk or saliva) and get to us as quickly as possible.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -829,11 +1000,22 @@
     </div>
   </footer>
 
+  <!-- Mobile Sticky CTA Bar -->
+  <div class="mobile-cta-bar" aria-label="Quick actions">
+    <a href="#contact" class="btn btn-primary">Book Appointment</a>
+    <a href="tel:+15551234567" class="btn btn-outline">Call Now</a>
+  </div>
+
   <!-- Form Success Toast -->
   <div class="toast" id="toast" role="alert" aria-live="polite">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     <span>Thank you! We will contact you shortly to confirm your appointment.</span>
   </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="main.js"></script>
 </body>
