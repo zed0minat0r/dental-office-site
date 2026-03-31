@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-03-30 (Trimmer)
+
+### Site Slimdown — 14 Sections to 10, 4,224 Lines to 2,965
+- **REMOVED** "Meet Your Visit" first-appointment timeline (121 lines HTML, 290 lines CSS, JS toggles) — overlapped with FAQ which already covers first visit info
+- **REMOVED** "Dental Tips" blog section (52 lines HTML, 101 lines CSS) — dental office site should focus on booking, not content publishing
+- **REMOVED** "Comfort Zone" full section with breathing exercise widget (117 lines HTML, 218 lines CSS, 126 lines JS) — creative but bloat for a booking-focused site
+- **REMOVED** standalone "Before & After Gallery" section (95 lines HTML, 153 lines CSS) — consolidated into Services
+- **CONSOLIDATED** comfort messaging into a brief note inside the About/Team section: "Nervous about the dentist? We get it." with a one-paragraph summary of comfort amenities
+- **CONSOLIDATED** smile results into a brief highlight inside the Services section with a CTA to book a consultation
+- **Cleaned up** navigation: removed Gallery, Comfort, and Tips links (6 nav items down from 9)
+- **Cleaned up** all associated CSS and JS — zero dead code left behind
+- **Cleaned up** responsive breakpoint rules: removed comfort-grid, breathing-widget, comfort-item, breath-note, and breath-stat-label references from 768px, 480px, and 360px media queries
+- Final section count: 10 (Hero, Stats Bar, Services, About/Team, Testimonials, Insurance, FAQ, Location & Hours, Contact, Footer)
+- Final line count: 2,965 (was 4,224 — 30% reduction)
+- Verified at 375px mobile via Playwright screenshot — clean layout, no broken elements
+
 ## 2026-03-30 (Builder)
 
 ### Task 3 Complete — Before/After Gallery & Dental Tips Blog

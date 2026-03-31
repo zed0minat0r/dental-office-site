@@ -35,3 +35,15 @@
 - Add section dots navigator
 - Add social proof elements (patient count, years in practice, etc.)
 - Add sticky appointment CTA bar
+
+## Task 5: Site Slimdown [COMPLETE]
+- [x] Remove "Meet Your Visit" timeline section (overlaps FAQ)
+- [x] Remove "Dental Tips" blog section (off-focus for a booking site)
+- [x] Remove "Comfort Zone" section and breathing exercise widget
+- [x] Remove standalone "Before & After Gallery" section
+- [x] Consolidate comfort messaging into About section as brief note
+- [x] Consolidate gallery results into Services section as brief highlight
+- [x] Clean up navigation (9 links down to 6)
+- [x] Remove all dead CSS and JS
+- [x] Verify mobile layout at 375px via Playwright screenshot
+- Result: 14 sections down to 10, 4,224 lines down to 2,965 (30% reduction)

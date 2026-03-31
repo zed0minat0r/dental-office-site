@@ -833,222 +833,64 @@ h3 { font-size: 1.25rem; }
   color: var(--text-secondary);
 }
 
-/* ---------- Comfort Zone — Dental Anxiety Relief ---------- */
-.comfort-zone {
-  padding: 100px 0;
-  background: var(--bg);
-}
-
-.comfort-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.comfort-menu {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  box-shadow: var(--shadow-md);
+/* ---------- Comfort Note (consolidated into About) ---------- */
+.comfort-note {
+  background: linear-gradient(135deg, rgba(43,125,233,0.08), rgba(6,182,212,0.08));
   border: 1px solid var(--border);
-}
-
-.comfort-menu-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-  color: var(--text);
-}
-
-.comfort-menu-subtitle {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-bottom: 28px;
-}
-
-.comfort-items {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.comfort-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 16px;
-  border-radius: var(--radius);
-  background: var(--bg);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.comfort-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.comfort-item-icon {
-  width: 52px;
-  height: 52px;
-  min-width: 52px;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.comfort-item div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.comfort-item strong {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.comfort-item span {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-}
-
-/* Breathing Exercise Widget */
-.breathing-widget {
-  background: var(--card);
   border-radius: var(--radius-lg);
-  padding: 40px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border);
+  padding: 28px 32px;
+  margin-bottom: 48px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.breathing-widget h3 {
-  font-size: 1.35rem;
+.comfort-note h3 {
+  font-size: 1.15rem;
   font-weight: 700;
+  color: var(--text);
   margin-bottom: 8px;
 }
 
-.breathing-widget > p {
+.comfort-note p {
   color: var(--text-secondary);
   font-size: 0.95rem;
-  margin-bottom: 32px;
-  max-width: 360px;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.breath-circle-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin-bottom: 28px;
+/* ---------- Results Highlight (consolidated from Gallery) ---------- */
+.results-highlight {
+  background: linear-gradient(135deg, rgba(43,125,233,0.08), rgba(6,182,212,0.08));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-top: 48px;
+  text-align: center;
 }
 
-.breath-circle {
-  position: absolute;
-  inset: 20px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2B7DE9 0%, #06B6D4 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 4s ease-in-out, opacity 0.3s ease;
-  transform: scale(0.6);
-  opacity: 0.7;
-}
-
-.breath-circle.inhale,
-.breath-circle.hold {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.breath-circle.exhale {
-  transform: scale(0.6);
-  opacity: 0.7;
-}
-
-.breath-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.breath-text {
-  color: white;
-  font-size: 1.1rem;
+.results-highlight h3 {
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  color: var(--text);
+  margin-bottom: 8px;
 }
 
-.breath-timer {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.85rem;
-  font-weight: 500;
-  min-height: 1.2em;
+.results-highlight p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.breath-ring {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.breath-ring-track {
-  stroke: var(--border);
-}
-
-.breath-ring-progress {
-  stroke: var(--primary);
-  stroke-linecap: round;
-  transform: rotate(-90deg);
-  transform-origin: center;
-  transition: stroke-dashoffset 1s linear;
-}
-
-.breath-btn {
-  margin-bottom: 20px;
-  gap: 8px;
-}
-
-.breath-stats {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 20px;
-}
-
-.breath-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.breath-stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
+.results-highlight a {
   color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.breath-stat-label {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.breath-note {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  max-width: 320px;
-  line-height: 1.5;
-  font-style: italic;
+.results-highlight a:hover {
+  text-decoration: underline;
 }
 
 /* ---------- Insurance ---------- */
@@ -1445,10 +1287,6 @@ h3 { font-size: 1.25rem; }
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .comfort-grid {
-    grid-template-columns: 1fr;
-  }
-
   .insurance-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1532,11 +1370,6 @@ h3 { font-size: 1.25rem; }
     grid-template-columns: 1fr;
   }
 
-  .comfort-menu,
-  .breathing-widget {
-    padding: 28px 20px;
-  }
-
   .insurance-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1592,7 +1425,6 @@ h3 { font-size: 1.25rem; }
   .services,
   .about,
   .testimonials,
-  .comfort-zone,
   .insurance,
   .location,
   .contact {
@@ -1603,36 +1435,13 @@ h3 { font-size: 1.25rem; }
 @media (max-width: 360px) {
   .container { padding: 0 12px; }
 
-  .comfort-grid,
   .contact-grid {
     min-width: 0;
   }
 
-  .comfort-grid > *,
   .contact-grid > * {
     min-width: 0;
     overflow: hidden;
-  }
-
-  .comfort-menu,
-  .breathing-widget {
-    padding: 20px 12px;
-  }
-
-  .comfort-item {
-    padding: 10px 8px;
-    gap: 10px;
-  }
-
-  .comfort-item-icon {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-  }
-
-  .comfort-item-icon svg {
-    width: 18px;
-    height: 18px;
   }
 
   .appointment-form {
@@ -1731,17 +1540,9 @@ h3 { font-size: 1.25rem; }
     font-size: 14px;
   }
 
-  .comfort-item span {
-    font-size: 14px;
-  }
-
   .form-disclaimer {
     font-size: 14px;
     line-height: 1.5;
-  }
-
-  .breath-note {
-    font-size: 14px;
   }
 
   .highlight-label {
@@ -1754,10 +1555,6 @@ h3 { font-size: 1.25rem; }
 
   .footer-legal a {
     font-size: 14px;
-  }
-
-  .breath-stat-label {
-    font-size: 13px;
   }
 
   .testimonial-card blockquote {
@@ -2052,547 +1849,5 @@ h3 { font-size: 1.25rem; }
   }
 }
 
-/* ========== BEFORE & AFTER GALLERY ========== */
-.gallery {
-  padding: 80px 0;
-  background: var(--bg);
-}
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 48px;
-}
 
-.gallery-card {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.gallery-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.gallery-comparison {
-  display: flex;
-  align-items: stretch;
-  position: relative;
-}
-
-.gallery-before,
-.gallery-after {
-  flex: 1;
-  position: relative;
-}
-
-.gallery-placeholder {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.gallery-label {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.gallery-divider {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 36px;
-  height: 36px;
-  background: var(--card);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-md);
-  z-index: 2;
-  color: var(--primary);
-}
-
-.gallery-info {
-  padding: 20px 24px 24px;
-}
-
-.gallery-info h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.gallery-info p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-.gallery-tag {
-  display: inline-block;
-  background: var(--bg-alt);
-  color: var(--primary);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 20px;
-}
-
-[data-theme="dark"] .gallery-tag {
-  background: rgba(43, 125, 233, 0.15);
-}
-
-.gallery-cta {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.gallery-cta p {
-  font-size: 18px;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-}
-
-@media (max-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery {
-    padding: 60px 0;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 32px;
-  }
-
-  .gallery-placeholder {
-    height: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-info {
-    padding: 16px 18px 20px;
-  }
-
-  .gallery-placeholder {
-    height: 120px;
-  }
-}
-
-/* ========== DENTAL TIPS / BLOG ========== */
-.dental-tips {
-  padding: 80px 0;
-  background: var(--bg-alt);
-}
-
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 48px;
-}
-
-.tip-card {
-  background: var(--card);
-  border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
-  display: flex;
-  flex-direction: column;
-}
-
-.tip-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.tip-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-
-.tip-category {
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--primary);
-  margin-bottom: 8px;
-}
-
-.tip-card h3 {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 10px;
-  line-height: 1.35;
-}
-
-.tip-card p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  flex: 1;
-  margin-bottom: 14px;
-}
-
-.tip-read-time {
-  font-size: 12px;
-  color: var(--text-secondary);
-  font-weight: 500;
-  opacity: 0.7;
-}
-
-@media (max-width: 1024px) {
-  .tips-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .dental-tips {
-    padding: 60px 0;
-  }
-
-  .tips-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 32px;
-  }
-
-  .tip-card {
-    padding: 24px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .tip-card {
-    padding: 20px 16px;
-  }
-
-  .tip-card h3 {
-    font-size: 16px;
-  }
-}
-
-/* ---------- Meet Your Visit Timeline ---------- */
-.visit-timeline {
-  padding: 100px 0;
-  background: var(--bg-alt);
-}
-
-.timeline {
-  position: relative;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 32px 0;
-}
-
-.timeline-line {
-  position: absolute;
-  left: 28px;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--primary), var(--secondary));
-  border-radius: 3px;
-  opacity: 0.25;
-}
-
-.timeline-step {
-  position: relative;
-  display: flex;
-  gap: 24px;
-  margin-bottom: 32px;
-  align-items: flex-start;
-}
-
-.timeline-step:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-marker {
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(43, 125, 233, 0.25);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.timeline-step:hover .timeline-marker {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(43, 125, 233, 0.35);
-}
-
-.timeline-number {
-  display: none;
-}
-
-.timeline-icon {
-  color: #fff;
-  stroke: #fff;
-}
-
-.timeline-card {
-  flex: 1;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  transition: all var(--transition);
-  box-shadow: var(--shadow-sm);
-}
-
-.timeline-step:hover .timeline-card {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.timeline-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  gap: 12px;
-}
-
-.timeline-card-header h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text);
-  margin: 0;
-}
-
-.timeline-time {
-  flex-shrink: 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--primary);
-  background: rgba(43, 125, 233, 0.1);
-  padding: 4px 12px;
-  border-radius: 20px;
-  white-space: nowrap;
-}
-
-[data-theme="dark"] .timeline-time {
-  background: rgba(43, 125, 233, 0.2);
-}
-
-.timeline-card p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0 0 12px 0;
-  font-size: 0.95rem;
-}
-
-.timeline-card > p:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  color: var(--primary);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 4px 0;
-  font-family: var(--font);
-  transition: color var(--transition);
-}
-
-.timeline-toggle:hover {
-  color: var(--primary-dark);
-}
-
-.timeline-toggle svg {
-  transition: transform var(--transition);
-}
-
-.timeline-toggle[aria-expanded="true"] svg {
-  transform: rotate(180deg);
-}
-
-.timeline-details {
-  margin-top: 12px;
-  padding: 16px;
-  background: var(--bg-alt);
-  border-radius: var(--radius);
-  animation: slideDown 0.3s ease;
-}
-
-[data-theme="dark"] .timeline-details {
-  background: rgba(15, 23, 42, 0.5);
-}
-
-.timeline-details ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.timeline-details li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 8px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.timeline-details li:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-details li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-}
-
-.timeline-total {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 40px;
-  padding: 16px 28px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #fff;
-  border-radius: var(--radius-xl);
-  font-size: 1.05rem;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 16px rgba(43, 125, 233, 0.3);
-}
-
-.timeline-total svg {
-  flex-shrink: 0;
-  stroke: #fff;
-}
-
-.timeline-total strong {
-  font-weight: 700;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .visit-timeline {
-    padding: 70px 0;
-  }
-
-  .timeline-line {
-    left: 22px;
-  }
-
-  .timeline-marker {
-    width: 44px;
-    height: 44px;
-  }
-
-  .timeline-icon {
-    width: 22px;
-    height: 22px;
-  }
-
-  .timeline-step {
-    gap: 16px;
-  }
-
-  .timeline-card {
-    padding: 20px;
-  }
-
-  .timeline-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .timeline-line {
-    left: 18px;
-  }
-
-  .timeline-marker {
-    width: 36px;
-    height: 36px;
-  }
-
-  .timeline-icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .timeline-step {
-    gap: 12px;
-  }
-
-  .timeline-card {
-    padding: 16px;
-  }
-
-  .timeline-total {
-    font-size: 0.95rem;
-    padding: 14px 20px;
-  }
-}
