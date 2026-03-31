@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-03-30 (Refiner — Round 4)
+
+### Mobile credibility & conversion improvements (Audit P0/P1)
+- **Removed dead social media links** (Conversion P0 + Content P0): Facebook, Instagram, Google Business Profile links all pointed to `href="#"` — dead links that signal a template site. Removed entirely; when real social profiles exist, they can be added back. Cleaned up associated CSS (~20 lines).
+- **Promoted $99 new patient special to hero section** (Conversion P1): New promo banner below hero trust badges with "New Patients / $99 Exam + X-Rays / Book Now" — full-width on mobile with 44px touch target, subtle gradient border on desktop. Added `hasOfferCatalog` to JSON-LD for rich result eligibility.
+- **Replaced dead footer legal links with HIPAA disclaimer** (Content P0): Privacy Policy, Terms of Service, and Accessibility were all `href="#"` — dead links on a medical site erode trust. Replaced with a genuine HIPAA privacy statement until real policy pages are created.
+- **Bonus: Removed `novalidate` from appointment form** (Technical P1): Browser-native validation now serves as fallback alongside the existing custom ARIA validation — users without JS get basic required-field enforcement.
+- Zero new sections added — all improvements within existing sections
+
 ## 2026-03-30 (Nigel — Audit Round 4)
 
 ### Scores: 6.7/10 overall (+0.2)
