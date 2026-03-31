@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-03-30 (QA + Pixel — Mobile Design & Bug Fix Pass)
+
+### QA Results
+- All 19 Playwright tests passing (0 failures)
+- No horizontal scroll at 375px, 320px, or desktop
+- No console errors, all anchor links valid
+- All file sizes under 100KB (index.html 57KB, style.css 45KB, main.js 17KB; total 119KB)
+
+### Bug Fix
+- **Contact sidebar fade-up never triggered**: IntersectionObserver rootMargin of `-60px` at the bottom edge prevented the contact sidebar (last `.fade-up` element on the page) from ever becoming visible when scrolled to page bottom. Reduced to `-40px` and lowered threshold from `0.1` to `0.08` so bottom-of-page elements reliably animate in.
+
+### Pixel Design Fixes (375px mobile review)
+- **Map container blank void**: The Google Maps iframe area rendered as plain white when the embed was loading or blocked. Added `background: var(--bg-alt)` to `.location-map` so it shows a subtle gray tone instead of a jarring blank white rectangle.
+- **Swipe hint font-size below floor**: `.swipe-hint` was `13px`, violating the 14px mobile minimum set in the prior Pixel pass. Bumped to `14px`.
+
+### Design Review Notes (375px)
+- Hero section: clean, professional. Badge, gradient heading, CTA buttons, and trust badges are well-spaced and center-aligned.
+- Service cards: collapsed accordion pattern works well on mobile. Icon + title + chevron rows have consistent rhythm. Tap-to-expand feels natural.
+- About/Team section: comfort note and team cards stack cleanly with centered alignment.
+- Testimonials carousel: horizontal snap-scroll works, dots are functional, card width at 85% feels right.
+- Insurance grid: 2-column layout at 375px is balanced, all provider names legible.
+- FAQ accordion: clean, adequate spacing between items.
+- Location & Hours: centered info blocks, hours table aligned nicely.
+- Contact form: good field spacing, clear labels, proper touch targets.
+- Footer: 2-column link grid, centered branding, social icons at 44px.
+- Sticky CTA bar: persistent Book/Call buttons are useful on mobile.
+- Overall: professional, consistent rhythm, no alignment breaks. Typography hierarchy (badge > h2 > body > label) is clear throughout.
+
 ## 2026-03-30 (Builder — Appointment Time Slot Selector)
 
 ### Mobile-first time slot picker for appointment form
