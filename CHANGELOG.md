@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30 (Spark)
+
+### Comfort Zone — Dental Anxiety Relief Section
+- Added new "Comfort Zone" section between Testimonials and Insurance
+- Comfort Menu: 6 items (noise-canceling headphones, weighted blanket, ceiling TVs, warm beverages, hand signal system, sedation options) with gradient icons
+- Interactive Box Breathing Exercise widget with animated expanding/contracting circle, SVG ring progress indicator, phase labels (Breathe In / Hold / Breathe Out), countdown timer, cycle counter, and session duration tracker
+- Full dark mode support and responsive design (1024px, 768px, 480px breakpoints)
+- Added "Comfort" link to main navigation
+- Addresses VISION.md target audience: "People anxious about dental visits who need reassurance"
+
 ## 2026-03-30
 
 ### QA Pass — Bug Fixes (QA)
