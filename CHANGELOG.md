@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-03-30 (Pixel)
+
+### Mobile UX Overhaul — Touch Targets, Typography & CTA Accessibility
+- Fixed form input font-size from 15px to 16px to prevent iOS Safari auto-zoom on focus
+- Increased dark mode toggle and hamburger button to 44px minimum touch targets (was 40px)
+- Added sticky mobile CTA bar at bottom of screen with "Book Appointment" and "Call Now" buttons — always visible on mobile since the nav CTA is hidden
+- Added "Book Appointment" CTA button inside mobile hamburger menu for discoverability
+- Enforced 14px minimum font size on all mobile text: section badges, team roles, testimonial metadata, comfort item descriptions, form disclaimer, breathing note, footer text, and legal links
+- Set 44px minimum touch target height on all mobile interactive elements: footer links, nav menu items (48px), service links, insurance cards, legal links
+- Added overflow-x: hidden on body to prevent any horizontal scrolling
+- Hidden decorative hero background shapes on mobile to prevent overflow bleed
+- Added 320px-width fine-tuning: smaller logo text, tighter comfort item padding, reduced heading sizes, smaller hero illustration for narrow screens
+- Footer bottom padding increased on mobile to account for sticky CTA bar
+- All changes tested mentally against 320px, 375px, and 428px viewport widths
+
 ## 2026-03-30 (Refiner)
 
 ### SEO, Social Proof, FAQ & Polish
