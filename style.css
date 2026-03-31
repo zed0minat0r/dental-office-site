@@ -1494,6 +1494,17 @@ h3 { font-size: 1.25rem; }
   font-weight: 700;
   color: var(--primary);
   line-height: 1.1;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.proof-number.counted {
+  animation: countPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes countPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 .proof-stars {
@@ -1720,13 +1731,9 @@ h3 { font-size: 1.25rem; }
   50% { text-shadow: 0 0 16px rgba(43, 125, 233, 0.2); }
 }
 
-/* Proof number count-up feel on visible */
-.proof-item .proof-number {
-  transition: color 0.6s ease;
-}
-
-.social-proof:hover .proof-number {
-  color: var(--secondary);
+/* Proof number counted state */
+.proof-number.counted {
+  color: var(--primary);
 }
 
 /* Testimonial card subtle border accent on hover */

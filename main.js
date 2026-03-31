@@ -200,6 +200,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- Animated Counter (Social Proof Stats) ----------
+  const countElements = document.querySelectorAll('.proof-number[data-count]');
+  let countStarted = false;
+
+  function animateCount(el) {
+    const target = parseFloat(el.dataset.count);
+    const decimals = parseInt(el.dataset.decimals) || 0;
+    const suffix = el.dataset.suffix || '';
+    const useComma = el.dataset.comma === 'true';
+    const duration = 1600;
+    const start = performance.now();
+
+    function easeOutQuart(t) {
+      return 1 - Math.pow(1 - t, 4);
+    }
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutQuart(progress);
+      let current = eased * target;
+
+      if (decimals > 0) {
+        el.textContent = current.toFixed(decimals) + suffix;
+      } else {
+        const rounded = Math.round(current);
+        el.textContent = (useComma ? rounded.toLocaleString('en-US') : rounded) + suffix;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        if (decimals > 0) {
+          el.textContent = target.toFixed(decimals) + suffix;
+        } else {
+          el.textContent = (useComma ? target.toLocaleString('en-US') : target) + suffix;
+        }
+        el.classList.add('counted');
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  if (countElements.length > 0) {
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countStarted) {
+          countStarted = true;
+          countElements.forEach((el, i) => {
+            setTimeout(() => animateCount(el), i * 150);
+          });
+          countObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const proofGrid = document.querySelector('.proof-grid');
+    if (proofGrid) countObserver.observe(proofGrid);
+  }
+
   // ---------- Scroll Progress Bar ----------
   const scrollProgress = document.getElementById('scrollProgress');
 

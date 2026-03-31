@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30 (Spark — Animated Stat Counters)
+
+### Social Proof Stats — Animated Count-Up on Scroll
+- **Added scroll-triggered counting animation** to the Social Proof stats bar: when the section scrolls into view, numbers animate from 0 up to their final values (4.9, 500+, 15+, 10,000+) with a smooth easeOutQuart curve over 1.6 seconds
+- **Staggered start**: each counter begins 150ms after the previous one for a cascading reveal effect
+- **Data-driven via HTML attributes**: `data-count`, `data-suffix`, `data-decimals`, and `data-comma` keep all config in markup — zero magic numbers in JS
+- **Pop animation on completion**: each number does a subtle scale bounce (1.15x) when it lands on its final value via `@keyframes countPop`
+- **Handles formatting**: decimal places (4.9), comma-separated thousands (10,000), and suffix characters (+) all render correctly during and after animation
+- **Uses IntersectionObserver**: fires once at 30% visibility threshold, then disconnects — no scroll listener overhead
+- **Noscript safe**: numbers start at "0" in HTML but the fade-up already makes them visible only after JS runs
+- Zero new sections added — enhancement to existing Social Proof stats bar only
+
 ## 2026-03-30 (Builder — Micro-interactions & Scroll Progress)
 
 ### Scroll Progress Bar & Calming Micro-interactions
