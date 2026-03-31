@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-03-30 (Razor — CSS Cleanup & Consolidation)
+
+### Removed
+- Dead CSS selector `.slot-period` (no HTML reference, 9 lines)
+
+### Consolidated
+- Merged duplicate `@media (max-width: 768px)` blocks into single query (tap-to-expand service cards folded into main mobile block)
+
+### Stats
+- style.css: 46,096 B -> 45,831 B (-265 B, -13 lines)
+- No duplicate media queries remain (6 unique breakpoints)
+
+---
+
 ## 2026-03-30 (QA + Pixel — Mobile Design & Bug Fix Pass)
 
 ### QA Results
