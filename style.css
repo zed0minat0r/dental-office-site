@@ -1399,9 +1399,22 @@ h3 { font-size: 1.25rem; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
   .hero-trust { flex-direction: column; gap: 8px; align-items: center; }
-  .insurance-grid { grid-template-columns: 1fr; }
+  .insurance-grid { grid-template-columns: repeat(2, 1fr); }
   .section-header { margin-bottom: 40px; }
   .services, .about, .testimonials, .insurance, .location, .contact { padding: 60px 0; }
+  .faq { padding: 60px 0; }
+
+  /* 2x2 grid for social proof stats instead of full vertical stack */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .proof-divider { display: none; }
+
+  .social-proof { padding: 28px 0; }
 }
 
 /* ---------- Responsive: Extra Small (360px) ---------- */
@@ -1414,6 +1427,7 @@ h3 { font-size: 1.25rem; }
   .contact-sidebar .btn { word-break: break-word; white-space: normal; }
   .mobile-cta-bar { padding: 10px 12px; gap: 8px; }
   .mobile-cta-bar .btn { padding: 10px 12px; font-size: 13px; white-space: nowrap; min-width: 0; }
+  .insurance-grid { grid-template-columns: 1fr; }
   .logo-text { font-size: 15px; }
   .highlight-value { font-size: 20px; }
   h1 { font-size: 1.75rem; }
@@ -1466,18 +1480,6 @@ h3 { font-size: 1.25rem; }
   width: 1px;
   height: 48px;
   background: var(--border);
-}
-
-@media (max-width: 480px) {
-  .proof-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .proof-divider {
-    width: 60px;
-    height: 1px;
-  }
 }
 
 /* ---------- FAQ Accordion ---------- */

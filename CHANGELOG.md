@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-03-30 (Pixel — Round 2)
+
+### Mobile Layout Polish — Stats Grid, Insurance Columns & FAQ Spacing
+- **Social proof stats bar**: Replaced full vertical stack with 2x2 grid at 480px and below — cuts the stats bar height nearly in half on mobile, looks balanced at 375px and 320px. Hid decorative dividers in grid layout. Tightened section padding from 40px to 28px
+- **Insurance cards**: Kept 2-column grid at 480px (was dropping to single-column too early). Cards with just an icon and provider name fit comfortably side-by-side at 375px. Single-column now only kicks in at 360px and below for iPhone SE
+- **FAQ section**: Reduced mobile padding from 80px to 60px to match other sections, tightening the gap between Insurance and Location
+- **Removed duplicate proof-grid media query**: Old 480px override with `flex-direction: column` was conflicting with the new grid layout — deleted it
+- Verified all fixes at 320px, 375px, and 428px viewport widths via local Playwright screenshots
+
 ## 2026-03-30 (Razor — Round 2)
 
 ### CSS Surgery — Dead Code Removal, Breakpoint Consolidation & Bug Fixes
