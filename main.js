@@ -286,6 +286,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ---------- Visit Timeline Toggles ----------
+  document.querySelectorAll('.timeline-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const details = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      details.hidden = expanded;
+    });
+  });
+
   // ---------- Smooth anchor scrolling fallback ----------
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {

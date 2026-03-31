@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30 (Spark)
+
+### Meet Your Visit — Interactive First-Appointment Timeline
+- Added new "Meet Your Visit" section between About/Team and Testimonials
+- 5-step visual timeline showing exactly what happens during a first appointment: Warm Welcome, Get-to-Know-You Chat, Gentle Exam & Digital X-Rays, Personalized Plan, Leave With a Smile
+- Each step has a gradient icon marker, friendly description, and time estimate badge
+- 4 expandable "learn more" toggles (What to bring, Common questions, About our technology, Our promise) with smooth slide-down animation
+- Total visit time summary pill at bottom (45 minutes) with gradient background
+- Full dark mode support, responsive at 768px and 480px breakpoints
+- Added "Your Visit" link to main navigation
+- Directly addresses VISION.md goals: builds trust through transparency, reassures anxious patients by eliminating the unknown, and makes the experience welcoming
+
 ## 2026-03-30 (Mobile Visual Bug Fixes)
 
 ### Fix — 3 Mobile Visual Bugs (Nav, Hero Illustration, Footer)
