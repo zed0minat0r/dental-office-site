@@ -30,7 +30,7 @@
 - [x] Ensure all CTAs are prominent and varied
 
 ## Task 4: Advanced features
-- Add appointment time slot selector
+- [x] Add appointment time slot selector
 - [x] Add scroll progress bar
 - [x] Add section dots navigator
 - [x] Add social proof elements (patient count, years in practice, etc.)

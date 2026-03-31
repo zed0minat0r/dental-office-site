@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-03-30 (Builder — Appointment Time Slot Selector)
+
+### Mobile-first time slot picker for appointment form
+- Time slot grid appears after selecting a preferred date (slide-in animation)
+- 2-column grid on mobile (48px min-height touch targets), 3-col tablet, 5-col desktop
+- Saturday hours automatically limited to 9 AM - 2 PM (matching office hours)
+- Selected state with primary color fill, unavailable slots greyed out with strikethrough
+- Hidden input stores selected time value for form submission
+- Resets cleanly on form submit; re-animates when date changes
+- Completes Task 4: Advanced Features (all items now done)
+
 ## 2026-03-30 (Spark — Mobile Tap-to-Expand Service Cards)
 
 ### Mobile-first touch enhancement: collapsible service cards

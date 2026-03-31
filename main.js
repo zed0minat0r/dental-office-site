@@ -116,6 +116,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- Time Slot Picker ----------
+  const timeSlotGroup = document.getElementById('timeSlotGroup');
+  const timeSlotGrid = document.getElementById('timeSlotGrid');
+  const preferredTimeInput = document.getElementById('preferredTime');
+
+  if (dateField && timeSlotGroup && timeSlotGrid) {
+    // Show time slots when date is selected
+    dateField.addEventListener('change', () => {
+      if (!dateField.value) {
+        timeSlotGroup.style.display = 'none';
+        preferredTimeInput.value = '';
+        return;
+      }
+
+      const selected = new Date(dateField.value + 'T12:00:00');
+      const isSaturday = selected.getDay() === 6;
+
+      // Reset selection
+      preferredTimeInput.value = '';
+      timeSlotGrid.querySelectorAll('.time-slot').forEach(slot => {
+        slot.classList.remove('selected', 'unavailable');
+        const hour = parseInt(slot.dataset.time.split(':')[0], 10);
+
+        // Saturday: only 9 AM - 2 PM (last slot at 1 PM)
+        if (isSaturday && (hour < 9 || hour >= 14)) {
+          slot.classList.add('unavailable');
+        }
+
+        // Randomly mark 1-2 slots as "unavailable" for realism
+        if (!slot.classList.contains('unavailable') && Math.random() < 0.15) {
+          slot.classList.add('unavailable');
+        }
+      });
+
+      // Show with animation
+      timeSlotGroup.style.display = 'block';
+      timeSlotGroup.classList.remove('animate-in');
+      // Force reflow for re-animation
+      void timeSlotGroup.offsetHeight;
+      timeSlotGroup.classList.add('animate-in');
+    });
+
+    // Handle slot selection
+    timeSlotGrid.addEventListener('click', (e) => {
+      const slot = e.target.closest('.time-slot');
+      if (!slot || slot.classList.contains('unavailable')) return;
+
+      // Deselect all
+      timeSlotGrid.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+
+      // Select this one
+      slot.classList.add('selected');
+      preferredTimeInput.value = slot.dataset.time;
+    });
+  }
+
   // ---------- Form Validation & Submission ----------
   const form = document.getElementById('appointmentForm');
   const toast = document.getElementById('toast');
@@ -197,6 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Clear any lingering ARIA states after reset
       form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
       form.querySelectorAll('.field-error').forEach(el => { el.textContent = ''; });
+      // Reset time slot picker
+      if (timeSlotGroup) { timeSlotGroup.style.display = 'none'; timeSlotGroup.classList.remove('animate-in'); }
+      if (preferredTimeInput) preferredTimeInput.value = '';
+      if (timeSlotGrid) timeSlotGrid.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected', 'unavailable'));
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<span>Request Appointment</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
 
