@@ -135,9 +135,6 @@ async function runTests() {
     const passed = results.filter(r => r.pass).length;
     const failed = results.filter(r => !r.pass).length;
     console.log(`\n--- RESULTS: ${passed} passed, ${failed} failed out of ${results.length} tests ---`);
-
-    // Write results to file
-    const fs = require('fs');
     fs.writeFileSync('/tmp/dental-office-site/test-results.json', JSON.stringify(results, null, 2));
 
     return { passed, failed, total: results.length, results };
