@@ -28,17 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---------- Sticky Header ----------
   const header = document.getElementById('siteHeader');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-    lastScroll = currentScroll;
-  }, { passive: true });
 
   // ---------- Dark Mode Toggle ----------
   const darkToggle = document.getElementById('darkModeToggle');
@@ -131,18 +120,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('appointmentForm');
   const toast = document.getElementById('toast');
 
+  // Helper: set field error with ARIA attributes and inline message
+  function setFieldError(field, message) {
+    field.classList.add('error');
+    field.setAttribute('aria-invalid', 'true');
+    const errorEl = document.getElementById(field.id + '-error');
+    if (errorEl) {
+      errorEl.textContent = message;
+    }
+  }
+
+  // Helper: clear field error
+  function clearFieldError(field) {
+    field.classList.remove('error');
+    field.removeAttribute('aria-invalid');
+    const errorEl = document.getElementById(field.id + '-error');
+    if (errorEl) {
+      errorEl.textContent = '';
+    }
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     // Clear previous errors
-    form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    form.querySelectorAll('.error').forEach(el => {
+      el.classList.remove('error');
+      el.removeAttribute('aria-invalid');
+    });
+    form.querySelectorAll('.field-error').forEach(el => { el.textContent = ''; });
 
     // Validate required fields
     let valid = true;
     const required = form.querySelectorAll('[required]');
     required.forEach(field => {
       if (!field.value.trim()) {
-        field.classList.add('error');
+        const label = field.closest('.form-group').querySelector('label').textContent.replace('*', '').trim();
+        setFieldError(field, label + ' is required.');
         valid = false;
       }
     });
@@ -151,13 +165,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailField = form.querySelector('#email');
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailField.value && !emailPattern.test(emailField.value)) {
-      emailField.classList.add('error');
+      setFieldError(emailField, 'Please enter a valid email address.');
+      valid = false;
+    }
+
+    // Validate phone format
+    const phoneField = form.querySelector('#phone');
+    const phonePattern = /[\d]{7,}/;
+    const phoneDigits = (phoneField.value || '').replace(/\D/g, '');
+    if (phoneField.value && phoneDigits.length < 7) {
+      setFieldError(phoneField, 'Please enter a valid phone number.');
       valid = false;
     }
 
     if (!valid) {
-      // Scroll to first error
-      const firstError = form.querySelector('.error');
+      // Scroll to first error and focus it
+      const firstError = form.querySelector('[aria-invalid="true"]');
       if (firstError) {
         firstError.focus();
       }
@@ -171,6 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       form.reset();
+      // Clear any lingering ARIA states after reset
+      form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+      form.querySelectorAll('.field-error').forEach(el => { el.textContent = ''; });
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<span>Request Appointment</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
 
@@ -183,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Remove error on input
   form.querySelectorAll('input, select, textarea').forEach(field => {
     field.addEventListener('input', () => {
-      field.classList.remove('error');
+      clearFieldError(field);
     });
   });
 
@@ -261,29 +287,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (proofGrid) countObserver.observe(proofGrid);
   }
 
-  // ---------- Scroll Progress Bar ----------
+  // ---------- Consolidated Scroll Handler ----------
+  // Sticky header, scroll progress bar, and back-to-top — one listener for performance
   const scrollProgress = document.getElementById('scrollProgress');
-
-  // ---------- Back to Top Button ----------
   const backToTop = document.getElementById('backToTop');
 
   window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    // Sticky header
+    if (currentScroll > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
     // Back to top visibility
-    if (window.pageYOffset > 600) {
+    if (currentScroll > 600) {
       backToTop.classList.add('visible');
     } else {
       backToTop.classList.remove('visible');
     }
 
     // Scroll progress bar
-    const scrollTop = window.pageYOffset;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const scrollPercent = docHeight > 0 ? (currentScroll / docHeight) * 100 : 0;
     scrollProgress.style.width = scrollPercent + '%';
   }, { passive: true });
 
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // ---------- Dynamic Copyright Year ----------
+  const yearEl = document.getElementById('copyrightYear');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
 });

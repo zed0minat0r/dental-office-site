@@ -922,9 +922,6 @@ h3 { font-size: 1.25rem; }
 .insurance-card span {
   font-weight: 600;
   font-size: 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   min-width: 0;
 }
 
@@ -1085,6 +1082,18 @@ h3 { font-size: 1.25rem; }
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
+.field-error {
+  display: block;
+  font-size: 13px;
+  color: var(--danger);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.field-error:empty {
+  display: none;
+}
+
 .form-group textarea {
   resize: vertical;
   min-height: 100px;
@@ -1175,6 +1184,29 @@ h3 { font-size: 1.25rem; }
 
 .footer-brand .logo-accent {
   color: var(--secondary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+  transition: background var(--transition), color var(--transition);
+}
+
+.footer-social a:hover {
+  background: var(--primary);
+  color: #fff;
 }
 
 .footer-links h4 {
@@ -1396,7 +1428,7 @@ h3 { font-size: 1.25rem; }
   /* Location section: center on mobile */
   .location-grid { text-align: center; }
   .info-block { flex-direction: column; align-items: center; text-align: center; }
-  .hours-row { max-width: 280px; margin: 0 auto; }
+  .hours-row { max-width: 280px; margin: 0 auto; text-align: left; }
 
   /* Contact section: center headings */
   .contact-grid { text-align: left; }
@@ -1414,15 +1446,21 @@ h3 { font-size: 1.25rem; }
   .author-avatar { min-width: 44px; min-height: 44px; width: 44px; height: 44px; }
 
   .footer-links li { margin-bottom: 2px; font-size: 14px; line-height: 1.4; }
-  .footer-links a { min-height: 40px; display: inline-flex; align-items: center; padding: 4px 0; }
+  .footer-links a { min-height: 44px; display: inline-flex; align-items: center; padding: 4px 0; }
   .footer-legal { flex-wrap: wrap; justify-content: center; gap: 16px; }
-  .footer-legal a { min-height: 40px; display: inline-flex; align-items: center; font-size: 14px; }
+  .footer-legal a { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; }
 
   /* Mobile minimum font sizes */
   .section-badge, .team-role, .testimonial-author span, .hours-row { font-size: 14px; }
   .form-disclaimer { font-size: 14px; line-height: 1.5; }
-  .highlight-label { font-size: 13px; }
+  .highlight-label { font-size: 14px; }
+  .hero-badge { font-size: 14px; }
   .testimonial-card blockquote, .info-block p, .info-block h3 { font-size: 15px; }
+
+  /* Touch-target minimums for inline links */
+  .emergency-phone { min-height: 44px; display: inline-flex; align-items: center; }
+  .info-block a { min-height: 44px; display: inline-flex; align-items: center; }
+  .footer-brand .nav-logo { min-height: 44px; }
 
   /* Uniform section vertical padding on mobile */
   .services, .about, .testimonials, .insurance, .location, .contact { padding: 64px 0; }
@@ -1432,7 +1470,7 @@ h3 { font-size: 1.25rem; }
   .mobile-cta-bar { display: flex; }
   .site-footer { padding-bottom: 72px; }
 
-  .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+  .back-to-top { bottom: 84px; right: 20px; width: 44px; height: 44px; }
 }
 
 /* ---------- Responsive: Small (480px) ---------- */
@@ -1442,6 +1480,7 @@ h3 { font-size: 1.25rem; }
   .hero-trust { flex-direction: column; gap: 8px; align-items: center; }
   .insurance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .insurance-card { min-width: 0; overflow: hidden; }
+  .insurance-card span { white-space: normal; word-break: break-word; }
   .section-header { margin-bottom: 40px; }
 
   /* 2x2 grid for social proof stats instead of full vertical stack */

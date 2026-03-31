@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30 (Refiner — Round 3)
+
+### Accessibility, ARIA Form Validation, Semantic Landmarks & Footer Social
+- **Added `<main>` landmark element** (Technical P0): wraps all page content between hero and footer; skip-to-content link now targets `#main` for proper screen reader navigation
+- **Added ARIA form validation with inline error messages** (Technical P0+P1): required fields now get `aria-invalid="true"` and `aria-describedby` pointing to per-field `<span class="field-error">` elements with human-readable messages ("First Name is required.", "Please enter a valid email address."); screen readers announce errors on focus
+- **Added phone number validation** (UX P1): phone field now has a `pattern` attribute and JS validation requiring at least 7 digits
+- **Fixed JSON-LD `image` field** (Technical P0): was pointing to the site URL (invalid); now uses the SVG tooth logo data URI as a valid image reference
+- **Consolidated two scroll event listeners into one** (Technical P1): sticky header, scroll progress bar, and back-to-top button now share a single passive scroll handler
+- **Added social media links to footer** (Conversion P1): Facebook, Instagram, and Google Business Profile icons with hover states in the footer brand area
+- **Made copyright year dynamic** (Technical P2): footer year now set via JS `new Date().getFullYear()` instead of hardcoded "2026"
+- Zero new sections added — all improvements within existing sections
+
 ## 2026-03-30 (Razor — CSS Surgery & Dead Code Removal)
 
 ### Cleanup: remove unused CSS, extract inline styles
