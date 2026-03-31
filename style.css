@@ -185,7 +185,6 @@ h3 { font-size: 1.25rem; }
 }
 
 .btn-lg { padding: 14px 32px; font-size: 16px; }
-.btn-sm { padding: 8px 18px; font-size: 13px; }
 .btn-full { width: 100%; }
 
 /* ---------- Section Shared ---------- */
@@ -1008,10 +1007,13 @@ h3 { font-size: 1.25rem; }
   box-shadow: var(--shadow-md);
 }
 
-.location-map iframe {
+.location-map iframe,
+.map-iframe {
   display: block;
   width: 100%;
   min-height: 400px;
+  border: 0;
+  border-radius: var(--radius-lg);
 }
 
 /* ---------- Contact / Form ---------- */
@@ -1417,7 +1419,7 @@ h3 { font-size: 1.25rem; }
   .footer-legal a { min-height: 40px; display: inline-flex; align-items: center; font-size: 14px; }
 
   /* Mobile minimum font sizes */
-  .btn-sm, .section-badge, .team-role, .testimonial-author span, .hours-row { font-size: 14px; }
+  .section-badge, .team-role, .testimonial-author span, .hours-row { font-size: 14px; }
   .form-disclaimer { font-size: 14px; line-height: 1.5; }
   .highlight-label { font-size: 13px; }
   .testimonial-card blockquote, .info-block p, .info-block h3 { font-size: 15px; }

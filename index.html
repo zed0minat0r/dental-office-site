@@ -79,7 +79,7 @@
       "bestRating": "5"
     },
     "priceRange": "$$",
-    "image": "https://zed0minat0r.github.io/dental-office-site/",
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='3' x2='28' y2='33' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%232B7DE9'/%3E%3Cstop offset='1' stop-color='%2306B6D4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M18 3C13.5 3 10 5.5 8.5 9C7 12.5 7.5 16 9 19.5C10.5 23 13 27 15 30C16 31.5 17 33 18 33C19 33 20 31.5 21 30C23 27 25.5 23 27 19.5C28.5 16 29 12.5 27.5 9C26 5.5 22.5 3 18 3Z' fill='url(%23g)'/%3E%3C/svg%3E",
     "sameAs": [],
     "medicalSpecialty": [
       "General Dentistry",
@@ -103,7 +103,7 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- Skip to Content (accessibility) -->
-  <a href="#services" class="skip-to-content">Skip to main content</a>
+  <a href="#main" class="skip-to-content">Skip to main content</a>
 
   <!-- SVG Symbols -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -215,6 +215,8 @@
       </div>
     </div>
   </section>
+
+  <main id="main">
 
   <!-- ========== SOCIAL PROOF STATS BAR ========== -->
   <section class="social-proof" id="social-proof">
@@ -750,7 +752,7 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3087.5!2d-89.6501!3d39.7817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ2JzU0LjEiTiA4OcKwMzknMDAuNCJX!5e0!3m2!1sen!2sus!4v1711800000000"
             width="100%"
             height="100%"
-            style="border:0; border-radius: var(--radius-lg);"
+            class="map-iframe"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -775,22 +777,26 @@
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name <span class="required">*</span></label>
-              <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+              <input type="text" id="firstName" name="firstName" required placeholder="Your first name" aria-describedby="firstName-error">
+              <span class="field-error" id="firstName-error" role="alert"></span>
             </div>
             <div class="form-group">
               <label for="lastName">Last Name <span class="required">*</span></label>
-              <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+              <input type="text" id="lastName" name="lastName" required placeholder="Your last name" aria-describedby="lastName-error">
+              <span class="field-error" id="lastName-error" role="alert"></span>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="email">Email <span class="required">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="you@example.com">
+              <input type="email" id="email" name="email" required placeholder="you@example.com" aria-describedby="email-error">
+              <span class="field-error" id="email-error" role="alert"></span>
             </div>
             <div class="form-group">
               <label for="phone">Phone <span class="required">*</span></label>
-              <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
+              <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000" aria-describedby="phone-error" pattern="[\d\s\(\)\-\+\.]{7,20}">
+              <span class="field-error" id="phone-error" role="alert"></span>
             </div>
           </div>
 
@@ -877,6 +883,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ========== FOOTER ========== -->
   <footer class="site-footer">
     <div class="container">
@@ -892,6 +900,17 @@
             <span class="logo-text">Bright Smile <span class="logo-accent">Dental</span></span>
           </a>
           <p>Your smile is our priority. Providing compassionate, quality dental care for families since 2010.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="Google Business Profile" rel="noopener noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </a>
+          </div>
         </div>
 
         <div class="footer-links">
@@ -927,7 +946,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Bright Smile Dental. All rights reserved.</p>
+        <p>&copy; <span id="copyrightYear">2026</span> Bright Smile Dental. All rights reserved.</p>
         <div class="footer-legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>

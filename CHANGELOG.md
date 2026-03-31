@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-03-30 (Razor — CSS Surgery & Dead Code Removal)
+
+### Cleanup: remove unused CSS, extract inline styles
+- **Removed unused `.btn-sm` rule** — defined in CSS but never referenced in HTML
+- **Extracted inline style from map iframe** — replaced `style="border:0; border-radius: var(--radius-lg);"` with `.map-iframe` class in CSS
+- **Removed `.btn-sm` from mobile font-size override** at 768px breakpoint (dead selector)
+- **Flagged**: style.css (1754 lines) and index.html (958 lines) both exceed 800-line threshold — noted but not split (single-page site, splitting adds complexity without benefit)
+
 ## 2026-03-30 (QA — Playwright Mobile Overflow Fix)
 
 ### Fix: Horizontal scroll overflow on 375px mobile viewport
