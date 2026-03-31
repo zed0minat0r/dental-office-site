@@ -1,4 +1,4 @@
-# Bright Smile Dental — Website Audit (Round 2)
+# Bright Smile Dental — Website Audit (Round 3)
 
 **Auditor**: Nigel Pemberton-Finch, Senior Digital Auditor
 **Date**: 2026-03-30
@@ -12,14 +12,14 @@
 {
   "audit_date": "2026-03-30",
   "auditor": "Nigel",
-  "overall_score": 6.3,
+  "overall_score": 6.5,
   "categories": {
-    "design": 6,
-    "content": 7,
-    "ux": 7,
+    "design": 5,
+    "content": 5,
+    "ux": 8,
     "technical_quality": 8,
-    "conversion_optimization": 5,
-    "simplicity": 7
+    "conversion_optimization": 4,
+    "simplicity": 9
   },
   "score_history": [
     {
@@ -45,6 +45,18 @@
       "conversion_optimization": 5,
       "simplicity": 7,
       "notes": "Post-refactor audit: bloat removed, FAQ added, a11y + SEO improvements, micro-interactions, but still no real imagery or scheduling"
+    },
+    {
+      "date": "2026-03-30",
+      "audit": 3,
+      "overall": 6.5,
+      "design": 5,
+      "content": 5,
+      "ux": 8,
+      "technical_quality": 8,
+      "conversion_optimization": 4,
+      "simplicity": 9,
+      "notes": "Scoring caps enforced: placeholder content caps Content at 5, CSS avatars cap Design at 5, fake form caps Conversion at 4. Mobile UX genuinely excellent (section dots, swipeable carousel, ARIA validation). Simplicity jumps to 9 — lean, focused, well-structured."
     }
   ]
 }
@@ -54,189 +66,172 @@
 
 ## Category Breakdown
 
-### Design — 6/10 (no change)
+### Design — 5/10 (CAPPED, was 6)
+
+**SCORING CAP APPLIED:** No real photography anywhere on this site. CSS avatar illustrations with dot eyes and coloured blobs represent the dental team. The floating SVG cartoon tooth remains in the hero (hidden on mobile, still present on desktop). No real photos of the office, the team, or any patients. This caps Design at 5 regardless of other improvements.
 
 **What improved since last audit:**
-- Google Maps iframe replaced the embarrassing "Coming Soon" placeholder. Good.
-- SVG favicon in the browser tab. Small but professional.
-- Scroll progress bar and micro-interactions (badge pulse, CTA shimmer, icon lift, card hover accents) add polish without being obnoxious.
-- Focus-visible rings on interactive elements are clean.
+- Nothing material on the design front. The 6 commits since Round 2 focused on mobile UX (section dots, swipeable carousel, touch targets, ARIA). These are good changes but they are UX and Technical improvements, not Design improvements.
 
 **What still does NOT work:**
-- **The giant floating SVG tooth in the hero is still there.** Hidden on mobile (good) but on desktop it remains the first visual impression. A cartoon tooth floating in space does not build trust. This was P0 in the last audit. Still P0.
-- **CSS avatar illustrations for the team remain.** Dot-eyed blob people with coloured hair. These look like wireframe placeholders. A patient choosing a dentist wants to see real human faces. Still P0.
-- **No real photography anywhere on the entire site.** Not a single photograph. This is a dental practice website with zero photos of the office, the team, or any patients. The best dental sites lead with warm, professional photography. This site leads with SVG shapes and CSS circles. The design system and colour palette are genuinely solid — but they are dressing on an empty mannequin.
-- **Insurance logos remain generic SVG shapes.** A cross, a circle, a checkmark. No patient will recognise their provider from these abstract icons.
+- **CSS avatar illustrations remain.** 39 references to `avatar` in style.css. ~160 lines of CSS to render cartoon faces that should be `<img>` tags. Still P0. Still the single most damaging visual element on the site.
+- **No real photography.** Zero. Not one photograph. A dental practice with zero photos is a dental practice that does not look real.
+- **Insurance logos remain abstract SVG shapes.** A cross, a circle, a checkmark. No patient recognises their insurance provider from these.
+- **Hero illustration still a cartoon tooth on desktop.**
 
-**Priority fixes:**
-1. **P0** — Replace hero illustration with real photography (smiling patient/family, or the actual office)
-2. **P0** — Replace CSS avatar illustrations with real team headshots
+**Priority fixes (unchanged from Round 2):**
+1. **P0** — Replace CSS avatars with real team headshots
+2. **P0** — Add real photography (office, patients, hero imagery)
 3. **P1** — Use actual insurance provider logos
-4. **P2** — Add an office gallery or virtual tour section with real imagery
+4. **P2** — Add office gallery or virtual tour
 
 ---
 
-### Content — 7/10 (+1)
+### Content — 5/10 (CAPPED, was 7)
+
+**SCORING CAP APPLIED:** All contact information remains placeholder. "1234 Smile Avenue, Suite 200" appears in HTML, JSON-LD structured data, and footer. "(555) 123-4567" appears 7 times across the site. "hello@brightsmile.com" in the footer. These are obviously fake. Content is capped at 5.
 
 **What improved since last audit:**
-- FAQ section added with 6 well-written, genuinely useful questions. Covers first visits, insurance, anxiety, cost, children, and emergencies. The copy is warm and patient-friendly. This was a P1 ask and it was delivered well.
-- Social proof stats bar (4.9 rating, 500+ reviews, 15+ years, 10,000+ patients) adds credibility. The animated count-up on scroll is a nice touch — not overdone.
-- Comfort note in the About section ("Nervous about the dentist? We get it.") with comfort amenities is concise and reassuring. Good consolidation from the removed Comfort Zone section.
-- "Real Results" highlight in the Services section with a CTA to book a consultation — sensible consolidation from the removed Before/After gallery.
+- Social media links added to footer (Facebook, Instagram, Google Business Profile). However, they all point to `href="#"` — dead links to nowhere. This is not an improvement; it is a new problem.
 
 **What still does NOT work:**
-- **All contact information remains placeholder.** "1234 Smile Avenue," "(555) 123-4567," "hello@brightsmile.com" — still obviously fake. This is a pre-launch issue, but it undercuts any review of the site as a real dental practice website.
-- **Team bios are still thin.** Three sentences each. "15 years of experience in general and cosmetic dentistry." Where is the personality? Where is the founding story? Why did Dr. Mitchell become a dentist? Patients choose dentists they feel they know.
-- **No differentiators.** What technology does this office use? Digital X-rays? CEREC same-day crowns? Laser dentistry? The copy says nothing about what makes this practice different from the dozens of others in Springfield.
-- **No blog/dental tips section.** Removed during the trim (understandable for simplicity), but dental content marketing remains table stakes for SEO. At minimum, link out to a blog.
-- **No new patient information section.** The FAQ partially covers "what to bring," but a dedicated new patient page or section with forms, what-to-expect details, and insurance verification would serve patients better.
-- **Missing P2 items:** Virtual tour, patient portal link, smile gallery.
+- **Placeholder contact information everywhere.** This was P0 in Round 2. Still P0. Still unfixed. The fake address appears in the JSON-LD structured data, which means Google will index fake data for local search. This is actively harmful to SEO.
+- **Team bios remain thin.** Three sentences each. No personality, no founding story, no differentiators.
+- **Social media links are dead.** `href="#"` on all three footer social links. Adding icons that go nowhere is worse than not having them — it signals a template, not a real practice.
+- **Footer legal links still dead.** Privacy Policy, Terms of Service, Accessibility — all `href="#"`. For a medical practice, these are not optional.
+- **No differentiators.** No mention of specific technology, certifications, or what makes this practice different.
 
 **Priority fixes:**
-1. **P0** — Replace placeholder contact information with real data before any launch
-2. **P0** — Add genuine differentiators (technology, amenities, founding story)
-3. **P1** — Expand team bios with personality, education detail, and philosophy
-4. **P1** — Add dedicated new patient information section
-5. **P2** — Consider a blog or dental tips resource (even off-site)
+1. **P0** — Replace ALL placeholder contact information with real data (address, phone, email)
+2. **P0** — Wire social media links to actual profiles, or remove them entirely
+3. **P0** — Create or link Privacy Policy, Terms of Service, and Accessibility Statement
+4. **P1** — Add genuine practice differentiators (technology, founding story)
+5. **P1** — Expand team bios with personality and depth
 
 ---
 
-### UX — 7/10 (+1)
+### UX — 8/10 (+1)
 
 **What improved since last audit:**
-- **Skip-to-content link added.** WCAG keyboard navigation requirement now met.
-- **Date picker constraints implemented.** No past dates, no Sundays, 3-month maximum. Sunday selection shows a custom validity message. Good.
-- **Active nav highlight now visible.** Blue text, bold weight, bottom border — you can actually tell where you are on the page. Previously invisible.
-- **Mobile sticky CTA bar** with "Book Appointment" and "Call Now" always visible at bottom. This directly addresses the "no phone number visible on mobile" complaint. Well done.
-- **Back-to-top button** added with scroll-triggered visibility. Needed for a long single-page site.
-- **Site trimmed from 14 sections to 10.** Bloat sections removed (breathing exercise, first-visit timeline, blog, standalone gallery). Navigation went from 9 links to 6. The page is materially shorter and more focused.
-- **Noscript fallback** ensures content is visible when JS is disabled.
+- **Section dots navigator.** Fixed vertical dot strip on right edge for quick section jumping. Uses IntersectionObserver to track active section. Responsive sizing (12px desktop, 10px tablet, 9px small mobile). Progressive reveal after 200px scroll. This is a genuinely useful navigation aid for a long single-page site, especially on mobile where scrolling is the primary interaction. Well implemented.
+- **Swipeable testimonials carousel on mobile.** Horizontal scroll-snap with `scroll-snap-type: x mandatory`. Dot indicators that track current card via scroll detection. 44px touch targets on dots. Animated "Swipe to read more reviews" hint that fades out. Hidden on desktop — zero impact on existing layout. This is exactly right. Mobile users expect to swipe; they got swipe.
+- **Touch target compliance.** Footer social icons bumped to 44px. Footer links to 44px. Inline links given 12px vertical padding. Emergency phone link min-height 44px. Hero badge and CTA bar fonts bumped to 14px minimum. This is thorough mobile-first work.
+- **Insurance cards vertical stacking at 480px.** "UnitedHealthcare" no longer truncated. Sensible layout adjustment.
+- **Hours row gap fix.** "Monday - Friday" and "8:00 AM - 6:00 PM" no longer run together.
+- **Back-to-top repositioned** to clear the sticky CTA bar on mobile.
+- **ARIA form validation with inline error messages.** `aria-invalid`, `aria-describedby`, per-field error spans with `role="alert"`. Phone pattern validation. This was P0 from Round 2 — properly addressed.
 
 **What still does NOT work:**
-- **"Book Appointment" CTA still goes to a form, not real scheduling.** The form says "we will get back to you within 1 business day." In 2026, patients expect instant online booking. This remains the single biggest UX failure. Every competitor with a Zocdoc or Calendly widget is winning these patients.
-- **"Learn More" links on service cards still all go to the contact form.** A user clicking "Learn More" on Cosmetic Dentistry expects expanded information about cosmetic dentistry — not a generic contact form. Even an accordion or modal with more detail would be an improvement.
-- **No phone input formatting or masking.** Users can type anything into the phone field. A simple input mask or pattern would prevent bad data.
-- **Footer legal links (Privacy Policy, Terms of Service, Accessibility) are dead** — all `href="#"`. These are not optional for a medical practice in 2026.
+- **Booking form is still a dead end.** Still a `setTimeout` toast. Still "we will contact you within 1 business day." In 2026, this is unacceptable. Every competitor offers instant online booking. This is the UX ceiling.
+- **"Learn More" on service cards still goes to the contact form.** 5 instances of `<a href="#contact" class="service-link">Learn More</a>`. A user clicking "Learn More" on Cosmetic Dentistry expects information about cosmetic dentistry.
+- **Social media links go nowhere.** Clicking Facebook, Instagram, or Google Business Profile does nothing.
 
 **Priority fixes:**
 1. **P0** — Integrate real-time scheduling (Zocdoc, Calendly, or practice management widget)
-2. **P1** — Expand "Learn More" to show actual service detail (accordions, modals, or sub-pages)
-3. **P1** — Add phone input formatting/masking
-4. **P1** — Create real Privacy Policy, Terms of Service, and Accessibility Statement pages
-5. **P2** — Add a "Text Us" or live chat option
+2. **P1** — Make "Learn More" links expand service detail (accordions, modals, or sub-pages)
+3. **P1** — Wire social media links to real profiles or remove them
 
 ---
 
-### Technical Quality — 8/10 (+1)
+### Technical Quality — 8/10 (no change)
 
 **What improved since last audit:**
-- **JSON-LD structured data added** for Dentist/LocalBusiness. Includes address, hours, aggregate rating, medical specialties, and founder. This is essential for local SEO and it was done correctly.
-- **Open Graph + Twitter Card meta tags** added. Social sharing will now render properly.
-- **SVG favicon** — clean, lightweight, matches the brand.
-- **Noscript fallback CSS** — fade-up elements default to visible when JS is disabled. Content is no longer invisible without JS.
-- **Label/select id mismatch fixed** — `<label for="insurance">` now correctly associates with the `<select id="insurance">`. Accessibility regression resolved.
-- **External links hardened** — `noreferrer` added alongside `noopener`.
-- **Dead CSS removed** — 255 lines cut, 14% reduction. Duplicate media query blocks consolidated. Ghost styles from deleted sections cleaned up.
-- **Delay classes fixed** — changed from `animation-delay` (wrong) to `transition-delay` (correct) so staggered fade-ins actually work.
-- **SVG deduplication** — star and check-circle symbols defined once, referenced via `<use>`. Inline gradient styles extracted to utility classes. Clean.
-- **Active nav CSS added** — JS was setting `.active` class but no style existed. Now it does.
-- Code reduced from 4,224 lines to 2,995. Well-structured, well-commented, no dead code visible.
+- **`<main>` landmark element added** wrapping page content. Skip-to-content now targets `#main`. Screen reader navigation fixed.
+- **ARIA form validation complete.** `aria-invalid="true"`, `aria-describedby` pointing to per-field `<span class="field-error" role="alert">` elements. Phone pattern validation via `pattern` attribute. This was P0 — properly done.
+- **Consolidated scroll listeners.** Sticky header, scroll progress, back-to-top, and section dots all in one passive handler. Clean.
+- **Dynamic copyright year.** `new Date().getFullYear()` instead of hardcoded "2026".
+- **IntersectionObserver for section dots** — efficient, no scroll listener overhead for dot tracking.
+- **Scroll-snap carousel** uses CSS-native snapping with JS dot synchronization via scroll event. No library dependencies. Lean.
+- **Horizontal overflow fix at 375px.** `minmax(0, 1fr)` on insurance grid, `min-width: 0` on cards. Root cause properly diagnosed and fixed.
+- Total codebase: 3,406 lines across 3 files (997 HTML, 1997 CSS, 412 JS). 116KB total. No dependencies. No build step. This is admirably lean for the feature set.
 
 **What still does NOT work:**
-- **JSON-LD `image` field points to the site URL, not an actual image.** Google will not accept a page URL as an image for rich results. This needs to be a real image URL (og:image or a team photo).
-- **No `aria-invalid` or `aria-describedby` on form validation.** Custom JS validation sets visual `.error` class but screen readers get no programmatic indication of which field failed or why. For a medical practice site, accessibility is not optional.
-- **`novalidate` on the form with incomplete custom validation.** The custom JS only checks empty required fields and email format. It does not validate phone format, does not set `aria-invalid`, and does not provide error messages next to fields. Either remove `novalidate` and let the browser help, or build complete custom validation with ARIA attributes.
-- **Copyright year hardcoded** ("2026"). Minor, but should be dynamic.
-- **Privacy/Terms/Accessibility footer links are `href="#"`** — dead links. From a technical standards perspective, a medical practice needs these pages to exist.
-- **No `loading="lazy"` on the Google Maps iframe** — wait, it is there. Good. But no images exist to lazy-load, which remains the core problem.
-- **No `<main>` landmark element.** Skip-to-content link points to `#services`, but the page lacks a `<main>` element wrapping the primary content. Screen readers use `<main>` as a primary landmark.
-- **Two scroll event listeners registered separately** (one for sticky header, one for back-to-top + progress bar). Should be consolidated into one for performance hygiene, even though both are passive.
+- **JSON-LD `image` field uses SVG data URI.** Better than the site URL (Round 1), but Google's rich results validator may reject a data URI. Should be a hosted image URL.
+- **Multiple `@media (max-width: 768px)` blocks.** Lines 1407 and 1467 are separate 768px blocks. Lines 1585 and potentially others are duplicate breakpoints. The Round 2 consolidation was good but new features added new blocks.
+- **Social links `href="#"` with `rel="noopener noreferrer"`.** Technically correct attributes on links that go nowhere. The technical implementation is fine; the content is missing.
+- **No `<img>` elements with `loading="lazy"` anywhere** — because there are no images. When real photos arrive, ensure lazy loading is applied.
+- **`novalidate` still on the form** — the custom validation is now better (ARIA, phone pattern), but the form still relies entirely on JS. A `required` attribute without `novalidate` would give users browser-native fallback.
 
 **Priority fixes:**
-1. **P0** — Fix JSON-LD `image` field to point to a real image URL
-2. **P0** — Add `<main>` landmark element wrapping page content
-3. **P0** — Add `aria-invalid` and `aria-describedby` to form validation for screen readers
-4. **P1** — Add inline error messages next to form fields (not just red borders)
-5. **P1** — Consolidate scroll event listeners into one handler
-6. **P2** — Make copyright year dynamic
+1. **P0** — Fix JSON-LD `image` to use a hosted image URL (not data URI)
+2. **P1** — Consolidate duplicate media query blocks added by new features
+3. **P1** — Consider removing `novalidate` to allow browser-native validation as fallback
+4. **P2** — Ensure lazy loading on all images when real photography is added
 
 ---
 
-### Conversion Optimization — 5/10 (no change)
+### Conversion Optimization — 4/10 (CAPPED, was 5)
+
+**SCORING CAP APPLIED:** The appointment form uses `setTimeout` to simulate submission. No backend. No confirmation email. No real booking. The form shows a toast saying "Thank you! We will contact you shortly" — but nothing actually happens. No appointment is created. No data is sent. This is a conversion dead end, and it caps this category at 4.
 
 **What improved since last audit:**
-- Social proof stats bar is a genuine conversion asset. 4.9 Google rating, 500+ reviews, 15+ years, 10,000+ patients — these numbers build trust. The animated count-up draws the eye.
-- Mobile sticky CTA bar ensures "Book Appointment" and "Call Now" are always one tap away on mobile. This is a real conversion improvement.
-- FAQ section proactively answers objections (cost, anxiety, insurance, first visit). Good conversion hygiene.
+- Social media icons added to footer — but they are dead links (`href="#"`). This actually hurts conversion because it signals a template site.
+- Swipeable testimonial carousel on mobile makes social proof more accessible and engaging on the primary user device. This is a genuine conversion micro-improvement.
+- Touch target improvements ensure tappable elements are usable on mobile. Good for conversion hygiene.
 
 **What still does NOT work:**
-- **The appointment form is still a dead-end.** `setTimeout` simulates submission. No backend. No confirmation email. No real booking. This is the conversion killer. A patient fills out the form, gets a fake "Thank you" toast, and then... nothing. No appointment, no confirmation, no follow-up. They will book with a competitor who offers instant confirmation.
-- **No Google Reviews integration.** The on-page testimonials are fine, but linking to actual Google/Yelp reviews with real names and photos would dramatically increase trust. "4.9 rating / 500+ reviews" is a claim without evidence — link to the reviews.
-- **Insurance logos are still unrecognisable shapes.** A patient scanning for their Delta Dental or Cigna logo will not find it. This actively harms conversion for the insurance-conscious patient segment.
-- **No social media links anywhere.** No Facebook, Instagram, Google Business profile linked. In 2026, patients check social media for recent activity and authentic content. An empty social presence (or no links at all) is a red flag.
-- **No "Why Choose Us" section with concrete differentiators.** The social proof numbers are good but generic. What specific technology, certifications, or patient outcomes set this practice apart?
-- **No patient financing detail.** "Bright Smile Savings Plan" is mentioned in one line with no specifics. CareCredit is mentioned in the FAQ answer but not prominently. Financing information is conversion-critical for expensive procedures.
-- **No exit intent or re-engagement mechanism.** No chat widget, no SMS opt-in, no email capture beyond the appointment form.
-- **The new patient special ($99) is buried in the contact sidebar.** This offer should be more prominent — hero area or a dedicated callout.
+- **The form is fake.** `setTimeout` with a toast. No data goes anywhere. A patient who fills out the form gets nothing — no email, no confirmation, no appointment. This is the conversion killer.
+- **Social media links are dead.** Dead social links actively damage credibility. Remove them or wire them up.
+- **No Google Reviews link.** "4.9 rating / 500+ reviews" — where? Link to the actual reviews page.
+- **Insurance logos unrecognisable.** Patients scanning for their provider cannot identify abstract SVG shapes.
+- **$99 new patient special buried** in the contact sidebar. Should be hero-level prominent.
+- **No patient financing detail.** CareCredit mentioned once in FAQ, not prominently.
+- **No live chat, no SMS, no exit-intent capture.**
 
 **Priority fixes:**
-1. **P0** — Connect the form to a real backend or integrate a scheduling service
-2. **P0** — Link social proof numbers to actual Google Reviews page
-3. **P1** — Add social media links (footer and/or header)
-4. **P1** — Add "Why Choose Us" section with specific technology, certifications, outcomes
-5. **P1** — Make the $99 new patient offer more prominent (hero or dedicated banner)
-6. **P1** — Expand financing/payment plan information with a dedicated callout
-7. **P2** — Add chat widget or "Text Us" option
-8. **P2** — Add exit-intent or email capture mechanism
+1. **P0** — Connect form to a real backend OR integrate scheduling service (Zocdoc, Calendly)
+2. **P0** — Either wire social media links to real profiles or remove them entirely
+3. **P1** — Link social proof numbers to actual Google Reviews page
+4. **P1** — Make $99 new patient offer more prominent
+5. **P1** — Add real insurance provider logos
+6. **P2** — Add chat widget or "Text Us" option
 
 ---
 
-### Simplicity — 7/10 (new category)
+### Simplicity — 9/10 (+2)
 
 **What works:**
-- The trim from 14 sections to 10 was the right call. Removing the breathing exercise widget, first-visit timeline, blog section, and standalone gallery eliminated genuine bloat. Those were creative additions but they turned a dental practice site into an interactive wellness app.
-- Navigation at 6 links is manageable. The previous 9-link nav was overwhelming.
-- Section count is now: Hero, Stats Bar, Services, About/Team, Testimonials, Insurance, FAQ, Location, Contact, Footer. This is a sensible, focused flow.
-- 2,995 total lines across 3 files for a complete single-page site with dark mode, responsive design, form validation, and scroll animations is reasonable.
-- CSS at 1,748 lines is acceptable for the scope. No framework, no unnecessary abstractions.
+- **3,406 total lines across 3 files.** No build step. No dependencies. No framework. One HTML file, one CSS file, one JS file. 116KB total. This is refreshingly lean.
+- **10 sections, 6 nav links.** The structure is focused and logical: Hero, Stats, Services, About/Team, Testimonials, Insurance, FAQ, Location, Contact, Footer.
+- **New features added without bloat.** Section dots navigator: ~90 lines CSS, ~35 lines JS. Testimonial carousel: ~80 lines CSS, ~50 lines JS. These are proportionate additions for the functionality they deliver.
+- **Consolidated scroll handler.** One passive listener handles sticky header, progress bar, back-to-top, and section dots. Clean architecture.
+- **IntersectionObserver used correctly** for fade-ups, count-up animations, section dot tracking, and carousel dot tracking. No unnecessary scroll listeners.
+- **CSS avatar system is STILL 160+ lines that should be replaced by `<img>` tags.** But I am scoring Simplicity on the code that exists, and within its constraints, the code is clean and well-organised.
+- **No dead code.** The dead CSS removal passes were effective. No ghost styles found.
 
 **What could be leaner:**
-- **CSS avatar system is 186 lines of CSS** (lines 606-785) to render cartoon faces that should be replaced by `<img>` tags pointing to real photos. When real headshots arrive, nearly 200 lines of CSS disappear.
-- **The hero illustration SVG is 30+ lines of inline markup** for a floating cartoon tooth that does not build trust. Replace with a single `<img>` tag.
-- **Micro-interaction animations (90+ lines CSS, lines 1656-1748)** — the badge pulse, CTA shimmer, price glow, and social proof colour shift are fine individually, but collectively they add cognitive load. A dental practice site should feel calm and trustworthy, not animated. The shimmer on the CTA is the only one that serves a conversion purpose; the rest are polish for polish's sake.
-- **The page is still quite long.** 10 sections on a single page means significant scrolling. Consider whether the Insurance section (8 cards + a note) could be condensed into a single line ("We accept Delta Dental, Cigna, Aetna, and most major providers") or moved into the FAQ.
+- **Duplicate media query blocks.** New features added new `@media (max-width: 768px)` blocks instead of appending to the existing consolidated block. This is a mild organisational issue, not a complexity problem.
+- **Carousel CSS (80 lines) only applies on mobile.** Properly scoped with media queries. No desktop impact. This is the right way to add mobile-specific features.
 
 **Priority fixes:**
-1. **P0** — Replace CSS avatars with `<img>` tags (eliminates ~186 lines of CSS)
-2. **P1** — Replace hero SVG illustration with a single `<img>` tag
-3. **P2** — Consider trimming micro-interactions to only conversion-relevant ones (CTA shimmer, hover states)
-4. **P2** — Consider condensing Insurance into a simpler format or folding into FAQ
+1. **P1** — Consolidate duplicate media query blocks
+2. **P2** — When real photos replace CSS avatars, delete ~160 lines of avatar CSS
 
 ---
 
 ## Overall Assessment
 
-**Overall Score: 6.3/10** (was 5.8 — up 0.5)
+**Overall Score: 6.5/10** (was 6.3 — up 0.2)
 
-The refactoring work since the last audit has been competent and directionally correct. The team trimmed bloat aggressively (14 sections down to 10, 30% line reduction), added the FAQ section, implemented real social proof numbers, fixed genuine accessibility issues (skip-to-content, label mismatch, noscript fallback), and added proper SEO foundations (JSON-LD, OG tags, favicon). The mobile experience improved significantly with the sticky CTA bar and date picker constraints.
+The mobile UX work since Round 2 has been genuinely excellent. The section dots navigator, swipeable testimonial carousel, 44px touch targets, ARIA form validation, and insurance card layout fixes are all well-implemented, mobile-first improvements that demonstrate real understanding of how people use phones. The codebase remains admirably lean at 3,406 lines with zero dependencies. Simplicity jumps to 9 — this is clean, focused work.
 
-However, the score only moved 0.5 points because the fundamental problems from the first audit remain untouched:
+However, I am now enforcing strict scoring caps that were implicit but not formalised in previous rounds:
 
-1. **No real photography.** Still cartoon teeth and CSS blob people.
-2. **No real scheduling.** Still a form with a `setTimeout`.
-3. **No real contact information.** Still "1234 Smile Avenue."
+- **Design is CAPPED at 5** because there is no real photography. CSS avatars with dot eyes are not team headshots. A floating SVG tooth is not a hero image. This cap cannot be overridden by colour palette quality or animation polish.
+- **Content is CAPPED at 5** because "1234 Smile Avenue" and "(555) 123-4567" are placeholder data, not real content. This fake data now appears in JSON-LD structured data being served to Google. The addition of dead social media links (`href="#"`) makes this worse, not better.
+- **Conversion is CAPPED at 4** because the booking form uses `setTimeout` to fake a submission. No data goes anywhere. No appointment is created. Adding dead social media links compounds the problem.
 
-These are not code problems. The code is genuinely good — well-structured, accessible, performant, and clean. But code quality cannot compensate for the absence of real content and real functionality. A patient visiting this site today would see a polished template, not a trustworthy dental practice.
+The fundamental reality has not changed since Round 1: the code is excellent, but it is dressing a mannequin. The technical execution is professional-grade. The content is template-grade. Until real photography, real contact information, and real scheduling are added, this site cannot break 7.0.
 
-The ceiling for this site without real photography and real scheduling is approximately 6.5/10. With those two things, it could jump to 8+.
+**Trajectory:** UX and Simplicity are approaching their ceilings (8 and 9). Technical is solid at 8. The bottleneck is now entirely Content (real data), Design (real photography), and Conversion (real scheduling). These are not code problems — they are business decisions.
 
 **Top 5 actions, in order:**
-1. Real photography (team headshots, office, patients) — unlocks Design and Simplicity gains simultaneously
-2. Real-time scheduling integration — unlocks Conversion and UX gains simultaneously
-3. Real contact information and social media links
-4. Form accessibility (aria-invalid, error messages, main landmark)
-5. Link social proof to actual Google Reviews
+1. Real photography (team headshots, office photos, hero image) — unlocks Design past 5
+2. Real contact information (address, phone, email, social links) — unlocks Content past 5
+3. Real-time scheduling integration — unlocks Conversion past 4
+4. Wire or remove dead social media links — currently hurting credibility
+5. Make "Learn More" on service cards link to actual service information
 
 ---
 
-*Audit conducted by Nigel. The code continues to improve — now give it something real to work with. A Savile Row suit still needs a person inside it.*
+*Audit conducted by Nigel. The mobile UX is now genuinely good — better than most real dental sites, frankly. But a beautifully tailored suit still needs a person inside it. Give me real content and I will give you real scores.*

@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30 (Nigel — Audit Round 3)
+
+### Re-audit with strict scoring caps enforced
+- Full re-audit across 6 categories: Design (5), Content (5), UX (8), Technical Quality (8), Conversion Optimization (4), Simplicity (9)
+- Overall score: 6.5/10 (up from 6.3) — mobile UX and simplicity gains offset by strict cap enforcement
+- **Scoring caps enforced**: Design capped at 5 (no real photography/CSS avatars), Content capped at 5 (placeholder contact info), Conversion capped at 4 (fake form submission)
+- Key finding: mobile UX is now genuinely excellent (section dots, swipeable carousel, ARIA validation, 44px touch targets) — better than most real dental sites
+- Simplicity jumps to 9 — 3,406 lines, 3 files, zero dependencies, 116KB total
+- Dead social media links (href="#") identified as actively harmful — hurting credibility rather than helping
+- Bottleneck is now entirely non-code: real photography, real contact info, real scheduling
+- Updated score_history with all three audit rounds
+
 ## 2026-03-30 (Builder — Section Dots Navigator)
 
 ### Mobile-first section dots navigator
