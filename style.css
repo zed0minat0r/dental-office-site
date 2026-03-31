@@ -2122,6 +2122,73 @@ h3 { font-size: 1.25rem; }
   pointer-events: none;
 }
 
+/* ---------- Mobile Scroll Journey (color-shifting progress + staggered reveals) ---------- */
+@media (max-width: 768px) {
+  /* Progress bar shifts through brand palette as you scroll */
+  .scroll-progress {
+    height: 4px;
+    transition: width 0.05s linear, background 0.4s ease;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .scroll-progress.journey-start {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+  }
+  .scroll-progress.journey-mid {
+    background: linear-gradient(90deg, var(--secondary), #8B5CF6);
+  }
+  .scroll-progress.journey-end {
+    background: linear-gradient(90deg, #8B5CF6, var(--accent));
+  }
+
+  /* Staggered cascade reveal for section children on mobile */
+  .fade-up-cascade > *:nth-child(1) { transition-delay: 0ms; }
+  .fade-up-cascade > *:nth-child(2) { transition-delay: 80ms; }
+  .fade-up-cascade > *:nth-child(3) { transition-delay: 160ms; }
+  .fade-up-cascade > *:nth-child(4) { transition-delay: 240ms; }
+  .fade-up-cascade > *:nth-child(5) { transition-delay: 320ms; }
+  .fade-up-cascade > *:nth-child(6) { transition-delay: 400ms; }
+
+  .fade-up-cascade > * {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .fade-up-cascade.cascade-visible > * {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Section badge "slide-in-from-left" entrance on mobile */
+  .section-badge {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  }
+
+  .cascade-visible .section-badge,
+  .visible .section-badge {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Gentle scale-bounce for section headings when they appear */
+  .section-header h2 {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+  }
+
+  .cascade-visible .section-header h2 {
+    animation: heading-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  @keyframes heading-pop {
+    0% { transform: scale(0.92); opacity: 0.5; }
+    60% { transform: scale(1.03); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+}
+
 /* ---------- Micro-interactions ---------- */
 
 /* Hero badge gentle pulse */

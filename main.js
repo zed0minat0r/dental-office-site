@@ -503,6 +503,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- Mobile Scroll Journey ----------
+  // Color-shifting progress bar + staggered cascade reveals
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    // Progress bar color journey: shifts through brand palette as user scrolls
+    const progressBar = document.getElementById('scrollProgress');
+    function updateJourneyColor() {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? window.pageYOffset / docHeight : 0;
+      progressBar.classList.remove('journey-start', 'journey-mid', 'journey-end');
+      if (pct < 0.35) {
+        progressBar.classList.add('journey-start');
+      } else if (pct < 0.7) {
+        progressBar.classList.add('journey-mid');
+      } else {
+        progressBar.classList.add('journey-end');
+      }
+    }
+    window.addEventListener('scroll', updateJourneyColor, { passive: true });
+    updateJourneyColor();
+
+    // Staggered cascade reveal for grids (services, insurance, team, etc.)
+    const cascadeTargets = document.querySelectorAll(
+      '.services-grid, .team-grid, .insurance-grid, .proof-grid'
+    );
+    cascadeTargets.forEach(grid => grid.classList.add('fade-up-cascade'));
+
+    const cascadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('cascade-visible');
+          cascadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -30px 0px', threshold: 0.05 });
+
+    cascadeTargets.forEach(el => cascadeObserver.observe(el));
+  }
+
   // ---------- Dynamic Copyright Year ----------
   const yearEl = document.getElementById('copyrightYear');
   if (yearEl) {

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-03-30 (Spark — Mobile Scroll Journey)
+
+### Mobile scroll experience enhancement
+- Added scroll-driven color-shifting progress bar: transitions through brand palette (blue -> teal/purple -> amber) as users scroll down the page on mobile
+- Implemented staggered cascade reveal animations for grid sections (services, team, insurance, stats) — children animate in with sequential delays creating a satisfying waterfall effect
+- Section badges slide in from the left; section headings get a subtle scale-bounce pop on entrance
+- Progress bar thickened to 4px with rounded end cap on mobile for better thumb-scroll visibility
+- All enhancements are mobile-only (768px breakpoint), zero impact on desktop, pure CSS + lightweight JS
+
 ## 2026-03-30 (Refiner — Round 4)
 
 ### Mobile credibility & conversion improvements (Audit P0/P1)
