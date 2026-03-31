@@ -2,6 +2,15 @@
 
 ## 2026-03-30
 
+### Audit Complete — Nigel's Full Site Review (Auditor)
+- Comprehensive audit across 5 categories: Design (6), Content (6), UX (6), Technical Quality (7), Conversion Optimization (5)
+- Overall score: 5.8/10 — solid template, not yet a real practice site
+- Key findings: no real photography, no real scheduling, missing structured data, placeholder content throughout
+- Created AUDIT.md with JSON scores, score_history, detailed findings and prioritized recommendations per category
+- Top priorities: real photography, scheduling integration, JSON-LD structured data, social proof, FAQ section
+
+## 2026-03-30
+
 ### Task 1 Complete — Full Initial Build (Builder)
 - Built complete index.html, style.css, main.js from scratch
 - Hero section with gradient text, floating tooth illustration, trust badges, dual CTAs
