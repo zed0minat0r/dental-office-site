@@ -1731,11 +1731,6 @@ h3 { font-size: 1.25rem; }
   50% { text-shadow: 0 0 16px rgba(43, 125, 233, 0.2); }
 }
 
-/* Proof number counted state */
-.proof-number.counted {
-  color: var(--primary);
-}
-
 /* Testimonial card subtle border accent on hover */
 .testimonial-card:hover {
   border-color: var(--primary);
