@@ -200,15 +200,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- Scroll Progress Bar ----------
+  const scrollProgress = document.getElementById('scrollProgress');
+
   // ---------- Back to Top Button ----------
   const backToTop = document.getElementById('backToTop');
 
   window.addEventListener('scroll', () => {
+    // Back to top visibility
     if (window.pageYOffset > 600) {
       backToTop.classList.add('visible');
     } else {
       backToTop.classList.remove('visible');
     }
+
+    // Scroll progress bar
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = scrollPercent + '%';
   }, { passive: true });
 
   backToTop.addEventListener('click', () => {

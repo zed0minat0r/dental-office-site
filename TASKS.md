@@ -13,12 +13,12 @@
 - [x] Scroll animations
 - [x] Mobile responsive (3 breakpoints: 1024px, 768px, 480px)
 
-## Task 2: Visual design & polish
-- Add dark mode toggle
-- Add smooth scroll animations
-- Add CSS illustrations (tooth icon, smile, dental tools) instead of emojis
-- Improve mobile responsiveness with multiple breakpoints
-- Add calming color transitions and micro-interactions
+## Task 2: Visual design & polish [COMPLETE]
+- [x] Add dark mode toggle
+- [x] Add smooth scroll animations
+- [x] Add CSS illustrations (tooth icon, smile, dental tools) instead of emojis
+- [x] Improve mobile responsiveness with multiple breakpoints
+- [x] Add calming color transitions and micro-interactions
 
 ## Task 3: Content & conversion [COMPLETE]
 - [x] Add insurance accepted section
@@ -31,10 +31,10 @@
 
 ## Task 4: Advanced features
 - Add appointment time slot selector
-- Add scroll progress bar
+- [x] Add scroll progress bar
 - Add section dots navigator
-- Add social proof elements (patient count, years in practice, etc.)
-- Add sticky appointment CTA bar
+- [x] Add social proof elements (patient count, years in practice, etc.)
+- [x] Add sticky appointment CTA bar
 
 ## Task 5: Site Slimdown [COMPLETE]
 - [x] Remove "Meet Your Visit" timeline section (overlaps FAQ)

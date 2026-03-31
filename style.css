@@ -1629,4 +1629,118 @@ h3 { font-size: 1.25rem; }
   box-shadow: var(--shadow-lg);
 }
 
+/* ---------- Scroll Progress Bar ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  z-index: 1100;
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
+
+/* ---------- Micro-interactions ---------- */
+
+/* Hero badge gentle pulse */
+.hero-badge {
+  animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+}
+
+/* Hero primary CTA shimmer */
+.hero-ctas .btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-ctas .btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: cta-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cta-shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 120%; }
+}
+
+/* Service card icon lift on card hover */
+.service-card:hover .service-icon {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(43, 125, 233, 0.2);
+}
+
+.service-icon {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Team card avatar scale on hover */
+.team-card:hover .team-avatar {
+  transform: scale(1.06);
+}
+
+.team-avatar {
+  transition: transform 0.3s ease;
+}
+
+/* Insurance card icon bounce on hover */
+.insurance-card:hover .insurance-logo svg {
+  transform: scale(1.12);
+}
+
+.insurance-logo svg {
+  transition: transform 0.25s ease;
+}
+
+/* FAQ item open/close smooth border accent */
+.faq-item[open] {
+  border-color: var(--primary);
+}
+
+/* New patient special value glow */
+.highlight-value {
+  animation: price-glow 3s ease-in-out infinite;
+}
+
+@keyframes price-glow {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 16px rgba(43, 125, 233, 0.2); }
+}
+
+/* Proof number count-up feel on visible */
+.proof-item .proof-number {
+  transition: color 0.6s ease;
+}
+
+.social-proof:hover .proof-number {
+  color: var(--secondary);
+}
+
+/* Testimonial card subtle border accent on hover */
+.testimonial-card:hover {
+  border-color: var(--primary);
+}
+
+/* Smooth focus ring for interactive elements (a11y + polish) */
+.btn:focus-visible,
+.faq-question:focus-visible,
+.dark-mode-toggle:focus-visible,
+.back-to-top:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 

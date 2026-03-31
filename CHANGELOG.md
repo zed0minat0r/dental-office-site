@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-03-30 (Builder — Micro-interactions & Scroll Progress)
+
+### Scroll Progress Bar & Calming Micro-interactions
+- **Added scroll progress bar**: Gradient-colored thin bar fixed at top of viewport tracks page scroll position — provides visual feedback and adds polish
+- **Hero badge pulse**: Gentle green glow pulse animation on "Accepting New Patients" badge draws attention without being distracting
+- **Hero CTA shimmer**: Primary "Book Your Appointment" button has a subtle light shimmer sweep that runs on a 4-second loop
+- **Service card icon lift**: Service icons gently float up and scale with soft shadow on card hover
+- **Team avatar scale**: Team member avatars scale up slightly on card hover for a lively feel
+- **Insurance card icon bounce**: Insurance provider SVGs scale up on card hover
+- **FAQ open border accent**: FAQ items get a blue border accent when expanded
+- **New patient price glow**: The $99 special price pulses with a subtle blue text-shadow glow
+- **Social proof color shift**: Stat numbers transition from blue to teal on section hover
+- **Testimonial card border accent**: Review cards get a blue border highlight on hover
+- **Focus-visible rings**: All interactive buttons and controls get a clean 2px blue focus outline for keyboard a11y
+- Marked Task 2 (Visual design & polish) as COMPLETE
+- Marked scroll progress bar as complete in Task 4
+- Zero new sections added — all improvements within existing elements
+
 ## 2026-03-30 (Alignment Fix)
 
 ### Mobile Alignment Consistency — Uniform Centering & Padding
