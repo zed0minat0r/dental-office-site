@@ -287,8 +287,38 @@ document.addEventListener('DOMContentLoaded', () => {
     if (proofGrid) countObserver.observe(proofGrid);
   }
 
+  // ---------- Section Dots Navigator ----------
+  const dotsNav = document.getElementById('sectionDots');
+  const dots = dotsNav ? dotsNav.querySelectorAll('.dot') : [];
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const targetId = dot.dataset.target;
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  const dotSections = ['hero', 'services', 'about', 'testimonials', 'insurance', 'faq', 'location', 'contact'];
+  const dotSectionEls = dotSections.map(id => document.getElementById(id)).filter(Boolean);
+
+  const dotObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        dots.forEach(d => {
+          d.classList.toggle('active', d.dataset.target === id);
+        });
+      }
+    });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+
+  dotSectionEls.forEach(section => dotObserver.observe(section));
+
   // ---------- Consolidated Scroll Handler ----------
-  // Sticky header, scroll progress bar, and back-to-top — one listener for performance
+  // Sticky header, scroll progress bar, back-to-top, and section dots — one listener for performance
   const scrollProgress = document.getElementById('scrollProgress');
   const backToTop = document.getElementById('backToTop');
 
@@ -307,6 +337,15 @@ document.addEventListener('DOMContentLoaded', () => {
       backToTop.classList.add('visible');
     } else {
       backToTop.classList.remove('visible');
+    }
+
+    // Section dots visibility (show after scrolling 200px)
+    if (dotsNav) {
+      if (currentScroll > 200) {
+        dotsNav.classList.add('visible');
+      } else {
+        dotsNav.classList.remove('visible');
+      }
     }
 
     // Scroll progress bar

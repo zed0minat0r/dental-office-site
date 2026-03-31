@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-03-30 (Builder — Section Dots Navigator)
+
+### Mobile-first section dots navigator
+- Fixed vertical dot strip on right edge of viewport for quick section jumping
+- 8 dots mapped to main page sections (hero, services, about, reviews, insurance, FAQ, location, contact)
+- Active dot highlights via IntersectionObserver as user scrolls
+- Hover tooltips with section labels on desktop; hidden on mobile to save space
+- Enlarged tap targets on mobile (invisible padding for thumb-friendly 26px+ hit area)
+- Progressive reveal: dots fade in after scrolling past hero (200px)
+- Responsive sizing: 12px desktop, 10px tablet, 9px small mobile
+- Smooth scroll on tap with native scrollIntoView
+- Dark mode compatible via CSS custom properties
+
 ## 2026-03-30 (Spark — Mobile Swipeable Testimonials Carousel)
 
 ### Mobile-first touch enhancement: swipeable testimonials
