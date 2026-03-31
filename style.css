@@ -1297,6 +1297,28 @@ h3 { font-size: 1.25rem; }
   }
 }
 
+/* ---------- Sticky Mobile CTA Bar ---------- */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+  gap: 12px;
+}
+
+.mobile-cta-bar .btn {
+  flex: 1;
+  min-height: 48px;
+  font-size: 15px;
+}
+
+/* ---------- Responsive: Mobile (768px) ---------- */
 @media (max-width: 768px) {
   :root { --nav-height: 64px; }
 
@@ -1320,339 +1342,80 @@ h3 { font-size: 1.25rem; }
     padding: 14px 16px;
     font-size: 16px;
     border-bottom: 1px solid var(--border);
+    min-height: 48px;
+    display: flex;
+    align-items: center;
   }
 
   .nav-cta { display: none; }
-
-  .nav-mobile-cta { display: list-item; list-style: none; }
-
+  .nav-mobile-cta { display: list-item; list-style: none; margin-top: 16px; border-bottom: none !important; }
+  .nav-mobile-cta .btn { min-height: 48px; font-size: 16px; color: #fff; }
   .hamburger { display: flex; }
+  .nav-container { overflow: hidden; }
+  .nav-actions { flex-shrink: 0; }
 
-  .nav-container {
-    overflow: hidden;
-  }
-
-  .nav-actions {
-    flex-shrink: 0;
-  }
-
-  .hero {
-    padding: calc(var(--nav-height) + 40px) 0 60px;
-    min-height: auto;
-  }
-
+  .hero { padding: calc(var(--nav-height) + 40px) 0 60px; min-height: auto; }
   h1 { font-size: 2rem; }
+  .hero-visual { display: none; }
+  .hero-bg-shapes .shape { display: none; }
 
-  /* Hide the floating tooth illustration on mobile — it looks confusing at small sizes */
-  .hero-visual {
-    display: none;
-  }
+  .services-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .insurance-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+  .appointment-form { padding: 24px; }
 
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 20px 0; font-size: 14px; }
 
-  .team-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
-  }
+  /* Touch targets */
+  .service-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .insurance-card { min-height: 44px; }
+  .author-avatar { min-width: 44px; min-height: 44px; width: 44px; height: 44px; }
 
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
+  .footer-links li { margin-bottom: 2px; font-size: 14px; line-height: 1.4; }
+  .footer-links a { min-height: 40px; display: inline-flex; align-items: center; padding: 4px 0; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-legal a { min-height: 40px; display: inline-flex; align-items: center; font-size: 14px; }
 
-  .insurance-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Mobile minimum font sizes */
+  .btn-sm, .section-badge, .team-role, .testimonial-author span, .hours-row { font-size: 14px; }
+  .form-disclaimer { font-size: 14px; line-height: 1.5; }
+  .highlight-label { font-size: 13px; }
+  .testimonial-card blockquote, .info-block p, .info-block h3 { font-size: 15px; }
 
-  .form-row {
-    grid-template-columns: 1fr;
-  }
+  /* Sticky mobile CTA & footer padding */
+  .mobile-cta-bar { display: flex; }
+  .site-footer { padding-bottom: 72px; }
 
-  .appointment-form {
-    padding: 24px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 16px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-    padding: 20px 0;
-  }
+  .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
 }
 
+/* ---------- Responsive: Small (480px) ---------- */
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-
-  .hero-ctas {
-    flex-direction: column;
-  }
-
+  .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
-
-  .hero-trust {
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .insurance-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section-header {
-    margin-bottom: 40px;
-  }
-
-  .services,
-  .about,
-  .testimonials,
-  .insurance,
-  .location,
-  .contact {
-    padding: 60px 0;
-  }
+  .hero-trust { flex-direction: column; gap: 8px; align-items: center; }
+  .insurance-grid { grid-template-columns: 1fr; }
+  .section-header { margin-bottom: 40px; }
+  .services, .about, .testimonials, .insurance, .location, .contact { padding: 60px 0; }
 }
 
+/* ---------- Responsive: Extra Small (360px) ---------- */
 @media (max-width: 360px) {
   .container { padding: 0 12px; }
-
-  .contact-grid {
-    min-width: 0;
-  }
-
-  .contact-grid > * {
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .appointment-form {
-    padding: 14px;
-  }
-
-  .sidebar-card {
-    padding: 14px;
-  }
-
-  .contact-sidebar .btn {
-    word-break: break-word;
-    white-space: normal;
-  }
-
-  .mobile-cta-bar {
-    padding: 10px 12px;
-    gap: 8px;
-  }
-
-  .mobile-cta-bar .btn {
-    padding: 10px 12px;
-    font-size: 13px;
-    white-space: nowrap;
-    min-width: 0;
-  }
-}
-
-/* ---------- Mobile Touch & Typography Hardening ---------- */
-@media (max-width: 768px) {
-  /* Ensure all interactive elements meet 44px minimum touch target */
-  .service-link {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .footer-links li {
-    margin-bottom: 2px;
-  }
-
-  .footer-links a {
-    min-height: 40px;
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 0;
-  }
-
-  .footer-links li {
-    font-size: 14px;
-    line-height: 1.4;
-  }
-
-  .footer-legal {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .footer-legal a {
-    min-height: 40px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .insurance-card {
-    min-height: 44px;
-  }
-
-  .author-avatar {
-    min-width: 44px;
-    min-height: 44px;
-    width: 44px;
-    height: 44px;
-  }
-
-  /* Show a sticky mobile CTA at bottom of screen */
-  .mobile-cta-bar {
-    display: flex;
-  }
-
-  /* Enforce 14px minimum font size on mobile for readability */
-  .btn-sm {
-    font-size: 14px;
-  }
-
-  .section-badge {
-    font-size: 14px;
-  }
-
-  .team-role {
-    font-size: 14px;
-  }
-
-  .testimonial-author span {
-    font-size: 14px;
-  }
-
-  .form-disclaimer {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .highlight-label {
-    font-size: 13px;
-  }
-
-  .footer-bottom {
-    font-size: 14px;
-  }
-
-  .footer-legal a {
-    font-size: 14px;
-  }
-
-  .testimonial-card blockquote {
-    font-size: 15px;
-  }
-
-  .info-block p,
-  .info-block h3 {
-    font-size: 15px;
-  }
-
-  .hours-row {
-    font-size: 14px;
-  }
-
-  /* Prevent horizontal scroll from any overflowing elements */
-  .hero-bg-shapes .shape {
-    display: none;
-  }
-
-  /* Ensure the nav links in mobile menu have proper touch targets */
-  .nav-links a {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-  }
-
-  /* Mobile nav CTA button */
-  .nav-mobile-cta {
-    margin-top: 16px;
-    border-bottom: none !important;
-  }
-
-  .nav-mobile-cta .btn {
-    min-height: 48px;
-    font-size: 16px;
-    color: #fff;
-  }
-}
-
-/* ---------- Sticky Mobile CTA Bar ---------- */
-.mobile-cta-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: var(--card);
-  border-top: 1px solid var(--border);
-  padding: 12px 16px;
-  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
-  gap: 12px;
-}
-
-.mobile-cta-bar .btn {
-  flex: 1;
-  min-height: 48px;
-  font-size: 15px;
-}
-
-@media (max-width: 768px) {
-  .mobile-cta-bar {
-    display: flex;
-  }
-
-  /* Add bottom padding so footer content is not hidden behind sticky bar */
-  .site-footer {
-    padding-bottom: 72px;
-  }
-}
-
-/* ---------- Extra Small (320px) Fine-tuning ---------- */
-@media (max-width: 360px) {
-  .logo-text {
-    font-size: 15px;
-  }
-
-  .comfort-item {
-    padding: 12px;
-    gap: 12px;
-  }
-
-  .comfort-item-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-  }
-
-  .comfort-item-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .sidebar-card {
-    padding: 20px;
-  }
-
-  .highlight-value {
-    font-size: 20px;
-  }
-
-  .hero-visual {
-    display: none;
-  }
-
+  .contact-grid { min-width: 0; }
+  .contact-grid > * { min-width: 0; overflow: hidden; }
+  .appointment-form { padding: 14px; }
+  .sidebar-card { padding: 14px; }
+  .contact-sidebar .btn { word-break: break-word; white-space: normal; }
+  .mobile-cta-bar { padding: 10px 12px; gap: 8px; }
+  .mobile-cta-bar .btn { padding: 10px 12px; font-size: 13px; white-space: nowrap; min-width: 0; }
+  .logo-text { font-size: 15px; }
+  .highlight-value { font-size: 20px; }
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.5rem; }
 }
@@ -1831,15 +1594,5 @@ h3 { font-size: 1.25rem; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
-
-@media (max-width: 768px) {
-  .back-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-  }
-}
-
 
 

@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-03-30 (Razor — Round 2)
+
+### CSS Surgery — Dead Code Removal, Breakpoint Consolidation & Bug Fixes
+- **Removed dead CSS**: `.comfort-menu`, `.breathing-widget`, `.comfort-item`, `.comfort-item-icon` rules — referenced in dark mode and 360px breakpoints but absent from HTML (ghost styles from deleted Comfort Zone section)
+- **Fixed broken delay classes**: `.delay-1` through `.delay-3` used `animation-delay` but `.fade-up` uses CSS transitions, not animations — changed to `transition-delay` so staggered fade-ins actually work now
+- **Merged duplicate highlight styles**: `.comfort-note` and `.results-highlight` were near-identical blocks (~50 lines) — consolidated into shared selectors, saving ~20 lines
+- **Consolidated 3 separate `@media (max-width: 768px)` blocks** into one unified block — eliminates rule scattering and duplicate declarations
+- **Consolidated 2 separate `@media (max-width: 360px)` blocks** into one
+- **Removed redundant `.hero-visual { display: none }`** declared in both 768px and 360px (already hidden at 768px, 360px rule was dead)
+- **Removed duplicate `.footer-links li` margin-bottom** declared twice in same 768px block
+- **Added missing `.nav-links a.active` CSS** — JS sets this class via IntersectionObserver but no style existed, so active nav highlighting was invisible. Now shows blue text + bottom border
+- **Removed `[data-theme="dark"] .map-placeholder`** — element was replaced with `.location-map iframe` in prior commit
+- style.css: 1853 -> 1598 lines (255 lines cut, -14%), 33.7KB -> 31.9KB
+- Net diff: 74 insertions, 321 deletions
+
 ## 2026-03-30 (Refiner — Round 2)
 
 ### Accessibility, Meta Tags, Map Embed & Date Constraints
