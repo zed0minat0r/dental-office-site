@@ -1420,6 +1420,11 @@ h3 { font-size: 1.25rem; }
   transform: translateY(0);
 }
 
+.delay-1 { animation-delay: 0.1s; }
+.delay-15 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
 /* ---------- Responsive: Tablet (768px) ---------- */
 @media (max-width: 1024px) {
   .hero-grid {

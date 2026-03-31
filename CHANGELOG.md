@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30 (Razor)
+
+### Code Surgery — Inline Style Extraction & SVG Deduplication
+- Extracted 15 inline `animation-delay` styles to 4 CSS utility classes (`.delay-1` through `.delay-3`)
+- Extracted 16 inline gradient `background` styles to 6 reusable CSS classes (`.grad-blue`, `.grad-amber`, `.grad-red`, `.grad-green`, `.grad-purple`, `.grad-cyan`)
+- Replaced 4 inline gradient styles on testimonial author avatars with shared gradient classes
+- Deduplicated 20 inline star SVGs into a single `<symbol id="star">` with `<use>` references
+- Deduplicated 3 identical check-circle SVGs into a single `<symbol id="check-circle">` with `<use>` references
+- Added `.icon-check` CSS class for trust-item icon color
+- Zero inline `style` attributes remain except 2 legitimate `display:none` on dynamic elements
+- No features removed, no visual changes
+
 ## 2026-03-30 (Pixel)
 
 ### Mobile UX Overhaul — Touch Targets, Typography & CTA Accessibility
