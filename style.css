@@ -1587,6 +1587,67 @@ h3 { font-size: 1.25rem; }
   }
 }
 
+@media (max-width: 360px) {
+  .container { padding: 0 12px; }
+
+  .comfort-grid,
+  .contact-grid {
+    min-width: 0;
+  }
+
+  .comfort-grid > *,
+  .contact-grid > * {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .comfort-menu,
+  .breathing-widget {
+    padding: 20px 12px;
+  }
+
+  .comfort-item {
+    padding: 10px 8px;
+    gap: 10px;
+  }
+
+  .comfort-item-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .comfort-item-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .appointment-form {
+    padding: 14px;
+  }
+
+  .sidebar-card {
+    padding: 14px;
+  }
+
+  .contact-sidebar .btn {
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .mobile-cta-bar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .mobile-cta-bar .btn {
+    padding: 10px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+    min-width: 0;
+  }
+}
+
 /* ---------- Mobile Touch & Typography Hardening ---------- */
 @media (max-width: 768px) {
   /* Ensure all interactive elements meet 44px minimum touch target */

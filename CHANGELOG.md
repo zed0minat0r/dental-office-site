@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30 (QA — Playwright)
+
+### Bug Fix — Horizontal Overflow at 320px Viewport
+- Ran automated Playwright test suite (19 tests) against the live site — 18 passed, 1 failed: horizontal scroll detected at 320px width
+- Diagnosed overflowing elements using Playwright browser introspection: `.comfort-menu` (331px), `.breathing-widget` (331px), `.appointment-form` (333px), `.contact-sidebar` (333px), and `.mobile-cta-bar .btn-outline` (extending to 347px)
+- Root causes: (1) comfort/breathing widgets had too much padding for 320px containers, (2) CSS grid children inherited `min-width: auto` allowing content to overflow, (3) mobile CTA bar buttons had `white-space: nowrap` with padding too wide for two buttons at 320px
+- Added `@media (max-width: 360px)` breakpoint in style.css: reduced container padding to 12px, reduced comfort-menu/breathing-widget padding to 20px 12px, shrunk comfort-item icons to 36px, reduced form/sidebar padding to 14px, set `min-width: 0` and `overflow: hidden` on grid children, reduced mobile CTA bar button padding and font-size
+- Re-ran Playwright suite: 19/19 tests passing, zero horizontal scroll at 320px, 375px, and desktop widths
+- Code review notes (non-blocking): JSON-LD `image` field points to site URL not an image; privacy/terms/accessibility footer links are dead (`href="#"`); `mobile-cta-bar` could use `role="navigation"` for accessibility
+
 ## 2026-03-30 (Razor)
 
 ### Code Surgery — Inline Style Extraction & SVG Deduplication
