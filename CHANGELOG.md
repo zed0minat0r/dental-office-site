@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-03-30 (Pixel — Mobile Perfectionism Pass)
+
+### Mobile audit at 320px, 375px, 428px — alignment, padding, touch targets, font sizes
+- **Insurance cards: vertical stacking on mobile** — switched 480px-breakpoint cards from horizontal (icon + truncated text) to vertical layout (icon on top, full name below). "UnitedHealthcare" and "BlueCross" now render in full instead of "United..." / "BlueCr..."
+- **Hours row gap fix** — added `gap: 12px` to `.hours-row` so "Monday - Friday" and "8:00 AM - 6:00 PM" no longer visually run together (only 1px separation before)
+- **Back-to-top button repositioned** — moved from `bottom: 20px` to `bottom: 84px` on mobile to clear the sticky CTA bar
+- **Footer social icons bumped to 44px** — were 36x36px, now 44x44px to meet Apple HIG touch-target minimum
+- **Footer link touch targets** — `.footer-links a` and `.footer-legal a` raised from `min-height: 40px` to `44px`
+- **Inline link touch targets** — added 12px vertical padding to `.results-highlight a` and `.faq-answer a` so "Book a free consultation" and FAQ inline links meet 44px minimum
+- **Emergency phone link** — ensured `min-height: 44px` with `inline-flex` alignment
+- **Font-size floor enforced** — `.hero-badge` bumped from 13px to 14px, `.highlight-label` from 13px to 14px, mobile CTA bar button from 13px to 14px
+- **Verified**: zero horizontal scroll at 320/375/428px, all fonts >= 14px, all interactive elements >= 44px touch target
+- All sections follow consistent centered alignment pattern on mobile with uniform 20px horizontal padding (16px at 360px)
+
 ## 2026-03-30 (Refiner — Round 3)
 
 ### Accessibility, ARIA Form Validation, Semantic Landmarks & Footer Social
