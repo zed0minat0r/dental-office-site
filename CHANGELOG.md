@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-03-30 (Spark — Mobile Swipeable Testimonials Carousel)
+
+### Mobile-first touch enhancement: swipeable testimonials
+- Converted testimonials grid to horizontal scroll-snap carousel on mobile (768px and below)
+- Cards snap to center with CSS scroll-snap-type: x mandatory and scroll-snap-stop: always
+- Added tap-able dot indicators that track current card via IntersectionObserver-style scroll detection
+- Dots have 44px minimum touch targets (accessible) with visual 10px dots inside
+- Active dot scales up with primary color glow for clear visual feedback
+- Added animated "Swipe to read more reviews" hint that plays a nudge animation then fades out
+- Hidden scrollbar on both WebKit and Firefox for clean mobile appearance
+- Carousel dots and swipe hint hidden on desktop — zero impact on existing desktop layout
+- All interactions are touch/tap based — no hover or cursor dependencies
+
 ## 2026-03-30 (Pixel — Mobile Perfectionism Pass)
 
 ### Mobile audit at 320px, 375px, 428px — alignment, padding, touch targets, font sizes

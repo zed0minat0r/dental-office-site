@@ -549,6 +549,14 @@
           </div>
         </div>
       </div>
+      <!-- Mobile carousel dots (visible only on mobile) -->
+      <div class="carousel-dots" aria-label="Review navigation">
+        <button class="carousel-dot active" aria-label="Review 1" data-index="0"></button>
+        <button class="carousel-dot" aria-label="Review 2" data-index="1"></button>
+        <button class="carousel-dot" aria-label="Review 3" data-index="2"></button>
+        <button class="carousel-dot" aria-label="Review 4" data-index="3"></button>
+      </div>
+      <p class="swipe-hint" aria-hidden="true">Swipe to read more reviews</p>
     </div>
   </section>
 
@@ -967,6 +975,18 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     <span>Thank you! We will contact you shortly to confirm your appointment.</span>
   </div>
+
+  <!-- Section Dots Navigator -->
+  <nav class="section-dots" id="sectionDots" aria-label="Page sections">
+    <button data-target="hero" aria-label="Hero" class="dot active"><span class="dot-label">Top</span></button>
+    <button data-target="services" aria-label="Services" class="dot"><span class="dot-label">Services</span></button>
+    <button data-target="about" aria-label="About Us" class="dot"><span class="dot-label">About</span></button>
+    <button data-target="testimonials" aria-label="Reviews" class="dot"><span class="dot-label">Reviews</span></button>
+    <button data-target="insurance" aria-label="Insurance" class="dot"><span class="dot-label">Insurance</span></button>
+    <button data-target="faq" aria-label="FAQ" class="dot"><span class="dot-label">FAQ</span></button>
+    <button data-target="location" aria-label="Location" class="dot"><span class="dot-label">Location</span></button>
+    <button data-target="contact" aria-label="Contact" class="dot"><span class="dot-label">Contact</span></button>
+  </nav>
 
   <!-- Back to Top Button -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
