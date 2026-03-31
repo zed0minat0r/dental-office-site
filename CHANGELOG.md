@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-03-30 (Razor — CSS Cleanup)
+
+### CSS Consolidation
+- Merged 3 duplicate `@media (max-width: 768px)` blocks into 1 (section-dots, main mobile, testimonial carousel)
+- Removed dead `.testimonials-grid { grid-template-columns: 1fr }` rule (overridden by flex carousel at same breakpoint)
+- Removed redundant `.insurance-note { text-align: center }` mobile override (already set in base)
+- Fixed duplicate `background` property in `.carousel-dot` (was set twice, kept `transparent` since `::after` handles the dot)
+- Merged separate `.faq { padding: 64px 0 }` into combined section padding rule
+- style.css: 1967 → 1957 lines, 40821 → 40643 bytes (−178 bytes)
+
 ## 2026-03-30 (QA + Pixel — Mobile Design Pass)
 
 ### QA Results
