@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-03-30 (Mobile Visual Bug Fixes)
+
+### Fix — 3 Mobile Visual Bugs (Nav, Hero Illustration, Footer)
+- **Mobile Nav Bar**: Added `overflow: hidden` to `.nav-container` and `flex-shrink: 0` to `.nav-actions` on mobile to prevent any potential header overflow at 375px and 320px widths
+- **Hero Illustration**: Hid the floating tooth SVG graphic (`.hero-visual`) on screens 768px and below — it looked confusing and unprofessional on mobile. Hero section is now a clean text-first layout with headline, subtitle, CTA buttons, and trust badges
+- **Footer Layout**: Changed mobile footer grid from single-column to 2-column layout for Quick Links/Services/Contact sections, reducing excessive vertical space. Reduced footer link min-height from 44px to 40px with tighter margins. Footer bottom padding reduced from 80px to 72px. Legal links gap tightened to 16px
+- Verified fixes at 375px (iPhone) and 320px (iPhone SE) viewports via Playwright screenshots
+
 ## 2026-03-30 (QA — Playwright)
 
 ### Bug Fix — Horizontal Overflow at 320px Viewport

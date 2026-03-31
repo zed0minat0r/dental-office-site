@@ -1498,6 +1498,14 @@ h3 { font-size: 1.25rem; }
 
   .hamburger { display: flex; }
 
+  .nav-container {
+    overflow: hidden;
+  }
+
+  .nav-actions {
+    flex-shrink: 0;
+  }
+
   .hero {
     padding: calc(var(--nav-height) + 40px) 0 60px;
     min-height: auto;
@@ -1505,9 +1513,9 @@ h3 { font-size: 1.25rem; }
 
   h1 { font-size: 2rem; }
 
-  .hero-visual svg {
-    width: 200px;
-    height: 230px;
+  /* Hide the floating tooth illustration on mobile — it looks confusing at small sizes */
+  .hero-visual {
+    display: none;
   }
 
   .services-grid {
@@ -1542,14 +1550,19 @@ h3 { font-size: 1.25rem; }
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 
   .footer-bottom {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+    padding: 20px 0;
   }
 }
 
@@ -1658,23 +1671,29 @@ h3 { font-size: 1.25rem; }
   }
 
   .footer-links li {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
 
-  .footer-links a,
-  .footer-links li {
-    min-height: 44px;
-    display: flex;
+  .footer-links a {
+    min-height: 40px;
+    display: inline-flex;
     align-items: center;
+    padding: 4px 0;
+  }
+
+  .footer-links li {
+    font-size: 14px;
+    line-height: 1.4;
   }
 
   .footer-legal {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 16px;
   }
 
   .footer-legal a {
-    min-height: 44px;
+    min-height: 40px;
     display: inline-flex;
     align-items: center;
   }
@@ -1805,9 +1824,9 @@ h3 { font-size: 1.25rem; }
     display: flex;
   }
 
-  /* Add bottom padding to body so footer content is not hidden behind sticky bar */
+  /* Add bottom padding so footer content is not hidden behind sticky bar */
   .site-footer {
-    padding-bottom: 80px;
+    padding-bottom: 72px;
   }
 }
 
@@ -1841,9 +1860,8 @@ h3 { font-size: 1.25rem; }
     font-size: 20px;
   }
 
-  .hero-visual svg {
-    width: 180px;
-    height: 206px;
+  .hero-visual {
+    display: none;
   }
 
   h1 { font-size: 1.75rem; }
