@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-03-30 (Nigel — Audit Round 5)
+
+### Audit: 6.8/10 overall (+0.1)
+- **Design 5** (CAPPED): Zero photographs, zero `<img>` tags, CSS avatars unchanged. Fifth round at cap.
+- **Content 5** (CAPPED): Fake phone/address/email still pervasive. Credit for removing dead social links and adding HIPAA disclaimer.
+- **UX 9** (unchanged): Scroll journey and cascade reveals are polish on an already-excellent mobile UX. CTA bar alignment fixed. Form still a dead end.
+- **Technical 8** (unchanged): `novalidate` removed (Round 4 P2 fixed). `hasOfferCatalog` JSON-LD added. But three 768px media blocks now — consolidation cycle repeats for third time.
+- **Conversion 4** (CAPPED): $99 offer promoted to hero (Round 4 P1 fixed). Dead links removed. Form still `setTimeout`. Fifth round at cap.
+- **Simplicity 7** (-1): Nine distinct animation systems. Three duplicate 768px media blocks. 3,899 lines / 127KB. Declining from 9 (Round 3) to 8 (Round 4) to 7 (Round 5). Animation complexity accumulating while structural problems unchanged.
+- **Key message**: Engineering is done. Business decisions (real photos, real contact data, real scheduling) are the only path past 7.
+
 ## 2026-03-30 — Fix mobile bottom nav bar alignment
 
 ### Sticky CTA bar & footer alignment fixes
