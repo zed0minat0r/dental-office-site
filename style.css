@@ -1406,39 +1406,7 @@ h3 { font-size: 1.25rem; }
 
 @media (max-width: 768px) {
   .section-dots {
-    right: 8px;
-    gap: 12px;
-    top: 45%;
-  }
-
-  .section-dots .dot {
-    width: 10px;
-    height: 10px;
-  }
-
-  .section-dots .dot::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-  }
-
-  .section-dots .dot-label {
     display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-dots {
-    right: 6px;
-    gap: 10px;
-  }
-
-  .section-dots .dot {
-    width: 9px;
-    height: 9px;
   }
 }
 
@@ -1535,6 +1503,8 @@ h3 { font-size: 1.25rem; }
   .location-grid { text-align: center; }
   .info-block { flex-direction: column; align-items: center; text-align: center; }
   .hours-row { max-width: 280px; margin: 0 auto; text-align: left; }
+  .location-map { min-height: 280px; }
+  .location-map iframe, .map-iframe { min-height: 280px; }
 
   /* Contact section: center headings */
   .contact-grid { text-align: left; }

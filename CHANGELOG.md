@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-03-30 (QA + Pixel — Mobile Design Pass)
+
+### QA Results
+- All 19 Playwright tests passing (0 failures)
+- No horizontal scroll issues at 375px or 320px
+- No console errors, all anchor links valid
+- All file sizes under 100KB (largest: index.html at 53KB)
+
+### Pixel Design Fixes (375px mobile review)
+- **Removed section dots navigator on mobile (<=768px)**: The fixed right-edge dot strip was visual clutter on small screens, eating into content area and competing with the sticky CTA bar. Desktop keeps them.
+- **Reduced map iframe height on mobile**: min-height dropped from 400px to 280px for location map and iframe — 400px was disproportionate on a 375px-wide viewport.
+
+### Design Review Notes (375px)
+- Typography hierarchy is solid: section badges (uppercase, blue pill), h2 headings, body text, and labels are clearly differentiated
+- Alignment is consistent — all sections center-aligned on mobile with proper container padding (20px)
+- Service cards, team cards, testimonial carousel, insurance grid, FAQ accordion all flow naturally in single-column mobile layout
+- Sticky bottom CTA bar (Book Appointment + Call Now) is well-executed
+- Overall impression: professional for a single-page dental site, not template-y — the gradient icons, avatar illustrations, and color system give it personality
+- No elements appear cramped or broken at 375px
+
 ## 2026-03-30 (Nigel — Audit Round 3)
 
 ### Re-audit with strict scoring caps enforced
