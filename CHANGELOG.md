@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-03-30 (QA — Playwright Mobile Overflow Fix)
+
+### Fix: Horizontal scroll overflow on 375px mobile viewport
+- **Root cause**: `.insurance-card` elements in the 2-column grid at 480px breakpoint were not constrained by `min-width: 0`, allowing content (e.g., "UnitedHealthcare" label) to expand columns beyond the viewport — grid column rendered at 213px instead of ~168px, pushing total width to 404px
+- **Fix applied**: Changed `grid-template-columns: repeat(2, 1fr)` to `repeat(2, minmax(0, 1fr))` in the 480px breakpoint, added `min-width: 0` to `.insurance-card` base rule, and added `overflow: hidden; text-overflow: ellipsis; white-space: nowrap` to `.insurance-card span` to handle long provider names gracefully
+- **Verified locally**: scrollWidth === clientWidth === 375 after fix (was 404 > 375 before)
+- Playwright results: 18/19 passed before fix, 19/19 after fix (the failing test was "No horizontal scroll (mobile)")
+- File size check: HTML + CSS + JS = 96.5KB (under 100KB limit)
+
 ## 2026-03-30 (Nigel — Audit Round 2)
 
 ### Re-audit with Simplicity Category

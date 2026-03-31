@@ -912,6 +912,7 @@ h3 { font-size: 1.25rem; }
   align-items: center;
   gap: 12px;
   transition: all var(--transition);
+  min-width: 0;
 }
 
 .insurance-card:hover {
@@ -922,6 +923,10 @@ h3 { font-size: 1.25rem; }
 .insurance-card span {
   font-weight: 600;
   font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .insurance-note {
@@ -1433,7 +1438,8 @@ h3 { font-size: 1.25rem; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
   .hero-trust { flex-direction: column; gap: 8px; align-items: center; }
-  .insurance-grid { grid-template-columns: repeat(2, 1fr); }
+  .insurance-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .insurance-card { min-width: 0; overflow: hidden; }
   .section-header { margin-bottom: 40px; }
 
   /* 2x2 grid for social proof stats instead of full vertical stack */
