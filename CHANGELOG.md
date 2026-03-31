@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-03-30 (Alignment Fix)
+
+### Mobile Alignment Consistency — Uniform Centering & Padding
+- **Fixed inconsistent section alignment on mobile**: Service cards were left-aligned while team cards and other sections were centered — now all section content is uniformly centered at 768px and below
+- **Centered service cards**: Added `text-align: center` to `.service-card`, auto-centered `.service-icon`, and centered `.service-link` on mobile
+- **Centered testimonial cards**: Stars, blockquotes, and author attributions now centered consistently with other sections
+- **Centered location info blocks**: Address, phone, hours, and emergency info now stack vertically centered instead of left-aligned on mobile
+- **Centered footer on mobile**: Brand text, link columns, and legal links all centered for consistent visual rhythm
+- **Unified container padding**: Set consistent `20px` horizontal padding across all mobile breakpoints (was mixed: 24px base, 16px at 480px, 12px at 360px — now 20px at 768px, 16px at 360px)
+- **Unified section vertical padding**: All content sections now use `64px` vertical padding on mobile (was inconsistent: some at 100px, some at 60px, FAQ at 80px)
+- **Centered hero content explicitly**: Added `text-align: center` to `.hero-content` and centered subtitle, CTAs, and trust items in the 768px breakpoint (was only set at 1024px on `.hero-grid`)
+- Verified all fixes via Playwright screenshots at 375px viewport width across every section
+
 ## 2026-03-30 (Pixel — Round 2)
 
 ### Mobile Layout Polish — Stats Grid, Insurance Columns & FAQ Spacing

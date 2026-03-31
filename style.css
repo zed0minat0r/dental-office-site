@@ -1354,10 +1354,19 @@ h3 { font-size: 1.25rem; }
   .nav-container { overflow: hidden; }
   .nav-actions { flex-shrink: 0; }
 
+  /* Uniform container padding on mobile */
+  .container { padding: 0 20px; }
+
   .hero { padding: calc(var(--nav-height) + 40px) 0 60px; min-height: auto; }
   h1 { font-size: 2rem; }
   .hero-visual { display: none; }
   .hero-bg-shapes .shape { display: none; }
+
+  /* Center hero content consistently */
+  .hero-content { text-align: center; }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .hero-ctas { justify-content: center; }
+  .hero-trust { justify-content: center; }
 
   .services-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
@@ -1366,8 +1375,30 @@ h3 { font-size: 1.25rem; }
   .form-row { grid-template-columns: 1fr; }
   .appointment-form { padding: 24px; }
 
+  /* Consistent center alignment for all section content on mobile */
+  .service-card { text-align: center; }
+  .service-icon { margin-left: auto; margin-right: auto; margin-bottom: 20px; }
+  .service-link { justify-content: center; }
+
+  .testimonial-card { text-align: center; }
+  .testimonial-stars { justify-content: center; }
+  .testimonial-author { justify-content: center; }
+
+  .insurance-note { text-align: center; }
+
+  /* Location section: center on mobile */
+  .location-grid { text-align: center; }
+  .info-block { flex-direction: column; align-items: center; text-align: center; }
+  .hours-row { max-width: 280px; margin: 0 auto; }
+
+  /* Contact section: center headings */
+  .contact-grid { text-align: left; }
+  .sidebar-card { text-align: center; }
+
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
-  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand { grid-column: 1 / -1; text-align: center; }
+  .footer-brand p { margin-left: auto; margin-right: auto; }
+  .footer-links { text-align: center; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 20px 0; font-size: 14px; }
 
   /* Touch targets */
@@ -1386,6 +1417,10 @@ h3 { font-size: 1.25rem; }
   .highlight-label { font-size: 13px; }
   .testimonial-card blockquote, .info-block p, .info-block h3 { font-size: 15px; }
 
+  /* Uniform section vertical padding on mobile */
+  .services, .about, .testimonials, .insurance, .location, .contact { padding: 64px 0; }
+  .faq { padding: 64px 0; }
+
   /* Sticky mobile CTA & footer padding */
   .mobile-cta-bar { display: flex; }
   .site-footer { padding-bottom: 72px; }
@@ -1395,14 +1430,11 @@ h3 { font-size: 1.25rem; }
 
 /* ---------- Responsive: Small (480px) ---------- */
 @media (max-width: 480px) {
-  .container { padding: 0 16px; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
   .hero-trust { flex-direction: column; gap: 8px; align-items: center; }
   .insurance-grid { grid-template-columns: repeat(2, 1fr); }
   .section-header { margin-bottom: 40px; }
-  .services, .about, .testimonials, .insurance, .location, .contact { padding: 60px 0; }
-  .faq { padding: 60px 0; }
 
   /* 2x2 grid for social proof stats instead of full vertical stack */
   .proof-grid {
@@ -1419,7 +1451,7 @@ h3 { font-size: 1.25rem; }
 
 /* ---------- Responsive: Extra Small (360px) ---------- */
 @media (max-width: 360px) {
-  .container { padding: 0 12px; }
+  .container { padding: 0 16px; }
   .contact-grid { min-width: 0; }
   .contact-grid > * { min-width: 0; overflow: hidden; }
   .appointment-form { padding: 14px; }
