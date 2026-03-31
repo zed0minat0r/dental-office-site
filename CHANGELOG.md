@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-03-30 (Builder)
+
+### Task 3 Complete — Before/After Gallery & Dental Tips Blog
+- Added Before/After Smile Transformations gallery section between Services and About with 3 cases: Teeth Whitening, Porcelain Veneers, and Invisalign Alignment — each with CSS gradient placeholders, SVG art, before/after comparison layout with divider, case descriptions, and procedure tags
+- Added Dental Tips / Blog section between FAQ and Location with 4 articles: brushing technique, tooth-strengthening foods, making dental visits fun for kids, and dental myths debunked — each with gradient icon, category label, and read time
+- Added "Gallery" and "Tips" links to main navigation
+- Full responsive support at all breakpoints (1024px, 768px, 480px) with grid layout adjustments
+- Full dark mode support for both new sections
+- Gallery cards with hover lift effect, soft shadows, and CTA to book a free consultation
+- Tip cards with category badges, read time indicators, and friendly SVG icons
+- Marked Task 3 as COMPLETE in TASKS.md
+
 ## 2026-03-30 (Spark)
 
 ### Meet Your Visit — Interactive First-Appointment Timeline
