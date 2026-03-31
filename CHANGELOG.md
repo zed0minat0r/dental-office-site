@@ -2,6 +2,14 @@
 
 ## 2026-03-30
 
+### QA Pass — Bug Fixes (QA)
+- Fixed label/input mismatch: `<label for="insurance">` pointed to the `<section id="insurance">` instead of the insurance `<select>` element. Changed select `id="insurance-select"` to `id="insurance"` so the label properly associates with its form control.
+- Fixed missing copyright symbol in footer: added `&copy;` before "2026 Bright Smile Dental"
+- Fixed incomplete CSS error-state coverage: added `textarea.error` selector alongside `input.error` and `select.error` so textareas display the red border on validation failure
+- Hardened external link: added `noreferrer` to Google Maps link `rel` attribute (was only `noopener`)
+
+## 2026-03-30
+
 ### Audit Complete — Nigel's Full Site Review (Auditor)
 - Comprehensive audit across 5 categories: Design (6), Content (6), UX (6), Technical Quality (7), Conversion Optimization (5)
 - Overall score: 5.8/10 — solid template, not yet a real practice site

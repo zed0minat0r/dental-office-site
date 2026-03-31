@@ -62,6 +62,15 @@
   background: var(--bg-alt);
 }
 
+[data-theme="dark"] .comfort-menu,
+[data-theme="dark"] .breathing-widget {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .comfort-item {
+  background: var(--bg-alt);
+}
+
 [data-theme="dark"] .hero-illustration svg path[fill="white"] {
   fill: #1E293B;
 }
@@ -819,6 +828,229 @@ h3 { font-size: 1.25rem; }
   color: var(--text-secondary);
 }
 
+/* ---------- Comfort Zone — Dental Anxiety Relief ---------- */
+.comfort-zone {
+  padding: 100px 0;
+  background: var(--bg);
+}
+
+.comfort-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.comfort-menu {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.comfort-menu-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.comfort-menu-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+.comfort-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.comfort-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: var(--bg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.comfort-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.comfort-item-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comfort-item div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.comfort-item strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.comfort-item span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Breathing Exercise Widget */
+.breathing-widget {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.breathing-widget h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.breathing-widget > p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+  max-width: 360px;
+}
+
+.breath-circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 28px;
+}
+
+.breath-circle {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2B7DE9 0%, #06B6D4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 4s ease-in-out, opacity 0.3s ease;
+  transform: scale(0.6);
+  opacity: 0.7;
+}
+
+.breath-circle.inhale {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.breath-circle.hold {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.breath-circle.exhale {
+  transform: scale(0.6);
+  opacity: 0.7;
+}
+
+.breath-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.breath-text {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.breath-timer {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-height: 1.2em;
+}
+
+.breath-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.breath-ring-track {
+  stroke: var(--border);
+}
+
+.breath-ring-progress {
+  stroke: url(#breathGrad);
+  stroke: var(--primary);
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.breath-btn {
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.breath-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+
+.breath-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.breath-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.breath-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.breath-note {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  max-width: 320px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
 /* ---------- Insurance ---------- */
 .insurance {
   padding: 100px 0;
@@ -1006,7 +1238,8 @@ h3 { font-size: 1.25rem; }
 }
 
 .form-group input.error,
-.form-group select.error {
+.form-group select.error,
+.form-group textarea.error {
   border-color: var(--danger);
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
@@ -1207,6 +1440,10 @@ h3 { font-size: 1.25rem; }
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .comfort-grid {
+    grid-template-columns: 1fr;
+  }
+
   .insurance-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1280,6 +1517,15 @@ h3 { font-size: 1.25rem; }
     grid-template-columns: 1fr;
   }
 
+  .comfort-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comfort-menu,
+  .breathing-widget {
+    padding: 28px 20px;
+  }
+
   .insurance-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1330,6 +1576,7 @@ h3 { font-size: 1.25rem; }
   .services,
   .about,
   .testimonials,
+  .comfort-zone,
   .insurance,
   .location,
   .contact {
