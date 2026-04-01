@@ -492,3 +492,12 @@
 - **Refactored 16 nth-child delay rules to CSS custom properties:** 10 time-slot stagger rules + 6 cascade reveal rules replaced with 2 rules using `calc(var(--i) * interval)`. Set `--i` inline on time-slot buttons and dynamically on cascade children via JS.
 - **Fixed JSON-LD image:** Replaced inline data URI SVG with hosted URL (`logo.svg`). Extracted SVG to standalone file for search engine compatibility.
 - **Net reduction:** -280 lines (-7%), -8KB (-6%). Codebase now ~119KB / 3,619 lines across 3 core files.
+
+### Mobile Alignment & Touch-Target Audit (Pixel)
+- **Service cards (expanded):** Added `text-align: center` to `.service-details` on mobile so description text and "Book Appointment" link center-align when a card is tapped open.
+- **Section badge animation:** Replaced slide-from-left entrance (`translateX(-20px)`) with center-fade. A left-slide breaks the center-alignment principle on mobile.
+- **Hover effects disabled on mobile:** Neutralized hover transforms for team cards, team avatar scale, insurance card icon bounce, and promo banner lift. Per agent rules: no desktop-only features.
+- **FAQ tap target:** Added `min-height: 44px` to `.faq-question` to meet iOS tap-target minimum.
+- **Cascade stagger fix:** Merged duplicate `.fade-up-cascade > *` rules that were overwriting the stagger `transition-delay`. Combined into a single rule with `calc(var(--i) * 80ms)` in the transition shorthand.
+- **Inputs already safe:** Confirmed all form inputs/selects/textareas use `font-size: 16px` (prevents iOS zoom on focus). No changes needed.
+- **No overflow issues found:** `body { overflow-x: hidden }`, all grids use `1fr` on mobile, hero shapes hidden, promo banner wraps. Clean at 375px.
