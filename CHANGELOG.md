@@ -575,3 +575,26 @@
 - Removed `.insurance-brand` text spans (no longer needed with real logos).
 - Addresses **P1 audit item**: "Replace abstract SVG insurance icons with actual provider logos" — flagged as high-impact trust signal improvement.
 - Mobile-first, center-aligned layout preserved. No new sections added.
+
+## 2026-04-01 (Refiner — Google Reviews Links + Self-Hosted Logos)
+
+### Linked review stats to Google Business Profile (AUDIT P1)
+- Wrapped "500+ 5-Star Reviews" and "4.9 Google Rating" proof items in anchor tags linking to Google Maps Business Profile.
+- Added `.proof-link` class with accessible focus styles and no visual decoration change.
+- Eliminates the strongest dead-end trust signal on the site — the 500+ reviews claim now leads to a verifiable external source.
+
+### Added Google Reviews badge to testimonials section (SCOUT #6)
+- New `.google-reviews-badge` component below the testimonial carousel displays the Google "G" logo, 4.9 rating, 5 stars, and "Based on 500+ Google Reviews" text.
+- Fully centered on mobile and desktop. Accessible focus-visible outline. Links to Google Business Profile.
+- Surfaces the structured data rating visually — patients can now see and verify the claim.
+
+### Self-hosted insurance logos, removed Clearbit dependency (AUDIT P2)
+- Replaced all 8 external `logo.clearbit.com` API calls with self-hosted SVG logos in `images/insurance/`.
+- SVGs use brand colors and are lightweight (~250-425 bytes each vs external HTTP requests).
+- Eliminates a fragile external dependency and improves page load reliability.
+- Logos: Delta Dental, Cigna, Aetna, MetLife, Guardian, UHC, Humana, BCBS.
+
+### Technical notes
+- No new sections added (stays within 10-12 cap).
+- Mobile-first, center-aligned layout preserved.
+- All new interactive elements have proper `aria-label` and `focus-visible` styles.

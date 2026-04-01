@@ -1517,16 +1517,19 @@ h3 { font-size: 1.25rem; }
   .testimonial-card { text-align: center; }
   .testimonial-stars { justify-content: center; }
   .testimonial-author { justify-content: center; flex-direction: column; align-items: center; text-align: center; }
+  .testimonial-author div { text-align: center; }
+  .testimonial-author strong { text-align: center; }
+  .testimonial-author span { text-align: center; display: block; }
 
   /* Location section: center on mobile */
   .location-grid { text-align: center; }
-  .info-block { flex-direction: column; align-items: center; text-align: center; }
+  .info-block { flex-direction: column; align-items: center; text-align: center; gap: 12px; margin-bottom: 28px; }
   .info-block div { width: 100%; }
-  .info-block h3 { text-align: center; }
+  .info-block h3 { text-align: center; font-size: 16px; }
   .info-block p { text-align: center; }
   .hours-table { display: flex; flex-direction: column; align-items: center; }
-  .hours-row { max-width: 280px; margin: 0 auto; text-align: left; }
-  .location-map { min-height: 280px; }
+  .hours-row { max-width: 280px; width: 100%; margin: 0 auto; }
+  .location-map { min-height: 280px; border-radius: var(--radius-lg); }
   .location-map iframe, .map-iframe { min-height: 280px; }
 
   /* Contact section: center-aligned on mobile */
@@ -1534,8 +1537,9 @@ h3 { font-size: 1.25rem; }
   .sidebar-card { text-align: center; }
   .appointment-form { text-align: center; }
   .form-group { text-align: left; }
-  .form-group label { text-align: center; }
+  .form-group label { text-align: center; display: block; }
   .form-disclaimer { text-align: center; }
+  .appointment-form .btn-primary { margin: 0 auto; }
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
   .footer-brand { grid-column: 1 / -1; text-align: center; }
@@ -1549,7 +1553,7 @@ h3 { font-size: 1.25rem; }
   .insurance-card { min-height: 44px; }
   .author-avatar { min-width: 44px; min-height: 44px; width: 44px; height: 44px; }
 
-  .footer-links li { margin-bottom: 2px; font-size: 14px; line-height: 1.4; }
+  .footer-links li { margin-bottom: 4px; font-size: 14px; line-height: 1.6; padding: 4px 0; }
   .footer-links a { min-height: 44px; display: inline-flex; align-items: center; padding: 4px 0; }
   .footer-legal { flex-wrap: wrap; justify-content: center; gap: 16px; }
   .footer-legal span { font-size: 13px; line-height: 1.5; max-width: 320px; display: block; margin: 0 auto; }
@@ -1585,6 +1589,9 @@ h3 { font-size: 1.25rem; }
   .site-footer { padding-bottom: 72px; }
 
   .back-to-top { bottom: 84px; right: 20px; width: 44px; height: 44px; }
+
+  /* Toast raised above sticky CTA bar on mobile */
+  .toast { bottom: 84px; }
 
   /* Mobile Testimonials Carousel */
   .testimonials-grid {
@@ -1686,6 +1693,8 @@ h3 { font-size: 1.25rem; }
   .service-card .service-icon {
     margin-bottom: 0;
     flex-shrink: 0;
+    width: 48px;
+    height: 48px;
   }
 
   .service-card h3 {
@@ -1698,8 +1707,8 @@ h3 { font-size: 1.25rem; }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--bg-alt);
     flex-shrink: 0;
@@ -1841,9 +1850,12 @@ h3 { font-size: 1.25rem; }
   }
 
   /* Hero photo on mobile */
-  .hero-visual { display: block; }
+  .hero-visual { display: flex; justify-content: center; }
   .hero-image-wrapper { max-width: 100%; margin-top: 24px; }
   .hero-photo { max-height: 260px; width: 100%; object-fit: cover; border-radius: var(--radius-lg); }
+
+  /* Hero badge centered */
+  .hero-badge { display: inline-block; margin-left: auto; margin-right: auto; }
 
   /* Disable hover effects on touch devices */
   .team-card:hover { transform: none; box-shadow: var(--shadow-sm); }
@@ -1852,9 +1864,11 @@ h3 { font-size: 1.25rem; }
   .promo-banner:hover { transform: none; }
 
   /* FAQ: center-aligned on mobile */
-  .faq-question { min-height: 44px; text-align: center; justify-content: center; }
-  .faq-answer { text-align: center; }
+  .faq-question { min-height: 44px; text-align: center; justify-content: center; padding: 16px 20px; }
+  .faq-answer { text-align: center; padding: 0 20px 20px; }
   .faq-question span { flex: 1; text-align: center; }
+  .faq-question::before { content: ''; width: 20px; flex-shrink: 0; } /* balance chevron for true center */
+  .faq-chevron { width: 20px; height: 20px; }
 
 }
 
@@ -1875,9 +1889,11 @@ h3 { font-size: 1.25rem; }
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     justify-items: center;
+    text-align: center;
   }
 
   .proof-divider { display: none; }
+  .proof-label { font-size: 13px; }
 
   .social-proof { padding: 28px 0; }
 }
@@ -1972,6 +1988,78 @@ h3 { font-size: 1.25rem; }
   width: 1px;
   height: 48px;
   background: var(--border);
+}
+
+/* Proof link (clickable review stats) */
+a.proof-link {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+a.proof-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* ---------- Google Reviews Badge ---------- */
+.google-reviews-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: fit-content;
+  margin: 32px auto 0;
+  padding: 14px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  text-align: center;
+  justify-content: center;
+}
+
+.google-reviews-badge:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.google-badge-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.google-badge-rating {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.google-badge-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.google-badge-count {
+  font-size: 13px;
+  color: var(--text-secondary);
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .google-reviews-badge {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 20px;
+    margin: 24px auto 0;
+  }
 }
 
 /* ---------- FAQ Accordion ---------- */
