@@ -485,3 +485,10 @@
 - **Media query consolidation (P0):** Merged 3 duplicate `@media (max-width: 768px)` blocks into 1. The scroll journey / cascade reveal / heading-pop rules from the third block now live inside the main mobile block.
 - **Service card CTA labels:** Changed 5 "Learn More" links to "Book Appointment" with arrow — they all point to #contact, so the label now matches the action.
 - Cleaned up orphaned dark-mode SVG fill rule for removed hero illustration.
+
+### Simplicity & Technical Cleanup (Refiner)
+- **Removed 6 infinite animation systems:** badge-pulse, cta-shimmer, price-glow, cta-pulse, arrow-nudge, promo-shimmer. Reduces animation count from 9 to 3 (slot fade-in, cascade reveal, heading pop). A dental site should feel calm, not flashy.
+- **Removed desktop-only hover micro-interactions:** service icon lift, team avatar scale, insurance logo bounce. Agent rules: no desktop-only features.
+- **Refactored 16 nth-child delay rules to CSS custom properties:** 10 time-slot stagger rules + 6 cascade reveal rules replaced with 2 rules using `calc(var(--i) * interval)`. Set `--i` inline on time-slot buttons and dynamically on cascade children via JS.
+- **Fixed JSON-LD image:** Replaced inline data URI SVG with hosted URL (`logo.svg`). Extracted SVG to standalone file for search engine compatibility.
+- **Net reduction:** -280 lines (-7%), -8KB (-6%). Codebase now ~119KB / 3,619 lines across 3 core files.

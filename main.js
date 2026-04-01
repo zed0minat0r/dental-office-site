@@ -527,7 +527,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const cascadeTargets = document.querySelectorAll(
       '.services-grid, .team-grid, .insurance-grid, .proof-grid'
     );
-    cascadeTargets.forEach(grid => grid.classList.add('fade-up-cascade'));
+    cascadeTargets.forEach(grid => {
+      grid.classList.add('fade-up-cascade');
+      Array.from(grid.children).forEach((child, i) => child.style.setProperty('--i', i));
+    });
 
     const cascadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

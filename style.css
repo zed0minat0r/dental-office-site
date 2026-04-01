@@ -1086,16 +1086,10 @@ h3 { font-size: 1.25rem; }
   transform: translateY(8px);
 }
 
-.time-slot-group.animate-in .time-slot:nth-child(1) { animation-delay: 0s; }
-.time-slot-group.animate-in .time-slot:nth-child(2) { animation-delay: 0.03s; }
-.time-slot-group.animate-in .time-slot:nth-child(3) { animation-delay: 0.06s; }
-.time-slot-group.animate-in .time-slot:nth-child(4) { animation-delay: 0.09s; }
-.time-slot-group.animate-in .time-slot:nth-child(5) { animation-delay: 0.12s; }
-.time-slot-group.animate-in .time-slot:nth-child(6) { animation-delay: 0.15s; }
-.time-slot-group.animate-in .time-slot:nth-child(7) { animation-delay: 0.18s; }
-.time-slot-group.animate-in .time-slot:nth-child(8) { animation-delay: 0.21s; }
-.time-slot-group.animate-in .time-slot:nth-child(9) { animation-delay: 0.24s; }
-.time-slot-group.animate-in .time-slot:nth-child(10) { animation-delay: 0.27s; }
+/* Stagger delay via CSS custom property --i (set inline on each .time-slot) */
+.time-slot-group.animate-in .time-slot {
+  animation-delay: calc(var(--i, 0) * 0.03s);
+}
 
 @keyframes slotFadeIn {
   to { opacity: 1; transform: translateY(0); }
@@ -1682,6 +1676,7 @@ h3 { font-size: 1.25rem; }
                 opacity 0.4s ease,
                 padding 0.4s ease;
     padding-top: 0;
+    text-align: center;
   }
 
   .service-card.expanded .service-details {
@@ -1751,18 +1746,12 @@ h3 { font-size: 1.25rem; }
     background: linear-gradient(90deg, #8B5CF6, var(--accent));
   }
 
-  /* Staggered cascade reveal for section children on mobile */
-  .fade-up-cascade > *:nth-child(1) { transition-delay: 0ms; }
-  .fade-up-cascade > *:nth-child(2) { transition-delay: 80ms; }
-  .fade-up-cascade > *:nth-child(3) { transition-delay: 160ms; }
-  .fade-up-cascade > *:nth-child(4) { transition-delay: 240ms; }
-  .fade-up-cascade > *:nth-child(5) { transition-delay: 320ms; }
-  .fade-up-cascade > *:nth-child(6) { transition-delay: 400ms; }
-
+  /* Stagger delay via CSS custom property --i (set inline on each child) */
   .fade-up-cascade > * {
     opacity: 0;
     transform: translateY(20px) scale(0.97);
-    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: opacity 0.5s ease calc(var(--i, 0) * 80ms),
+                transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i, 0) * 80ms);
   }
 
   .fade-up-cascade.cascade-visible > * {
@@ -1802,6 +1791,20 @@ h3 { font-size: 1.25rem; }
   .hero-visual { display: block; }
   .hero-image-wrapper { max-width: 100%; margin-top: 24px; }
   .hero-photo { max-height: 260px; width: 100%; object-fit: cover; border-radius: var(--radius-lg); }
+
+  /* Disable hover effects on touch devices */
+  .team-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+  .team-card:hover .team-avatar { transform: none; }
+  .insurance-card:hover .insurance-logo svg { transform: none; }
+  .promo-banner:hover { transform: none; }
+
+  /* FAQ question tap target */
+  .faq-question { min-height: 44px; }
+
+  /* Section badge: center-fade instead of slide-from-left */
+  .section-badge { transform: none; opacity: 0; transition: opacity 0.5s ease; }
+  .cascade-visible .section-badge,
+  .visible .section-badge { opacity: 1; transform: none; }
 }
 
 /* ---------- Responsive: Small (480px) ---------- */
@@ -2034,81 +2037,11 @@ h3 { font-size: 1.25rem; }
 
 /* ---------- Micro-interactions ---------- */
 
-/* Hero badge gentle pulse */
-.hero-badge {
-  animation: badge-pulse 3s ease-in-out infinite;
-}
-
-@keyframes badge-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.15); }
-  50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-}
-
-/* Hero primary CTA shimmer */
-.hero-ctas .btn-primary {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-ctas .btn-primary::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  animation: cta-shimmer 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes cta-shimmer {
-  0%, 100% { left: -100%; }
-  50% { left: 120%; }
-}
-
-/* Service card icon lift on card hover */
-.service-card:hover .service-icon {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 16px rgba(43, 125, 233, 0.2);
-}
-
-.service-icon {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Team card avatar scale on hover */
-.team-card:hover .team-avatar {
-  transform: scale(1.06);
-}
-
-.team-avatar {
-  transition: transform 0.3s ease;
-}
-
-/* Insurance card icon bounce on hover */
-.insurance-card:hover .insurance-logo svg {
-  transform: scale(1.12);
-}
-
-.insurance-logo svg {
-  transition: transform 0.25s ease;
-}
-
 /* FAQ item open/close smooth border accent */
 .faq-item[open] {
   border-color: var(--primary);
 }
 
-/* New patient special value glow */
-.highlight-value {
-  animation: price-glow 3s ease-in-out infinite;
-}
-
-@keyframes price-glow {
-  0%, 100% { text-shadow: 0 0 0 transparent; }
-  50% { text-shadow: 0 0 16px rgba(43, 125, 233, 0.2); }
-}
 
 /* Testimonial card subtle border accent on hover */
 .testimonial-card:hover {
@@ -2137,73 +2070,8 @@ h3 { font-size: 1.25rem; }
   outline-offset: 2px;
 }
 
-/* ---------- Spark: Conversion micro-interactions ---------- */
-
-/* Gentle pulse glow on the form submit button to draw the eye */
-@keyframes cta-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(43, 125, 233, 0.45); }
-  50% { box-shadow: 0 0 0 8px rgba(43, 125, 233, 0); }
-}
-
-.appointment-form .btn-primary {
-  animation: cta-pulse 2.8s ease-in-out infinite;
-  position: relative;
-}
-
-/* Subtle rightward nudge on the submit arrow to suggest action */
-@keyframes arrow-nudge {
-  0%, 70%, 100% { transform: translateX(0); }
-  80% { transform: translateX(4px); }
-  90% { transform: translateX(0); }
-}
-
-.appointment-form .btn-primary svg {
-  animation: arrow-nudge 2.8s ease-in-out infinite;
-}
-
-/* Pause animations when user prefers reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .appointment-form .btn-primary,
-  .appointment-form .btn-primary svg,
-  .promo-banner::before {
-    animation: none !important;
-  }
-}
-
-/* Shimmer sweep across promo banner on mobile */
+/* Promo banner layout */
 .promo-banner {
   position: relative;
   overflow: hidden;
-}
-
-@keyframes promo-shimmer {
-  0% { transform: translateX(-100%) skewX(-15deg); }
-  100% { transform: translateX(300%) skewX(-15deg); }
-}
-
-.promo-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.18) 50%,
-    transparent 100%
-  );
-  animation: promo-shimmer 4s ease-in-out infinite;
-  animation-delay: 1.5s;
-  pointer-events: none;
-}
-
-[data-theme="dark"] .promo-banner::before {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    transparent 100%
-  );
 }
