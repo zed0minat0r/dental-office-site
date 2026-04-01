@@ -549,3 +549,9 @@
 
 ### P2: Fixed href="#" on logo links
 - Both header and footer nav-logo links changed from `href="#"` (causes URL hash change) to `href="/"` (clean page reload). Addresses audit P2 item.
+
+## 2026-04-01 (Pixel — Mobile Spacing Refinement Pass)
+
+### Mobile card padding optimization (Pixel)
+- **Testimonial carousel cards:** Reduced padding from `32px` to `24px 20px` on mobile for better content breathing room in 85%-width carousel cards at 375px.
+- **Team cards:** Reduced padding from `32px 24px` to `24px 20px` on mobile for tighter, more proportional card layout on narrow screens.
