@@ -942,6 +942,7 @@ h3 { font-size: 1.25rem; }
 .form-group {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .form-group label {
@@ -972,6 +973,23 @@ h3 { font-size: 1.25rem; }
 .form-group textarea:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(43, 125, 233, 0.12);
+}
+
+/* --- Spark: Focus progress underline micro-interaction --- */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background-image: linear-gradient(90deg, var(--primary), #38bdf8, var(--primary));
+  background-size: 0% 2px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: all var(--transition), background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background-size: 100% 2px;
 }
 
 .form-group input.error,
@@ -2070,4 +2088,20 @@ h3 { font-size: 1.25rem; }
 .promo-banner {
   position: relative;
   overflow: hidden;
+}
+
+/* --- Spark: Submit CTA gentle pulse to draw attention --- */
+@keyframes cta-soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(43, 125, 233, 0.35); }
+  50% { box-shadow: 0 0 0 8px rgba(43, 125, 233, 0); }
+}
+
+.appointment-form .btn-primary {
+  animation: cta-soft-pulse 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.appointment-form .btn-primary:active {
+  animation: none;
+  transform: scale(0.97);
 }

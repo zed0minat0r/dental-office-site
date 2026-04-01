@@ -502,6 +502,13 @@
 - **Inputs already safe:** Confirmed all form inputs/selects/textareas use `font-size: 16px` (prevents iOS zoom on focus). No changes needed.
 - **No overflow issues found:** `body { overflow-x: hidden }`, all grids use `1fr` on mobile, hero shapes hidden, promo banner wraps. Clean at 375px.
 
+## Round 7 — Spark: Conversion Form Micro-Interactions (2026-04-01)
+
+### Targeting: Conversion Optimization (4/10)
+- **Focus progress underline:** Added CSS-only gradient underline that slides left-to-right beneath form inputs on focus. Uses `background-image` with `background-size` transition (0% to 100%) for a smooth reveal. Gradient goes from brand blue through sky blue and back. Creates a sense of forward momentum as users tab through the form.
+- **Submit button soft pulse:** Added a gentle `box-shadow` pulse animation (`cta-soft-pulse`, 3s loop) on the "Request Appointment" button. Draws the eye to the CTA without being distracting. Pulse stops on `:active` with a subtle scale-down for tactile feedback.
+- **Mobile-first, CSS-only:** No JavaScript added. Both interactions work on touch devices. No hover dependency.
+
 ### Expanded Team Bios (Builder)
 - **All 4 team bios expanded from 1 sentence to full paragraphs.** Each bio now includes: alma mater, board certifications, specialties, years of experience, and a personal touch that gives patients a reason to feel comfortable. Addresses P1 audit item "Expand team bios with credentials, specialties, personality."
 - **Dr. Sarah Mitchell:** UPenn, AACD member, Invisalign + implant certs, calm demeanor.
