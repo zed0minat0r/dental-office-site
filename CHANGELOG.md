@@ -476,3 +476,12 @@
 - Created repo with VISION.md, STYLE-GUIDE.md, REQUIREMENTS.md, TASKS.md
 - Dental office site: Bright Smile Dental
 - 4 tasks defined, agent team deployed
+
+## 2026-04-01
+
+### Real Photography + Media Query Consolidation (Builder)
+- **Hero image:** Replaced SVG tooth illustration with real Unsplash dental office photo. Now visible on both desktop and mobile (capped at 260px height on mobile).
+- **Team photos:** Replaced all 4 CSS avatar illustrations (dot-eye cartoon heads) with professional Unsplash headshot photos. Circular crop with primary-color border and subtle shadow. Removed ~180 lines of avatar CSS (head, hair, face, eyes, smile, body, coat, scrubs, per-person color rules).
+- **Media query consolidation (P0):** Merged 3 duplicate `@media (max-width: 768px)` blocks into 1. The scroll journey / cascade reveal / heading-pop rules from the third block now live inside the main mobile block.
+- **Service card CTA labels:** Changed 5 "Learn More" links to "Book Appointment" with arrow — they all point to #contact, so the label now matches the action.
+- Cleaned up orphaned dark-mode SVG fill rule for removed hero illustration.

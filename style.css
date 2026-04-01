@@ -62,9 +62,6 @@
   box-shadow: var(--shadow-md);
 }
 
-[data-theme="dark"] .hero-illustration svg path[fill="white"] {
-  fill: #1E293B;
-}
 
 [data-theme="dark"] .icon-sun { display: none; }
 [data-theme="dark"] .icon-moon { display: block; }
@@ -531,17 +528,20 @@ h3 { font-size: 1.25rem; }
   align-items: center;
 }
 
-.hero-illustration {
+.hero-image-wrapper {
   position: relative;
-  animation: float 6s ease-in-out infinite;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(43, 125, 233, 0.15);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+.hero-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
 }
-
-.hero-tooth { filter: drop-shadow(0 20px 40px rgba(43, 125, 233, 0.15)); }
 
 /* ---------- Gradient Utilities ---------- */
 .grad-blue { background: linear-gradient(135deg, #2B7DE9 0%, #06B6D4 100%); }
@@ -662,187 +662,24 @@ h3 { font-size: 1.25rem; }
   font-size: 14px;
 }
 
-/* CSS Avatar Illustrations */
+/* Team Photos */
 .team-avatar {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin: 0 auto 20px;
   position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(43, 125, 233, 0.12);
+  border: 3px solid var(--primary);
 }
 
-.avatar-illustration {
+.team-photo {
   width: 100%;
   height: 100%;
-  position: relative;
+  object-fit: cover;
+  display: block;
 }
-
-.avatar-head {
-  position: absolute;
-  width: 60px;
-  height: 68px;
-  border-radius: 50% 50% 48% 48%;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.avatar-face {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 40px;
-  z-index: 3;
-}
-
-.avatar-eyes {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 8px;
-}
-
-.avatar-eye {
-  width: 6px;
-  height: 6px;
-  background: var(--text);
-  border-radius: 50%;
-}
-
-.avatar-smile {
-  width: 16px;
-  height: 8px;
-  border: 2px solid var(--text);
-  border-top: none;
-  border-radius: 0 0 50% 50%;
-  margin: 6px auto 0;
-}
-
-.avatar-body {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 30px;
-  border-radius: 35px 35px 0 0;
-}
-
-.avatar-coat,
-.avatar-scrubs {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 30px;
-  border-radius: 35px 35px 0 0;
-  z-index: 2;
-}
-
-/* Hair styles */
-.avatar-hair {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.hair-long {
-  width: 66px;
-  height: 50px;
-  top: 0;
-  border-radius: 50% 50% 30% 30%;
-}
-
-.hair-long::before,
-.hair-long::after {
-  content: '';
-  position: absolute;
-  bottom: -18px;
-  width: 14px;
-  height: 30px;
-  border-radius: 0 0 8px 8px;
-}
-
-.hair-long::before { left: 2px; }
-.hair-long::after { right: 2px; }
-
-.hair-short {
-  width: 62px;
-  height: 30px;
-  top: 0;
-  border-radius: 50% 50% 20% 20%;
-}
-
-.hair-medium {
-  width: 66px;
-  height: 42px;
-  top: 0;
-  border-radius: 50% 50% 25% 25%;
-}
-
-.hair-medium::before,
-.hair-medium::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  width: 12px;
-  height: 18px;
-  border-radius: 0 0 6px 6px;
-}
-
-.hair-medium::before { left: 4px; }
-.hair-medium::after { right: 4px; }
-
-.hair-bob {
-  width: 66px;
-  height: 38px;
-  top: 0;
-  border-radius: 50% 50% 30% 30%;
-}
-
-.hair-bob::before,
-.hair-bob::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  width: 10px;
-  height: 14px;
-  border-radius: 0 0 50% 50%;
-}
-
-.hair-bob::before { left: 5px; }
-.hair-bob::after { right: 5px; }
-
-/* Individual avatar colors */
-.avatar-sarah .avatar-head { background: #FBBF80; }
-.avatar-sarah .hair-long,
-.avatar-sarah .hair-long::before,
-.avatar-sarah .hair-long::after { background: #92400E; }
-.avatar-sarah .avatar-body { background: #DBEAFE; }
-.avatar-sarah .avatar-coat { background: #fff; border: 2px solid #E2E8F0; border-bottom: none; }
-
-.avatar-james .avatar-head { background: #FCD9A8; }
-.avatar-james .hair-short { background: #1E293B; }
-.avatar-james .avatar-body { background: #DBEAFE; }
-.avatar-james .avatar-coat { background: #fff; border: 2px solid #E2E8F0; border-bottom: none; }
-
-.avatar-maria .avatar-head { background: #D4A76A; }
-.avatar-maria .hair-medium,
-.avatar-maria .hair-medium::before,
-.avatar-maria .hair-medium::after { background: #1C1917; }
-.avatar-maria .avatar-body { background: #DBEAFE; }
-.avatar-maria .avatar-coat { background: #fff; border: 2px solid #E2E8F0; border-bottom: none; }
-
-.avatar-lisa .avatar-head { background: #FBBF80; }
-.avatar-lisa .hair-bob,
-.avatar-lisa .hair-bob::before,
-.avatar-lisa .hair-bob::after { background: #B45309; }
-.avatar-lisa .avatar-body { background: #CCFBF1; }
-.avatar-lisa .avatar-scrubs { background: #06B6D4; }
-
 /* ---------- Testimonials ---------- */
 .testimonials {
   padding: 100px 0;
@@ -1615,7 +1452,6 @@ h3 { font-size: 1.25rem; }
 
   .hero { padding: calc(var(--nav-height) + 40px) 0 60px; min-height: auto; }
   h1 { font-size: 2rem; }
-  .hero-visual { display: none; }
   .hero-bg-shapes .shape { display: none; }
 
   /* Center hero content consistently */
@@ -1897,6 +1733,75 @@ h3 { font-size: 1.25rem; }
     transform: none;
     box-shadow: none;
   }
+
+  /* Progress bar shifts through brand palette as you scroll */
+  .scroll-progress {
+    height: 4px;
+    transition: width 0.05s linear, background 0.4s ease;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .scroll-progress.journey-start {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+  }
+  .scroll-progress.journey-mid {
+    background: linear-gradient(90deg, var(--secondary), #8B5CF6);
+  }
+  .scroll-progress.journey-end {
+    background: linear-gradient(90deg, #8B5CF6, var(--accent));
+  }
+
+  /* Staggered cascade reveal for section children on mobile */
+  .fade-up-cascade > *:nth-child(1) { transition-delay: 0ms; }
+  .fade-up-cascade > *:nth-child(2) { transition-delay: 80ms; }
+  .fade-up-cascade > *:nth-child(3) { transition-delay: 160ms; }
+  .fade-up-cascade > *:nth-child(4) { transition-delay: 240ms; }
+  .fade-up-cascade > *:nth-child(5) { transition-delay: 320ms; }
+  .fade-up-cascade > *:nth-child(6) { transition-delay: 400ms; }
+
+  .fade-up-cascade > * {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .fade-up-cascade.cascade-visible > * {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Section badge "slide-in-from-left" entrance on mobile */
+  .section-badge {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  }
+
+  .cascade-visible .section-badge,
+  .visible .section-badge {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Gentle scale-bounce for section headings when they appear */
+  .section-header h2 {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+  }
+
+  .cascade-visible .section-header h2 {
+    animation: heading-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  @keyframes heading-pop {
+    0% { transform: scale(0.92); opacity: 0.5; }
+    60% { transform: scale(1.03); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Hero photo on mobile */
+  .hero-visual { display: block; }
+  .hero-image-wrapper { max-width: 100%; margin-top: 24px; }
+  .hero-photo { max-height: 260px; width: 100%; object-fit: cover; border-radius: var(--radius-lg); }
 }
 
 /* ---------- Responsive: Small (480px) ---------- */
@@ -2125,73 +2030,6 @@ h3 { font-size: 1.25rem; }
   z-index: 1100;
   transition: width 0.05s linear;
   pointer-events: none;
-}
-
-/* ---------- Mobile Scroll Journey (color-shifting progress + staggered reveals) ---------- */
-@media (max-width: 768px) {
-  /* Progress bar shifts through brand palette as you scroll */
-  .scroll-progress {
-    height: 4px;
-    transition: width 0.05s linear, background 0.4s ease;
-    border-radius: 0 2px 2px 0;
-  }
-
-  .scroll-progress.journey-start {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-  }
-  .scroll-progress.journey-mid {
-    background: linear-gradient(90deg, var(--secondary), #8B5CF6);
-  }
-  .scroll-progress.journey-end {
-    background: linear-gradient(90deg, #8B5CF6, var(--accent));
-  }
-
-  /* Staggered cascade reveal for section children on mobile */
-  .fade-up-cascade > *:nth-child(1) { transition-delay: 0ms; }
-  .fade-up-cascade > *:nth-child(2) { transition-delay: 80ms; }
-  .fade-up-cascade > *:nth-child(3) { transition-delay: 160ms; }
-  .fade-up-cascade > *:nth-child(4) { transition-delay: 240ms; }
-  .fade-up-cascade > *:nth-child(5) { transition-delay: 320ms; }
-  .fade-up-cascade > *:nth-child(6) { transition-delay: 400ms; }
-
-  .fade-up-cascade > * {
-    opacity: 0;
-    transform: translateY(20px) scale(0.97);
-    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .fade-up-cascade.cascade-visible > * {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  /* Section badge "slide-in-from-left" entrance on mobile */
-  .section-badge {
-    transform: translateX(-20px);
-    opacity: 0;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
-  }
-
-  .cascade-visible .section-badge,
-  .visible .section-badge {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  /* Gentle scale-bounce for section headings when they appear */
-  .section-header h2 {
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-  }
-
-  .cascade-visible .section-header h2 {
-    animation: heading-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-
-  @keyframes heading-pop {
-    0% { transform: scale(0.92); opacity: 0.5; }
-    60% { transform: scale(1.03); }
-    100% { transform: scale(1); opacity: 1; }
-  }
 }
 
 /* ---------- Micro-interactions ---------- */
