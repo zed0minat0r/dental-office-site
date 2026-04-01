@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-04-01 (Spark — Conversion Micro-Interactions)
+
+### Conversion Optimization visual boost
+- Added CSS-only pulsing glow on "Request Appointment" submit button to draw user attention
+- Added subtle arrow-nudge animation on the submit button icon (repeating rightward slide)
+- Added shimmer sweep effect across the $99 promo banner to increase click-through appeal
+- All animations respect `prefers-reduced-motion` for accessibility
+- Dark mode variant for shimmer effect included
+- Mobile-first, CSS-only, no new HTML elements or sections
+
 ## 2026-03-30 (Nigel — Audit Round 5)
 
 ### Audit: 6.8/10 overall (+0.1)

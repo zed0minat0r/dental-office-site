@@ -2299,4 +2299,73 @@ h3 { font-size: 1.25rem; }
   outline-offset: 2px;
 }
 
+/* ---------- Spark: Conversion micro-interactions ---------- */
 
+/* Gentle pulse glow on the form submit button to draw the eye */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(43, 125, 233, 0.45); }
+  50% { box-shadow: 0 0 0 8px rgba(43, 125, 233, 0); }
+}
+
+.appointment-form .btn-primary {
+  animation: cta-pulse 2.8s ease-in-out infinite;
+  position: relative;
+}
+
+/* Subtle rightward nudge on the submit arrow to suggest action */
+@keyframes arrow-nudge {
+  0%, 70%, 100% { transform: translateX(0); }
+  80% { transform: translateX(4px); }
+  90% { transform: translateX(0); }
+}
+
+.appointment-form .btn-primary svg {
+  animation: arrow-nudge 2.8s ease-in-out infinite;
+}
+
+/* Pause animations when user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .appointment-form .btn-primary,
+  .appointment-form .btn-primary svg,
+  .promo-banner::before {
+    animation: none !important;
+  }
+}
+
+/* Shimmer sweep across promo banner on mobile */
+.promo-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes promo-shimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(300%) skewX(-15deg); }
+}
+
+.promo-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  animation: promo-shimmer 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .promo-banner::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+}
