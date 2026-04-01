@@ -598,3 +598,26 @@
 - No new sections added (stays within 10-12 cap).
 - Mobile-first, center-aligned layout preserved.
 - All new interactive elements have proper `aria-label` and `focus-visible` styles.
+
+## 2026-04-01 (Pixel — Mobile Center Alignment & Visual Polish Audit)
+
+### Center alignment fixes (375px audit)
+- **Service cards (expand zone)**: Equalized icon (48px) and expand-indicator (48px) widths so h3 text is truly centered between them on mobile.
+- **FAQ section**: Added invisible spacer before question text to balance the chevron, ensuring question text is visually centered.
+- **Testimonial author**: Explicitly centered author name/role text blocks within the column layout.
+- **Location info blocks**: Improved gap and margin consistency; info-block h3 set to 16px for readability.
+- **Form labels**: Ensured `display: block` on labels for consistent center alignment; submit button auto-centered with `margin: 0 auto`.
+- **Footer list items**: Increased line-height and padding for consistent vertical rhythm.
+
+### Visual & spacing fixes
+- **Toast notification**: Raised to `bottom: 84px` on mobile to clear the sticky CTA bar.
+- **Hero visual**: Changed from `display: block` to `display: flex; justify-content: center` for true image centering.
+- **Hero badge**: Added explicit `margin-left/right: auto` for centering.
+- **Proof grid (480px)**: Added `text-align: center` and reduced label font-size to 13px for tighter mobile layout.
+- **Hours rows**: Removed `text-align: left` override; rows now inherit center context with `width: 100%` for proper flex spacing.
+
+### Mobile formatting & tap targets
+- All form inputs/selects/textareas confirmed at 16px font-size (prevents iOS zoom).
+- All interactive elements confirmed at 44px minimum tap target.
+- No horizontal overflow detected; all grids use minmax/fr units or single-column stacking.
+- CSS braces verified balanced (456/456).
