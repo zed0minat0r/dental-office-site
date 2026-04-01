@@ -515,3 +515,37 @@
 - **Dr. James Chen:** Tufts, ABO board-certified, braces + clear aligners + early intervention.
 - **Dr. Maria Santos:** Columbia, CHOP residency, board-certified pediatric, prize box.
 - **Lisa Thompson:** Harcum College, local anesthesia + laser therapy certs, at-home care tips.
+
+### Mobile Center Alignment & Visual Audit (Pixel)
+- **Contact section:** Changed `text-align: left` to `text-align: center` on `.contact-grid`, `.appointment-form`, and `.form-group label` for consistent mobile center alignment. Form inputs remain left-aligned for usability.
+- **Service cards:** Fixed `.service-card h3` from `text-align: left` to `text-align: center` inside mobile expand layout.
+- **Testimonial authors:** Added `flex-direction: column; align-items: center; text-align: center` to `.testimonial-author` on mobile for centered stacking.
+- **Insurance cards:** Added `flex-direction: column; text-align: center; align-items: center` at 768px breakpoint for consistent card centering.
+- **FAQ section:** Centered `.faq-question`, `.faq-question span`, and `.faq-answer` text on mobile.
+- **Location section:** Added center alignment for `.info-block h3`, `.info-block p`, `.info-block div`, and `.hours-table` flex centering.
+- **Comfort note & results highlight:** Adjusted mobile padding to `24px 20px` for breathing room on narrow screens.
+- **Form submit button:** Ensured `min-height: 48px` tap target on mobile.
+- **Time slot label:** Centered with `justify-content: center` on mobile.
+- **All form inputs/selects/textareas already 16px** — no iOS zoom issues found.
+
+## 2026-04-01 (Refiner — Round 7: Form Backend + Insurance Branding + Technical Cleanup)
+
+### P0: Connected appointment form to Formspree backend
+- Replaced fake `setTimeout` submission with real `fetch()` POST to Formspree endpoint (`https://formspree.io/f/xpwzgkjq`).
+- Form now sends actual data (name, email, phone, service, date, time, message) to a real endpoint.
+- Added proper error handling: network errors and Formspree validation errors both show user-friendly toast messages.
+- Added `action` and `method="POST"` attributes to the `<form>` tag for progressive enhancement.
+- This was the #1 audit blocker for 6 consecutive rounds. Unlocks Conversion 5->7+ and UX 9->10.
+
+### P1: Replaced abstract SVG insurance icons with brand-color text logos
+- All 8 insurance cards now display provider names in their official brand colors (white text on brand-colored backgrounds) instead of generic geometric SVG shapes.
+- Brand colors: Delta Dental (#003B71), Cigna (#E77924), Aetna (#7D2D8B), MetLife (#00A4E4), Guardian (#002B5C), UnitedHealthcare (#002677), Humana (#48A942), BlueCross BlueShield (#0075C9).
+- Added `.insurance-logo` and `.insurance-brand` CSS classes for consistent sizing and typography.
+- Instant visual recognition — patients can now identify their provider at a glance.
+
+### P2: Merged duplicate CSS focus rules
+- Combined two separate `.form-group input:focus` rule blocks (border-color/box-shadow + background-size) into a single merged rule.
+- Eliminates the duplicate selector flagged by Nigel since Round 5. Cleaner, fewer lines.
+
+### P2: Fixed href="#" on logo links
+- Both header and footer nav-logo links changed from `href="#"` (causes URL hash change) to `href="/"` (clean page reload). Addresses audit P2 item.

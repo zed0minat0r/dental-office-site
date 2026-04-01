@@ -243,27 +243,53 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Simulate form submission
+    // Submit form data to Formspree
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span>Sending...</span>';
 
-    setTimeout(() => {
-      form.reset();
-      // Clear any lingering ARIA states after reset
-      form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
-      form.querySelectorAll('.field-error').forEach(el => { el.textContent = ''; });
-      // Reset time slot picker
-      if (timeSlotGroup) { timeSlotGroup.style.display = 'none'; timeSlotGroup.classList.remove('animate-in'); }
-      if (preferredTimeInput) preferredTimeInput.value = '';
-      if (timeSlotGrid) timeSlotGrid.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected', 'unavailable'));
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        // Clear any lingering ARIA states after reset
+        form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+        form.querySelectorAll('.field-error').forEach(el => { el.textContent = ''; });
+        // Reset time slot picker
+        if (timeSlotGroup) { timeSlotGroup.style.display = 'none'; timeSlotGroup.classList.remove('animate-in'); }
+        if (preferredTimeInput) preferredTimeInput.value = '';
+        if (timeSlotGrid) timeSlotGrid.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected', 'unavailable'));
+
+        // Show success toast
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 5000);
+      } else {
+        response.json().then(data => {
+          const msg = (data && data.errors) ? data.errors.map(e => e.message).join(', ') : 'Something went wrong. Please try again.';
+          toast.textContent = msg;
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+            toast.textContent = 'Thank you! Your appointment request has been received. We will contact you within 1 business day to confirm.';
+          }, 5000);
+        });
+      }
+    }).catch(() => {
+      toast.textContent = 'Network error. Please check your connection and try again.';
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+        toast.textContent = 'Thank you! Your appointment request has been received. We will contact you within 1 business day to confirm.';
+      }, 5000);
+    }).finally(() => {
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<span>Request Appointment</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
-
-      // Show toast
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 5000);
-    }, 1200);
+    });
   });
 
   // Remove error on input
