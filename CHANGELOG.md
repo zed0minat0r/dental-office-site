@@ -564,3 +564,14 @@
 - Mobile-first, center-aligned. Draws the eye to trust numbers (10,000+ patients, 500+ reviews, 15+ years, 4.9 rating).
 - Targets Conversion Optimization (audit: 5.0/10) and Design (audit: 7.0/10) by adding visual weight to the social proof section.
 - No new sections, no new JS — pure CSS enhancement.
+
+## 2026-04-01 (Builder — Real Insurance Provider Logos)
+
+### Replaced abstract text-based insurance icons with real provider logos
+- **All 8 insurance cards** now display actual company logos via Clearbit Logo API instead of colored boxes with white text brand names.
+- Logos: Delta Dental, Cigna, Aetna, MetLife, Guardian, UnitedHealthcare, Humana, BlueCross BlueShield.
+- Images are lazy-loaded with explicit `width`/`height` attributes (44x44) to prevent layout shift.
+- `.insurance-logo` CSS updated: added `overflow: hidden`, white background fallback, and `object-fit: contain` on `img` for clean rendering.
+- Removed `.insurance-brand` text spans (no longer needed with real logos).
+- Addresses **P1 audit item**: "Replace abstract SVG insurance icons with actual provider logos" — flagged as high-impact trust signal improvement.
+- Mobile-first, center-aligned layout preserved. No new sections added.
