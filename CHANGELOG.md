@@ -501,3 +501,10 @@
 - **Cascade stagger fix:** Merged duplicate `.fade-up-cascade > *` rules that were overwriting the stagger `transition-delay`. Combined into a single rule with `calc(var(--i) * 80ms)` in the transition shorthand.
 - **Inputs already safe:** Confirmed all form inputs/selects/textareas use `font-size: 16px` (prevents iOS zoom on focus). No changes needed.
 - **No overflow issues found:** `body { overflow-x: hidden }`, all grids use `1fr` on mobile, hero shapes hidden, promo banner wraps. Clean at 375px.
+
+### Expanded Team Bios (Builder)
+- **All 4 team bios expanded from 1 sentence to full paragraphs.** Each bio now includes: alma mater, board certifications, specialties, years of experience, and a personal touch that gives patients a reason to feel comfortable. Addresses P1 audit item "Expand team bios with credentials, specialties, personality."
+- **Dr. Sarah Mitchell:** UPenn, AACD member, Invisalign + implant certs, calm demeanor.
+- **Dr. James Chen:** Tufts, ABO board-certified, braces + clear aligners + early intervention.
+- **Dr. Maria Santos:** Columbia, CHOP residency, board-certified pediatric, prize box.
+- **Lisa Thompson:** Harcum College, local anesthesia + laser therapy certs, at-home care tips.
