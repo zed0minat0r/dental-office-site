@@ -555,3 +555,12 @@
 ### Mobile card padding optimization (Pixel)
 - **Testimonial carousel cards:** Reduced padding from `32px` to `24px 20px` on mobile for better content breathing room in 85%-width carousel cards at 375px.
 - **Team cards:** Reduced padding from `32px 24px` to `24px 20px` on mobile for tighter, more proportional card layout on narrow screens.
+
+## 2026-04-01 (Spark — Social Proof Micro-Interaction)
+
+### Gradient accent underline on social proof stats
+- Added a CSS-only gradient underline (primary blue to teal) beneath each proof-number that animates in after the count-up finishes.
+- Uses `::after` pseudo-element with `width: 0` transitioning to `32px` on `.counted` class, delayed 0.4s to sync with the countPop animation.
+- Mobile-first, center-aligned. Draws the eye to trust numbers (10,000+ patients, 500+ reviews, 15+ years, 4.9 rating).
+- Targets Conversion Optimization (audit: 5.0/10) and Design (audit: 7.0/10) by adding visual weight to the social proof section.
+- No new sections, no new JS — pure CSS enhancement.
