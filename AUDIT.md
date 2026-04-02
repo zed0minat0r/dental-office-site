@@ -1,4 +1,4 @@
-# Bright Smile Dental — Website Audit (Round 7)
+# Bright Smile Dental — Website Audit (Round 8)
 
 **Auditor**: Nigel Pemberton-Finch, Senior Digital Auditor
 **Date**: 2026-04-01
@@ -12,14 +12,14 @@
 {
   "audit_date": "2026-04-01",
   "auditor": "Nigel",
-  "overall_score": 8.2,
+  "overall_score": 8.6,
   "categories": {
-    "design": 7.5,
+    "design": 8.0,
     "content": 6.0,
     "ux": 9.5,
     "technical_quality": 8.5,
-    "conversion_optimization": 7.5,
-    "simplicity": 8.0
+    "conversion_optimization": 8.5,
+    "simplicity": 7.5
   },
   "score_history": [
     {
@@ -105,6 +105,18 @@
       "conversion_optimization": 7.5,
       "simplicity": 8.0,
       "notes": "The form is real. Formspree backend replaces six rounds of setTimeout fakery. Conversion cap shattered: 5->7.5. UX hits 9.5 — every user flow now reaches a real endpoint. Real Clearbit insurance logos replace abstract icons. Gradient stat underlines add polish. Duplicate CSS merged. Logo hrefs fixed. Two caps remain: placeholder contact info (Content) and stock photography (Design)."
+    },
+    {
+      "date": "2026-04-01",
+      "audit": 8,
+      "overall": 8.6,
+      "design": 8.0,
+      "content": 6.0,
+      "ux": 9.5,
+      "technical_quality": 8.5,
+      "conversion_optimization": 8.5,
+      "simplicity": 7.5,
+      "notes": "Before & After gallery lands (Scout critical #1). Google Reviews linked + badge added. Insurance logos self-hosted. Animated gradient rings on testimonial avatars. Razor cleaned 29 duplicate CSS lines. Design hits 8 — gallery + avatar rings. Conversion hits 8.5 — reviews now linked + badge adds trust verification. Simplicity drops to 7.5 — codebase grew to 4,045 lines / 135KB with three 768px media blocks. Content cap holds at 6."
     }
   ]
 }
@@ -114,155 +126,145 @@
 
 ## Category Breakdown
 
-### Design — 7.5/10 (+0.5)
+### Design — 8.0/10 (+0.5)
 
 **What improved since last audit:**
-- **Real insurance provider logos.** Builder replaced abstract SVG shapes (and the interim brand-color text cards) with actual company logos via Clearbit Logo API. Delta Dental, Cigna, Aetna, MetLife, Guardian, UnitedHealthcare, Humana, BlueCross BlueShield — all 8 now render recognizable brand imagery at 44x44px, lazy-loaded with explicit dimensions. This was P1 in Round 6 and is now resolved. A patient scrolling the insurance section immediately recognizes their provider. Trust signal: strong.
-- **Gradient accent underlines on stats bar.** Spark added a `::after` pseudo-element on `.proof-number` that animates from `width: 0` to `width: 32px` with a gradient (`var(--primary)` to `#06B6D4`) after the count animation completes. The 0.5s transition with 0.4s delay sequences it cleanly after countPop. Subtle, tasteful, adds visual polish to the social proof bar without being distracting. Good micro-interaction work.
-- **Testimonial and team card padding tightened.** Pixel adjusted mobile padding — `.team-card` now uses `24px 20px` at 768px breakpoint. Cards breathe properly at 375px without wasting space.
+- **Before & After Smile Gallery.** This was Scout's #1 critical item and it landed. Three gallery cards (Professional Whitening, Porcelain Veneers, Invisalign) with tap-to-toggle before/after interaction. Cards use gradient placeholders — muted gray for "Before", vibrant blue-to-cyan for "After" — with tooth SVG icons and "Before"/"After" labels positioned top-left. The visual contrast between states is immediately clear. Category tags ("Cosmetic", "Orthodontics") and descriptive copy add context. A disclaimer ("Results may vary") adds credibility. The section ends with a "Book a Free Consultation" CTA — correct conversion funnel placement.
+- **Animated gradient rings on testimonial avatars.** Spark added a `conic-gradient` ring using `::before` pseudo-elements with `-webkit-mask-composite: xor` / `mask-composite: exclude` to create a transparent-center ring effect. The ring and avatar scale in together when the testimonial card scrolls into view, with staggered timing (avatar at 0.3s, ring at 0.5s). The gradient matches the site's primary-to-cyan palette. Tasteful, not overdone — it draws the eye to the author without distracting from the testimonial text.
+- **Self-hosted insurance logos.** Eight SVG files now live in `images/insurance/` (248-426 bytes each). No more external Clearbit API dependency. The logos load locally with `loading="lazy"` and explicit dimensions. P2 from Round 7 — resolved.
 
-**Why 7.5 and not higher:**
-- **Testimonial avatars remain CSS-generated initials** (gradient circles with "JR", "MT", "AW", "DK"). These are the last remaining CSS-drawn visual elements that real photography could replace.
-- **Stock photography.** The Unsplash hero and team headshots are well-chosen but remain stock. For a template context this is expected and not penalized, but it is the design ceiling until a real client provides their own photos.
+**Why 8.0 and not higher:**
+- **Gallery uses placeholder SVGs, not real before/after photos.** The gradient backgrounds and tooth icons are effective placeholders, but a real Before & After gallery requires real clinical photography. This is template-expected — clients would supply their own case photos — but it limits the visual impact of the section.
+- **Testimonial avatars remain CSS-generated initials** ("JR", "MT", "AW", "DK") with gradient circles. The new animated rings make them look better, but they are still not real headshots.
+- **Stock photography** on hero and team sections remains. Template-expected, not penalized further.
 
 **Priority fixes:**
-1. **P2** — Consider replacing CSS initial avatars in testimonials with stock portrait thumbnails or a more distinctive treatment
-2. **P2** — Real office/team photography when client provides it
+1. **P2** — Gallery needs real before/after clinical photos when client provides them
+2. **P3** — Testimonial avatar initials could be replaced with stock portrait thumbnails for additional realism
 
 ---
 
 ### Content — 6.0/10 (unchanged)
 
-No content changes this round. The improvements were structural (form backend, insurance logos, CSS fixes) rather than content-focused.
+No content copy changes this round. The gallery added descriptive text for each case, which is good, but the structural content issues remain.
 
 **What still does NOT work:**
-- **All contact information remains placeholder.** "(555) 123-4567" in 6+ locations, "1234 Smile Avenue, Suite 200" in HTML and JSON-LD, "hello@brightsmile.com" in footer, "(555) 987-6543" emergency line. In a template context, placeholder data is expected — this holds Content at 6 rather than penalizing further, but prevents scoring above 6 until real data arrives.
-- **No social media presence.** The comment marking where social links were removed remains. No replacement profiles.
-- **Review claims still unlinked.** "500+ 5-Star Reviews" and "4.9 rating" — strong trust signals pointing nowhere.
+- **All contact information remains placeholder.** "(555) 123-4567" in 6+ locations, "1234 Smile Avenue, Suite 200" in HTML and JSON-LD, "hello@brightsmile.com" in footer, "(555) 987-6543" emergency line. Template-expected; holds Content at 6.
+- **No social media presence.** No profile links anywhere.
+- **Gallery case descriptions are generic but adequate.** "8-shade improvement in a single visit" is specific enough. The disclaimer is correct. Content here is template-appropriate.
 
 **Priority fixes:**
 1. **P0** — Replace ALL placeholder contact information with real data (when available from client)
 2. **P2** — Add real social media profile links when they exist
-3. **P2** — Link review claims to actual Google Reviews page
 
 ---
 
-### UX — 9.5/10 (+0.5, CAP LIFTED)
-
-**The six-round form cap is broken.** The form now submits to Formspree (`https://formspree.io/f/xpwzgkjq`) via `fetch()` with proper `Accept: application/json` headers. The `setTimeout` fakery that capped UX at 9 for six consecutive rounds is gone. Every user flow on this site now reaches a real endpoint.
+### UX — 9.5/10 (unchanged)
 
 **What improved since last audit:**
-- **Real form submission.** `e.preventDefault()` still runs (for validation), but on success the form POSTs via `fetch()` to Formspree. Submit button disables and shows "Sending..." during the request. On success: form resets, time slots clear, success toast appears for 5 seconds. On error: server error messages are displayed in the toast. On network failure: a clear "Network error" message appears. The error handling is thorough — response.json() parses Formspree's error format and joins messages. The finally block re-enables the submit button and restores its original HTML regardless of outcome. This is production-quality form handling.
-- **Logo links fixed.** Both nav-logo anchors (header line 130, footer line 902) now use `href="/"` instead of `href="#"`. No more URL hash pollution on logo tap. Flagged since Round 6, now resolved.
-- **Insurance logos are tappable, recognizable.** A patient can visually confirm their insurance provider is accepted without reading text. Faster cognitive processing = better UX.
+- **Gallery tap-to-toggle interaction.** Clean JS implementation — `btn.closest('.gallery-card').classList.toggle('revealed')` — toggles between Before and After states. The `<button>` element with descriptive `aria-label` is semantically correct for an interactive toggle. CSS handles the state swap via `.gallery-card.revealed .gallery-before { display: none }` / `.gallery-card.revealed .gallery-after { display: flex }`. Simple, instant, no animation overhead. Mobile-friendly tap target (full card width).
+- **Gallery CTA placement.** "Book a Free Consultation" at the bottom of the gallery section is correct conversion funnel design — patient sees results, then is prompted to act.
+- **Google Reviews badge in testimonials.** Linked to Google Maps with proper `target="_blank"` and `rel="noopener noreferrer"`. The badge is tappable with focus-visible styling. Users can now verify review claims externally.
+- **Proof stats now linked.** Both "500+ 5-Star Reviews" and "4.9 Google Rating" in the social proof bar are now `<a>` tags linking to Google Business Profile with proper aria-labels. Previously these were static `<div>` elements making unverifiable claims. Now they are trust-verifying links.
 
-**Why 9.5 and not 10:** Two minor items prevent a perfect score:
-- The phone numbers throughout the site dial fake numbers. On mobile, tapping "Call Now" in the hero or sticky bar initiates a real phone call to a non-existent number. In a template context this is expected behavior (placeholder data), but it is technically a dead-end user flow.
-- The form submits to Formspree, which is a real backend, but there is no confirmation of what happens next — no email receipt, no scheduling confirmation, no redirect to a booking page. The toast says "We will contact you within 1 business day to confirm." This is adequate but not optimal.
-
-**Priority fixes:**
-1. **P1** — Replace placeholder phone numbers with real numbers (when client provides them) to complete the last dead-end flow
+**Why 9.5 still:** The same two minor items from Round 7 remain — placeholder phone numbers dial nowhere, and form submission toast could be more actionable. No regression.
 
 ---
 
 ### Technical Quality — 8.5/10 (unchanged)
 
 **What improved since last audit:**
-- **Duplicate `.form-group input:focus` merged.** The two separate focus rules flagged in Round 6 are now consolidated into one rule at line 1001 that handles both `border-color`/`box-shadow` and `background-size` (the underline). Clean single selector. P2 from last round — resolved.
-- **`logo.svg` now exists.** The file is present in the repository, so the JSON-LD `image` URL no longer 404s. P2 from last round — resolved.
-- **`href="#"` on logo links replaced with `href="/"`** — P2 from last round — resolved.
-- **Formspree integration is clean.** Uses `fetch()` with `FormData`, proper `Accept` header, async error handling, button state management, form reset on success. No dependencies added — still zero npm packages, three files, no build step.
-- **Clearbit logos are well-implemented.** External `<img>` tags with explicit `width`/`height` (44x44), `loading="lazy"`, descriptive `alt` text, and CSS `object-fit: contain` with white background fallback for logo rendering.
+- **Self-hosted insurance logos.** Eight lightweight SVGs (246-426 bytes each) replace Clearbit API calls. Eliminates external dependency flagged as P2 in Round 7. Defensive engineering — resolved.
+- **Gallery HTML is clean.** `<button>` elements for toggle, `aria-label` attributes, semantic `<section>` wrapper, proper heading hierarchy (h2 for section, h3 for cards). Placeholder SVGs use `aria-hidden="true"`. Good accessibility.
+- **Gallery CSS uses existing design tokens.** `var(--card)`, `var(--border)`, `var(--radius-lg)`, `var(--primary)` — consistent with the rest of the site. `aspect-ratio: 16/10` for gallery images is appropriate.
+- **Razor's CSS cleanup.** 29 lines of duplicate rules removed. Positive maintenance work.
+- **Gradient ring implementation is technically sound.** The `mask-composite: exclude` approach for the ring is the modern standard. Both `-webkit-mask-composite: xor` (Safari) and `mask-composite: exclude` (Chrome/Firefox) are specified. Graceful fallback — if masking fails, the ring simply does not appear.
 
 **What still does NOT work:**
-- **External dependency on Clearbit Logo API.** Eight `<img>` tags load from `logo.clearbit.com`. If Clearbit changes their API, throttles requests, or goes down, all insurance logos break. The site previously had no external image dependencies beyond Unsplash (which is CDN-cached). Consider self-hosting the logos or providing a CSS fallback.
-- **Codebase grew slightly.** 3,725 lines total (was 3,646), up 79 lines (+2.2%). The Formspree integration, insurance logo markup, and gradient underlines added code while duplicate CSS was removed. Net small increase — not alarming, but the shrinking trend from Round 6 did not continue.
-- **Six `@keyframes` blocks remain.** `slotFadeIn`, `swipeHintFade`, `card-expand-bounce`, `heading-pop`, `countPop`, `cta-soft-pulse`. All serving distinct purposes. Acceptable count.
+- **Three `@media (max-width: 768px)` blocks.** Lines 1257, 1582, and 2203. The main one at 1582 is comprehensive (160+ rules). The one at 2203 is just for the Google badge (7 lines). The one at 1257 is for time slots (3 lines). These should be consolidated into the main block.
+- **Codebase grew to 4,045 lines / ~135KB** (was 3,725 / ~128KB), up 320 lines (+8.6%). The gallery section added substantial HTML (75 lines), CSS (~120 lines), and JS (6 lines). The growth is justified by the gallery feature, but the trend is back upward.
+- **Six `@keyframes` blocks remain.** Same as Round 7. All serving distinct purposes.
 
 **Priority fixes:**
-1. **P2** — Consider self-hosting insurance logos as static SVGs/PNGs to avoid external API dependency
-2. **P2** — Continue trimming where possible to resume the shrinking trend
+1. **P2** — Consolidate the three `@media (max-width: 768px)` blocks into one
+2. **P2** — Continue trimming unused or redundant rules
 
 ---
 
-### Conversion Optimization — 7.5/10 (+2.5, CAP SHATTERED)
-
-**The six-round cap is destroyed.** From Round 1 through Round 6, Conversion was capped — first at 4, then at 5 — because the form was fake. A `setTimeout` pretended to process submissions. No data went anywhere. I flagged this as P0 in every single audit.
-
-The form now submits to Formspree. Real data reaches a real backend. A real human will receive the appointment request. This is the single most impactful change to conversion scoring in seven rounds.
+### Conversion Optimization — 8.5/10 (+1.0)
 
 **What improved since last audit:**
-- **Real form backend (Formspree).** Form data POSTs to `https://formspree.io/f/xpwzgkjq`. The submission flow is complete: validate -> disable button -> show "Sending..." -> POST via fetch -> on success: reset form + show toast -> on error: show server error message -> re-enable button. This is a real conversion funnel. Data goes somewhere. Someone can act on it.
-- **Real insurance logos build trust.** Patients checking insurance coverage — one of the top reasons people visit a dental website — can now visually confirm their provider in under a second. Clearbit logos are universally recognizable. Delta Dental, Cigna, Aetna — these are not abstract hexagons anymore. This directly supports conversion.
-- **Gradient stat underlines.** The subtle gradient underline that appears after the count animation adds a finishing touch to the social proof bar. Small contribution to perceived quality, which supports trust, which supports conversion.
+- **Google Reviews now linked.** Both the "500+ 5-Star Reviews" stat and the "4.9 Google Rating" stat in the social proof bar are now clickable `<a>` tags linking to `https://www.google.com/maps/place/Bright+Smile+Dental`. This was P1 in Round 7 — resolved. Previously these were unverifiable text claims. Now a patient can tap to see the actual reviews. External trust verification is a significant conversion driver.
+- **Google Reviews badge added.** Below the testimonial carousel, a dedicated badge displays the Google logo SVG, "4.9" rating, five gold stars, and "Based on 500+ Google Reviews" text, all linked to Google Maps. This is a second trust verification touchpoint — placed after the patient reads testimonials, reinforcing credibility at the moment they are most receptive.
+- **Before & After gallery with CTA.** The gallery shows transformation results and ends with "Book a Free Consultation." This is a classic conversion pattern: show outcomes, then prompt action. The gallery addresses the #1 question prospective cosmetic dental patients ask: "What will my results look like?"
+- **Self-hosted insurance logos** maintain the trust signal without external API risk.
 
-**What still does NOT work:**
-- **No Google Reviews link.** "500+ 5-Star Reviews" remains an unverifiable claim. Link it to actual reviews.
-- **No social media presence.** Zero external social proof pathways.
-- **Placeholder phone numbers.** A user who prefers to call rather than fill out a form will dial a dead number. The form works; the phone does not.
-- **No post-submission confirmation email.** Formspree can send auto-responders on paid plans. The current free tier just collects data — the patient has no confirmation beyond the toast.
-
-**Why 7.5 and not higher:** The form works, which is transformative. But the conversion infrastructure beyond the form is still thin: no review links, no social proof pathways, no phone number that works, no post-submission email. An 8 would require at least one additional trust verification pathway (real Google Reviews link) and working phone numbers.
+**Why 8.5 and not higher:**
+- **Placeholder phone numbers remain.** Patients who prefer calling over forms still hit a dead end. This is the last broken conversion pathway.
+- **No post-submission confirmation beyond toast.** Formspree free tier limitations.
+- **Gallery uses placeholder images.** The tap-to-toggle interaction works, but without real before/after photos, the conversion impact of the gallery is limited. The descriptive text carries some weight, but photos would be transformative.
 
 **Priority fixes:**
-1. **P1** — Link "500+ 5-Star Reviews" to actual Google Reviews page
-2. **P1** — Replace placeholder phone numbers with real ones (when available)
+1. **P1** — Replace placeholder phone numbers with real ones (when available)
+2. **P2** — Add real before/after clinical photos to gallery when client provides them
 3. **P2** — Add social media profiles for additional trust pathways
 
 ---
 
-### Simplicity — 8.0/10 (unchanged)
+### Simplicity — 7.5/10 (-0.5)
 
 **What changed since last audit:**
-- **Codebase grew slightly.** 3,725 lines / ~128KB total, up from 3,646 / ~121KB. The Formspree integration, Clearbit logo markup, gradient underline CSS, and Pixel's padding adjustments added ~79 lines net. The shrinking trend from Round 6 did not continue, but the growth is modest and justified — every added line serves a functional purpose (real form backend, real logos, polish).
-- **Duplicate CSS merged.** The `.form-group input:focus` duplicate flagged in Round 6 is resolved. One clean rule.
-- **Logo href cleanup.** `href="#"` replaced with `href="/"` on both logo anchors. Minor but cleaner.
-- **Zero dependencies, three files, no build step.** Still holds. Formspree is an external API call, not a dependency — no npm install, no build config, no SDK.
+- **Codebase grew 8.6%.** 4,045 lines / ~135KB total (was 3,725 / ~128KB). The Before & After gallery is a significant new section — ~75 lines of HTML, ~120 lines of CSS, 6 lines of JS. The gradient ring CSS added ~25 lines. The Google Reviews badge added ~35 lines of HTML and ~50 lines of CSS. Razor cleaned 29 lines. Net growth: ~320 lines.
+- **Three `@media (max-width: 768px)` blocks** persist. The third was added for the Google Reviews badge responsive styling. This fragmentation makes maintenance harder.
+- **Seven `@media` blocks total** (was six). The new badge block at line 2203 adds another.
+- **Six `@keyframes` blocks** — unchanged.
+- **Still zero dependencies, three files, no build step.** This structural simplicity remains excellent.
 
-**Why it stays at 8:** The codebase at 3,725 lines for a single-page site is substantial but well-organized. Six `@keyframes`, six `@media` blocks, clear section comments. The slight growth prevents movement toward 9, but the additions are justified.
+**Why 7.5:** The codebase has crossed 4,000 lines for a single-page site. The gallery is justified — it was Scout's #1 critical item — but each new section pushes the CSS further from the lean target. Three separate 768px media blocks is organizational debt. The site works, it is well-structured with clear section comments, but it is no longer lean.
 
 **Priority fixes:**
-1. **P2** — Audit remaining CSS for any unused rules from stripped animation systems
-2. **P2** — Consider whether all 6 `@keyframes` are earning their keep on mobile
+1. **P1** — Consolidate all three `@media (max-width: 768px)` blocks into one
+2. **P2** — Audit CSS for unused rules from earlier iterations
+3. **P2** — Consider whether the gallery placeholder SVGs (repeated 6 times, identical markup) could use a CSS class instead of inline SVG
 
 ---
 
 ## Overall Assessment
 
-**Overall Score: 8.2/10** (was 7.5 -- up 0.7)
+**Overall Score: 8.6/10** (was 8.2 -- up 0.4)
 
-Two consecutive rounds of 0.7 improvement. The site has gained 2.4 points since Round 1 (5.8 -> 8.2). This round's jump is driven almost entirely by one change: **the form is real.**
+Three consecutive rounds of significant improvement. The site has gained 2.8 points since Round 1 (5.8 -> 8.6).
 
-| Category | Round 6 | Round 7 | Delta | Why |
+| Category | Round 7 | Round 8 | Delta | Why |
 |---|---|---|---|---|
-| Design | 7.0 | 7.5 | **+0.5** | Clearbit insurance logos, gradient stat underlines, card padding tightened |
-| Content | 6.0 | 6.0 | 0 | No content changes this round. Placeholder data still present. |
-| UX | 9.0 | 9.5 | **+0.5** | Form submits to real backend. Logo hrefs fixed. Every flow reaches an endpoint. |
-| Technical | 8.5 | 8.5 | 0 | Duplicate CSS merged, logo.svg exists, but slight codebase growth offsets. |
-| Conversion | 5.0 | 7.5 | **+2.5** | Formspree backend. Six-round cap destroyed. Real data goes somewhere real. |
-| Simplicity | 8.0 | 8.0 | 0 | Slight growth (+79 lines) offset by cleanup. Net neutral. |
+| Design | 7.5 | 8.0 | **+0.5** | Gallery section lands, gradient avatar rings, self-hosted logos |
+| Content | 6.0 | 6.0 | 0 | Placeholder data cap holds. Gallery added descriptive copy. |
+| UX | 9.5 | 9.5 | 0 | Gallery toggle is clean. Google links add verification. No regression. |
+| Technical | 8.5 | 8.5 | 0 | Self-hosted logos resolve P2. Gallery HTML is clean. But codebase grew 8.6%. |
+| Conversion | 7.5 | 8.5 | **+1.0** | Google Reviews linked + badge. Gallery CTA funnel. Two P1s from Round 7 resolved. |
+| Simplicity | 8.0 | 7.5 | **-0.5** | 4,045 lines. Three 768px blocks. Growth trend reversed the Round 6 cleanup gains. |
 
 **Biggest movers:**
-1. **Conversion +2.5** — The biggest single-category jump in seven rounds. Six audits of "the form is fake" and "P0: connect to real backend." The Refiner wired it to Formspree. The `setTimeout` is gone. `fetch()` with proper error handling took its place. This is what breaks scoring ceilings.
-2. **Design +0.5** — Clearbit insurance logos replace abstract icons. Patients recognize their provider instantly. The gradient stat underlines add subtle polish. Incremental but meaningful.
-3. **UX +0.5** — The form cap that held UX at 9 for four rounds is lifted. With the logo href fix, there are no dead-end flows on the site (except placeholder phone numbers, which are template-expected).
+1. **Conversion +1.0** — Google Reviews are now linked and badged. This was P1 in Round 7. The "500+ 5-Star Reviews" claim that led nowhere for seven rounds now links to an external verification page. The Google Reviews badge below testimonials adds a second trust touchpoint. The gallery CTA completes the conversion funnel for cosmetic patients. Conversion has gone from 4 (Rounds 3-5) to 5 (Round 6) to 7.5 (Round 7) to 8.5 (Round 8).
+2. **Design +0.5** — The Before & After gallery is the biggest visual addition since the Unsplash photos in Round 6. The gradient placeholder approach is smart for a template — it communicates the feature clearly without requiring real clinical photos. The animated testimonial avatar rings add polish. Self-hosted insurance logos maintain the trust visual without external risk.
+3. **Simplicity -0.5** — The only regression. Four features landed in one round (gallery, avatar rings, Google badge, self-hosted logos) and Razor's 29-line cleanup could not offset the ~320 lines of new code. The codebase is past 4,000 lines with three fragmented 768px media blocks.
 
 **What remains:**
 
-Two caps remain:
-1. **Content is capped at 6 by placeholder data.** "(555) 123-4567", "1234 Smile Avenue", "hello@brightsmile.com" — all fake. In a template context this is expected, but it is the Content ceiling until a real client provides real information.
-2. **Design is soft-capped around 7.5 by stock photography and CSS testimonial avatars.** The Unsplash photos are well-chosen but not the real office or real team. This is template-expected and not penalized, but it limits how far Design can go.
+One hard cap and one soft cap:
+1. **Content is capped at 6 by placeholder data.** "(555) 123-4567", "1234 Smile Avenue", "hello@brightsmile.com" — all fake. Template-expected, but it is the Content ceiling.
+2. **Simplicity is soft-capped by codebase size.** 4,045 lines for a single-page site is substantial. Consolidating the three 768px media blocks and removing any dead CSS could recover some ground.
 
 **Top 3 Priority Recommendations:**
 
-1. **P1 — Link "500+ 5-Star Reviews" to a real Google Reviews page.** This is the strongest social proof claim on the site and it leads nowhere. A single anchor tag linking to a Google Business Profile would add a verified external trust pathway. High impact, minimal effort. This would push Conversion toward 8.
+1. **P1 — Consolidate all three `@media (max-width: 768px)` blocks into one.** Lines 1257, 1582, and 2203 each contain rules for the 768px breakpoint. The main block at 1582 is comprehensive; the other two are small additions that drifted to the bottom of the file. Merge them. This is a code organization issue that makes maintenance harder and inflates the line count. Addressing this could recover Simplicity toward 8.0.
 
-2. **P1 — Replace placeholder phone numbers with real contact data (when client provides).** Every `tel:` link on the site dials a dead number. On mobile, tapping "Call Now" initiates a real call to nowhere. This is the last dead-end user flow and the Content ceiling. When a real client takes ownership, this is the first thing to update.
+2. **P1 — Replace placeholder phone numbers with real contact data (when client provides).** Every `tel:` link on the site dials a dead number. On mobile, tapping "Call Now" initiates a real call to nowhere. This is the last broken user flow and the Content ceiling. When a real client takes ownership, this is the first thing to update.
 
-3. **P2 — Self-host insurance logos instead of relying on Clearbit API.** Eight external API calls to `logo.clearbit.com` is a fragile dependency. Download the logos, optimize as SVGs or compressed PNGs, serve locally. Eliminates an external point of failure and improves load time. Low effort, defensive engineering.
+3. **P2 — Add real before/after clinical photos to the gallery.** The gallery structure is excellent — tap-to-toggle, descriptive copy, disclaimer, CTA. But the gradient placeholders limit its conversion impact. Real clinical photos would make this section transformative. This depends on the client providing case photography.
 
-**The site has crossed the 8.0 threshold.** Seven rounds ago it was a 5.8 student project with CSS avatars, fake forms, and "Learn More" labels pointing to booking forms. Today it is an 8.2 with real photography, real insurance logos, a real form backend, honest CTAs, expanded team bios, and clean technical foundations. A dental practice owner looking at this template would see a credible starting point for their website. The remaining improvements are about replacing placeholder data with real business information — which is exactly what a template should be waiting for.
+**The site continues to climb.** Eight rounds, 5.8 to 8.6. The Before & After gallery addresses the top item from Scout's competitive research. Google Reviews are now verifiable. Insurance logos are self-hosted. The avatar rings add visual polish. The only regression is Simplicity, which is the natural cost of adding a full new section. A dental practice owner would look at this template and see a credible, polished, trustworthy website ready for their real content.
 
 ---
 
-*Audit conducted by Nigel. Round 7. For the first time in seven audits, I do not need to write "the form is fake." The Refiner connected it to Formspree. Builder added real insurance logos. Spark polished the stats bar. Pixel tightened the padding. The score jumped 0.7 for the second consecutive round — from 7.5 to 8.2. Two structural caps remain (placeholder contact data, stock photos), both template-expected. The site is client-ready.*
+*Audit conducted by Nigel. Round 8. The gallery Scout demanded has landed. Google Reviews are linked. Insurance logos are self-hosted. Conversion jumps another full point to 8.5. Simplicity takes the hit — 4,045 lines, three fragmented 768px blocks. One hard cap remains: placeholder contact data holds Content at 6. The site is 2.8 points above where it started and continues to improve each round.*
