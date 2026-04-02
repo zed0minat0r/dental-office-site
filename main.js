@@ -576,4 +576,12 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
+  // ---------- Smile Gallery: Tap to Toggle Before/After ----------
+  document.querySelectorAll('.gallery-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.gallery-card');
+      card.classList.toggle('revealed');
+    });
+  });
+
 });

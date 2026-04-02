@@ -634,3 +634,20 @@
 - All interactive elements confirmed at 44px minimum tap target.
 - No horizontal overflow detected; all grids use minmax/fr units or single-column stacking.
 - CSS braces verified balanced (456/456).
+
+---
+
+## Round 9 — Builder (2026-04-01)
+
+### Smile Gallery (Before & After) Section — SCOUT CRITICAL #1
+- **Added** new "Smile Gallery" section between Services and About (section 10 of 12 cap)
+- 3 before/after cases: Professional Whitening, Porcelain Veneers, Invisalign Alignment
+- **Tap-to-reveal** interaction: users tap each card to toggle between Before (gray gradient placeholder) and After (blue gradient placeholder) states — mobile-friendly, no hover dependency
+- Each card includes procedure title, description, and category tag (Cosmetic / Orthodontics)
+- "Results may vary" disclaimer included per scout recommendation
+- CTA to book a free consultation at bottom of section
+- **Mobile-first**: single-column grid on mobile, 3-column on 769px+; all content center-aligned
+- Added Gallery dot to section dots navigator
+- Gallery toggle buttons have 48px min tap target
+- CSS placeholders ready to be swapped for real patient photos when available
+- ~120 lines HTML, ~110 lines CSS, ~6 lines JS added
