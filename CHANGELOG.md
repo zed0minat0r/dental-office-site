@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-04-01 (Spark — Testimonial Avatar Polish)
+
+### Design micro-interaction: animated avatar ring
+- Added CSS-only decorative gradient ring (`::before` pseudo-element) around testimonial author avatars using `conic-gradient` from `var(--primary)` to `#06B6D4`
+- Ring fades in and scales up with a spring easing (`cubic-bezier(0.34, 1.56, 0.64, 1)`) when the testimonial card scrolls into view (`.visible` class)
+- Avatar itself has a subtle pop animation (scale 0.85 to 1) sequenced 0.3s after card appearance
+- Ring animates 0.5s after card appearance for a layered reveal effect
+- Uses `mask-composite: exclude` for a clean transparent-center ring (no extra elements)
+- Works with all four gradient variants (blue, amber, green, purple)
+- Mobile-first: ring uses relative `inset: -4px` so it scales with the 44px mobile avatar size
+- No new HTML elements or sections added
+- Addresses Audit Round 7 Design P2: "more distinctive treatment" for CSS initial avatars
+
 ## 2026-04-01 (Spark — Conversion Micro-Interactions)
 
 ### Conversion Optimization visual boost

@@ -735,6 +735,36 @@ h3 { font-size: 1.25rem; }
   font-weight: 700;
   font-size: 14px;
   flex-shrink: 0;
+  position: relative;
+  transform: scale(0.85);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+}
+
+/* Decorative ring around testimonial avatar */
+.author-avatar::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: conic-gradient(from 0deg, var(--primary), #06B6D4, var(--primary)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.5s ease 0.5s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
+}
+
+/* Animate avatar + ring when testimonial card scrolls into view */
+.testimonial-card.visible .author-avatar {
+  transform: scale(1);
+}
+
+.testimonial-card.visible .author-avatar::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .testimonial-author strong {
