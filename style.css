@@ -62,7 +62,6 @@
   box-shadow: var(--shadow-md);
 }
 
-
 [data-theme="dark"] .icon-sun { display: none; }
 [data-theme="dark"] .icon-moon { display: block; }
 [data-theme="light"] .icon-sun { display: block; }
@@ -479,6 +478,8 @@ h3 { font-size: 1.25rem; }
   color: var(--text);
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .promo-banner:hover {
@@ -702,6 +703,7 @@ h3 { font-size: 1.25rem; }
 
 .testimonial-card:hover {
   box-shadow: var(--shadow-md);
+  border-color: var(--primary);
 }
 
 .testimonial-stars {
@@ -1133,14 +1135,7 @@ h3 { font-size: 1.25rem; }
   font-family: var(--font);
   color: var(--text);
   background: var(--bg);
-  transition: all var(--transition);
   outline: none;
-}
-
-/* --- Spark: Focus progress underline micro-interaction --- */
-.form-group input,
-.form-group select,
-.form-group textarea {
   background-image: linear-gradient(90deg, var(--primary), #38bdf8, var(--primary));
   background-size: 0% 2px;
   background-position: left bottom;
@@ -1268,13 +1263,9 @@ h3 { font-size: 1.25rem; }
 /* Time slots: slide-in animation */
 .time-slot-group.animate-in .time-slot {
   animation: slotFadeIn 0.3s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.03s);
   opacity: 0;
   transform: translateY(8px);
-}
-
-/* Stagger delay via CSS custom property --i (set inline on each .time-slot) */
-.time-slot-group.animate-in .time-slot {
-  animation-delay: calc(var(--i, 0) * 0.03s);
 }
 
 @keyframes slotFadeIn {
@@ -1367,8 +1358,6 @@ h3 { font-size: 1.25rem; }
 .footer-brand .logo-accent {
   color: var(--secondary);
 }
-
-/* Footer social links removed — audit P0: dead href="#" links hurt credibility */
 
 .footer-links h4 {
   color: #F1F5F9;
@@ -2248,6 +2237,7 @@ a.proof-link:focus-visible {
 
 .faq-item[open] {
   box-shadow: var(--shadow-md);
+  border-color: var(--primary);
 }
 
 .faq-question {
@@ -2348,19 +2338,6 @@ a.proof-link:focus-visible {
   pointer-events: none;
 }
 
-/* ---------- Micro-interactions ---------- */
-
-/* FAQ item open/close smooth border accent */
-.faq-item[open] {
-  border-color: var(--primary);
-}
-
-
-/* Testimonial card subtle border accent on hover */
-.testimonial-card:hover {
-  border-color: var(--primary);
-}
-
 /* ---------- Mobile Testimonials Carousel ---------- */
 .carousel-dots {
   display: none; /* hidden on desktop */
@@ -2381,12 +2358,6 @@ a.proof-link:focus-visible {
 .back-to-top:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
-}
-
-/* Promo banner layout */
-.promo-banner {
-  position: relative;
-  overflow: hidden;
 }
 
 /* --- Spark: Submit CTA gentle pulse to draw attention --- */

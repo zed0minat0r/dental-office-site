@@ -651,3 +651,15 @@
 - Gallery toggle buttons have 48px min tap target
 - CSS placeholders ready to be swapped for real patient photos when available
 - ~120 lines HTML, ~110 lines CSS, ~6 lines JS added
+
+## 2026-04-01 (Razor — Code Cleanup Audit)
+
+### CSS cleanup: 29 lines removed
+- **Duplicate rules consolidated**: `.testimonial-card:hover` (border-color merged into main rule), `.faq-item[open]` (border-color merged into main rule), `.promo-banner` (position/overflow merged into original declaration)
+- **Duplicate selector blocks merged**: `.form-group input/select/textarea` (two separate blocks combined into one), `.time-slot-group.animate-in .time-slot` (animation + delay merged)
+- **Removed dead "Micro-interactions" section** — contained only duplicate `.faq-item[open]` and `.testimonial-card:hover` rules already present earlier
+- **Removed stale comment** about deleted footer social links (no longer relevant)
+- **Removed extra blank line** in dark mode section
+- **JS audit**: all functions called, all event listeners target existing elements — no dead code found
+- **HTML audit**: all classes referenced by CSS or JS — no dead markup found
+- Net lines removed: **29** (style.css: 2406 → 2377)
